@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--load the current page title-->
+    <title>{% block page_title %}{% endblock %}</title>
+    
+    <!--stylesheet for bootstrap 3-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    <!-- developers personal stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" /> 
+   
+    <!--script for bootstrap 3-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>
+
+            {% else %}
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <h1>{% block page_heading %}{% endblock %}</h1>
+    
+    {%block content %}{% endblock %}
+    
+    {% if messages %}
+    <div id="messages">
+        {% for message in messages %} {{message}} {% endfor %} 
+    </div>
+    {% endif %}
+</body>
+</html>
