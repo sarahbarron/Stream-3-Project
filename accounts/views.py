@@ -1,7 +1,9 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect, reverse
+from django.contrib import auth
 # Create your views here.
 
-def index(request):
-    # view for index.html
-    return render(request, 'index.html')
+def logout_customer(request):
+    
+    # when a customer selects logout
+    auth.logout(request)
+    return redirect(reverse('get_index'))

@@ -22,7 +22,7 @@
         <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="{% url 'logout_customer' %}">Logout</a></li>
 
             {% else %}
                 <li><a href="#">Login</a></li>
