@@ -39,12 +39,14 @@
 <!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
     
+    
+    
 <!-- if there are messages passed from the views load them here-->
     <hr>
     {% if messages %}
     <div id="messages">
         {% for message in messages %} 
-            {{message}} 
+            {{message|safe}} 
         {% endfor %} 
         <hr>
     </div>

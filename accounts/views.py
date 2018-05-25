@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomerLoginForm
 
 # the logout_customer view can only be accessed in the customer is already logged in
+# if they are not logged in they will be reverted to the login page
 @login_required
 # logout customer returns the index page
 def logout_customer(request):
@@ -11,7 +12,9 @@ def logout_customer(request):
     auth.logout(request)
     
     # the logout message that the customer will see
-    messages.success(request, "You have logged out successfully. We hope to see you again soon!")
+    messages.success(request, 
+    'You have logged out successfully.We hope to see you again soon! <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">login again</a>', 
+    extra_tags="safe" )
     
     #return to the home page index.html
     return redirect(reverse('get_index'))
@@ -22,7 +25,10 @@ def login_customer(request):
     # if a customer is already logged in they can't login again so return them the home page
     # with a message you are already logged in
     if request.user.is_authenticated:
-        messages.info(request, 'You are already logged in! If this is not you please logout and login with your username and password')
+        
+        messages.info(request, 
+        'You are already logged in! If this is not you <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/logout/">logout</a> and log back in again under your own username', 
+        extra_tags="safe")
         return redirect(reverse('get_index'))
         
         
