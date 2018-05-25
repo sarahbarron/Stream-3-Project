@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .forms import CustomerLoginForm, CustomerRegistrationForm
 
 
-# REGISTER
+# REGISTRATION
 
 # register a new customer
 def register_customer(request):
@@ -80,8 +81,9 @@ def login_customer(request):
             #if the form is valid log the customer 
             if customer:
                 auth.login(user=customer, request=request)
-                messages.success(request, 'You have successfully logged in. Welcome back!')
+                messages.success(request, 'WELCOME You have successfully logged in!')
                 return redirect(reverse('get_index'))
+                
             #otherwise send a message to say the form is invalid
             else:
                 customer_login_form.add_error(None, "Your username or password is incorrect, please try again!")
@@ -108,7 +110,7 @@ def logout_customer(request):
     
     # the logout message that the customer will see
     messages.success(request, 
-    'You have logged out successfully.We hope to see you again soon! <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">login again</a>', 
+    'You have logged out successfully.We hope to see you again soon! <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">login</a> again', 
     extra_tags="safe" )
     
     #return to the home page index.html
@@ -118,7 +120,11 @@ def logout_customer(request):
 
 
 
+# CUSTOMER PROFILE
 
-
-# def customer_profile(request):
-
+def customer_profile(request):
+    
+    #this will return the user matching the email address stored in the request
+    customer = User.objects.get(email=request.user.email)
+    return render(request, 'profile.html', {"customer_profile": customer})
+    

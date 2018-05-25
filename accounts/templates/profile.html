@@ -1,0 +1,17 @@
+<!--extension to the base.html file-->
+{% extends 'base.html' %}
+
+<!--loads bootstrap tags -->
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}{{user}}'s profile{% endblock %}
+
+<!--page heading-->
+{% block page_heading%}{{user}}'s profile{% endblock %}
+
+<!--main content of the page-->
+{% block content%}
+<p>email: {{customer_profile.email}}</p>
+<p>name: {{customer_profile.first_name}} {{customer_profile.last_name}}</p>
+{% endblock %}
