@@ -17,7 +17,7 @@ class CustomerRegistrationForm(UserCreationForm):
     
     # an inner class to provide information about the form (known as Meta classes in Django) 
     class Meta:
-        # the model we want to store the information in (imported above)
+        # the model we want to store the information in
         model = User
         #the fields we want in our form
         fields = ['email', 'username', 'password1', 'password2','first_name', 'last_name']
