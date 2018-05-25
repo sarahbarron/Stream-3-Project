@@ -24,12 +24,16 @@
                 <li><a href="{% url 'logout_customer' %}">Logout</a></li>
 
             {% else %}
-                <li><a href="#">Login</a></li>
+                <li><a href="{% url 'login_customer' %}">Login</a></li>
                 <li><a href="#">Register</a></li>
             {% endif %}
         </ul>
     </nav>
 
+    
+    <h1>{% block page_heading %}{% endblock %}</h1>
+    
+    {%block content %}{% endblock %}
     
     {% if messages %}
     <div id="messages">
@@ -38,14 +42,7 @@
         {% endfor %} 
         <hr>
     </div>
-    {% endif %}
-    
-    
-    <h1>{% block page_heading %}{% endblock %}</h1>
-    
-    {%block content %}{% endblock %}
-    
-    
+    {% endif %} 
 
  
 <script

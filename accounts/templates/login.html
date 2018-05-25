@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}LOGIN{% endblock %}
+
+{% block page_heading%}CUSTOMER LOGIN{% endblock %}
+
+{% block content%}
+
+<form method="POST">
+    <!--csrf token for security to prevent JavaScript injection-->
+    {% csrf_token %}
+    
+    <!--login form requesting username and password-->
+    {{ customer_login_form }}
+    <!--login button -->
+    <button type="submit"> LOGIN </button>
+</form>   
+
+
+{% endblock %}        
