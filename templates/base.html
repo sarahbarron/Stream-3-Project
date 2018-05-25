@@ -27,7 +27,7 @@
             <!-- if a customer is not logged in show the login and register links-->
             {% else %}
                 <li><a href="{% url 'login_customer' %}">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{% url 'register_customer' %}">Register</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -36,15 +36,11 @@
     
     <h1>{% block page_heading %}{% endblock %}</h1>
 
-<!--load the current BLOCK CONTENT -->
-    {%block content %}{% endblock %}
-    
-    
-    
 <!-- if there are messages passed from the views load them here-->
-    <hr>
+    
     {% if messages %}
     <div id="messages">
+        <hr>
         {% for message in messages %} 
             {{message|safe}} 
         {% endfor %} 
@@ -52,6 +48,11 @@
     </div>
     {% endif %} 
 
+
+<!--load the current BLOCK CONTENT -->
+    {%block content %}{% endblock %}
+    
+    
 <!--Load scripts-->
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"

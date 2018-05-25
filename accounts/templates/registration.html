@@ -1,0 +1,33 @@
+<!--extension to the base.html file-->
+{% extends 'base.html' %}
+
+<!--loads bootstrap tags -->
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}REGISTER{% endblock %}
+
+<!--page heading-->
+{% block page_heading%}CUSTOMER REGISTRATION{% endblock %}
+
+<!--main content of the page-->
+{% block content%}
+
+<div>
+    <p>If you are already registered you can just <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">LOGIN</a></p>
+</div>
+<!--a customer registration form with a POST method-->
+<form method="POST">
+    
+    <!--csrf token for security to prevent JavaScript injection-->
+    {% csrf_token %}
+    
+    <!--registration form requesting customer details-->
+    {{ registration_form.as_p}}
+    
+    <!--Register button -->
+    <button type="submit"> REGISTER </button>
+</form>   
+
+<!--end of main content-->
+{% endblock %}        
