@@ -1,13 +1,19 @@
+<!--extension to the base.html file-->
 {% extends 'base.html' %}
 
+<!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 
+<!--page title-->
 {% block page_title %}LOGIN{% endblock %}
 
+<!--page heading-->
 {% block page_heading%}CUSTOMER LOGIN{% endblock %}
 
+<!--main content of the page-->
 {% block content%}
 
+<!--a customer login form with a POST method-->
 <form method="POST">
     <!--csrf token for security to prevent JavaScript injection-->
     {% csrf_token %}
@@ -18,5 +24,5 @@
     <button type="submit"> LOGIN </button>
 </form>   
 
-
+<!--end of main content-->
 {% endblock %}        

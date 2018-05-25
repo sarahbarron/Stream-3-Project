@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!--load the current page title-->
+    <!--load the current PAGE TITLE-->
     <title>{% block page_title %}{% endblock %}</title>
     
     <!--stylesheet for bootstrap 3-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
     <!-- developers personal stylesheet-->
     <!--<link rel="stylesheet" href="{% static '..static/css/styles.css' %}" type="text/css" /> -->
-   
-   
 </head>
+
 <body>
+<!-- NAVIGATION -->
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
@@ -30,11 +31,15 @@
         </ul>
     </nav>
 
+<!-- load the current HEADING -->
     
     <h1>{% block page_heading %}{% endblock %}</h1>
-    
+
+<!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
     
+<!-- if there are messages passed from the views load them here-->
+    <hr>
     {% if messages %}
     <div id="messages">
         {% for message in messages %} 
@@ -44,7 +49,7 @@
     </div>
     {% endif %} 
 
- 
+<!--Load scripts-->
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
