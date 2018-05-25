@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from .forms import CustomerLoginForm
 
-
+# the logout_customer view can only be accessed in the customer is already logged in
+@login_required
 # logout customer returns the index page
 def logout_customer(request):
     #logout the customer
@@ -17,6 +19,13 @@ def logout_customer(request):
 # login an already registered customer 
 def login_customer(request):
     
+    # if a customer is already logged in they can't login again so return them the home page
+    # with a message you are already logged in
+    if request.user.is_authenticated:
+        messages.info(request, 'You are already logged in! If this is not you please logout and login with your username and password')
+        return redirect(reverse('get_index'))
+        
+        
     # if its a POST method
     if request.method=="POST":
         
@@ -28,11 +37,11 @@ def login_customer(request):
             customer = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
         
-            #if the form is valid
+            #if the form is valid log the customer 
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, 'You have successfully logged in. Welcome back!')
-                
+                return redirect(reverse('get_index'))
             #otherwise send a message to say the form is invalid
             else:
                 customer_login_form.add_error(None, "Your username or password is incorrect, please try again!")

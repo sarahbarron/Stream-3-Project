@@ -20,10 +20,11 @@
 <!-- NAVIGATION -->
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
+            <!-- if a customer is logged in show the profile and logout links-->
             {% if user.is_authenticated %}
                 <li><a href="#">Profile</a></li>
                 <li><a href="{% url 'logout_customer' %}">Logout</a></li>
-
+            <!-- if a customer is not logged in show the login and register links-->
             {% else %}
                 <li><a href="{% url 'login_customer' %}">Login</a></li>
                 <li><a href="#">Register</a></li>
