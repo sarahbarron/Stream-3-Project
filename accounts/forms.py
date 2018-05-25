@@ -14,7 +14,6 @@ class CustomerRegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         label='Re-enter your password', 
         widget=forms.PasswordInput)
-    username = forms.CharField(label='Re-enter your email address')
     
     # an inner class to provide information about the form (known as Meta classes in Django) 
     class Meta:
