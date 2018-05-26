@@ -127,4 +127,6 @@ def customer_profile(request):
     #this will return the user matching the email address stored in the request
     customer = User.objects.get(email=request.user.email)
     return render(request, 'profile.html', {"customer_profile": customer})
+
+
     
