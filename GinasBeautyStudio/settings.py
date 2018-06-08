@@ -125,7 +125,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+# tells Django where our static files are held
 STATIC_URL = '/static/'
+# a list of directorys where static files can be stored
+STATICFILES_DIRS = [
+           os.path.join(BASE_DIR, 'static'),
+    ]
+    
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

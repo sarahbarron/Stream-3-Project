@@ -23,10 +23,10 @@
     {% csrf_token %}
     
     <!--registration form requesting customer details-->
-    {{ registration_form.as_p}}
+    {{ registration_form | as_bootstrap}}
     
     <!--Register button -->
-    <button type="submit"> REGISTER </button>
+        <button type="submit" class="btn btn-default"> REGISTER </button>
 </form>   
 
 <!--end of main content-->
