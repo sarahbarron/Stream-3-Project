@@ -15,3 +15,9 @@
 - Forms - User Creation form - used for the creation of a new customer
 - User model - the model I stored new customers details into - email, username, first name & last name
 - django forms bootstrap library for styling of forms
+- 
+
+
+
+
+[![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)

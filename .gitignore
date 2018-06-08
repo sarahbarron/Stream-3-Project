@@ -1,1 +1,4 @@
 *.sqlite3
+n*.pyc
+n.~c9
+n__pycache__
