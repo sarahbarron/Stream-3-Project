@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -102,8 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDs = ['django.contrib.auth.backends.ModelBackend',
-                        'accounts.backends.CaseInsensitiveAuth']
+# needed in order to be able to use a customers email address to login
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
+                            'accounts.backends.EmailAuth',
+                            #'accounts.backends.CaseInsensitiveAuth',
+                        ]
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -124,7 +128,30 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# email encription used by gmail
+EMAIL_USE_TLS = True
+# a protocol used to send emails
+EMAIL_HOST = 'smtp.gmail.com'
+# environment variables for host email address
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+# environment varriables for host password
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+# the port we will use to send it through
+EMAIL_PORT = 587
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
