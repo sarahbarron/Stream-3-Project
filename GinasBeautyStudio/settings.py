@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z$ba65d1^uzp2fggye&d369n106mx=4kr*!_5glfgprs#q&sb9'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'home',
     'accounts',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #needed to serve our media files properly
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -134,7 +137,7 @@ STATICFILES_DIRS = [
     
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# authentication - forgotten password - email requirements
 
 # email encription used by gmail
 EMAIL_USE_TLS = True
@@ -148,16 +151,6 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+# tells Django where our media files are held
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
