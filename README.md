@@ -21,6 +21,20 @@
 - django forms bootstrap library for styling of forms
 - pillow needed for using images
 
+### Problems encountered
+- I committed my env.py file to GitHub. To solve the problem i deleted the env.py file from all Git Commits History using 
+
+''' 
+git filter-branch --tree-filter 'rm env.py' HEAD
+git push origin master --force
+git for-each-ref --format='delete%(refname)'refs/original|git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now
+
+'''
+- I then added my env.py file to my .gitignore file for all future commits
+
+- I committed my SECRET KEY to GitHub. to solve this problem. I generated a new SECRET_KEY using a [SECRET KEY Generator](https://www.miniwebtool.com/django-secret-key-generator/) I added this new SECRET KEY to the env.py file and ammended the settings.py file to point to the env.py file to find the newly generated SECRET KEY.  
 
 
 [![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
