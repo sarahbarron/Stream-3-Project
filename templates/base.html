@@ -24,9 +24,11 @@
 
 <body>
 <!-- NAVIGATION -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
         <ul class="nav navbar-nav">
-            <!-- if a customer is logged in show the profile and logout links-->
+            <!--link to home page -->
+            <li><a href="#">home</a></li>
+            <li><a href= "{% url 'get_posts'%}">News & Special Offers</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'customer_profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout_customer' %}">Logout</a></li>
@@ -35,8 +37,8 @@
             {% else %}
                 <li><a href="{% url 'login_customer' %}">Login</a></li>
                 <li><a href="{% url 'register_customer' %}">Register</a></li>
-                
             {% endif %}
+            <li><a href = "{% url 'new_post' %}"> New Post </a></li>
         </ul>
     </nav>
 
