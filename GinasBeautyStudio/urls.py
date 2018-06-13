@@ -37,5 +37,7 @@ urlpatterns = [
     url(r'^posts/', include(urls_posts)),
     url(r'^media/(?P<path>.*)$', serve, {'document_root':MEDIA_ROOT}),
     
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    
     
 ]

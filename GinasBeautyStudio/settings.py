@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'ckeditor',
+    'ckeditor_uploader',
     'home',
     'accounts',
     'posts',
@@ -134,6 +136,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
            os.path.join(BASE_DIR, 'static'),
     ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -154,3 +157,13 @@ EMAIL_PORT = 587
 # tells Django where our media files are held
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        # 'width': '100%',
+    },
+}

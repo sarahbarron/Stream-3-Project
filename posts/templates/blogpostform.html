@@ -18,6 +18,8 @@
         <!--protection against cross site request forgery-->
         {% csrf_token %}
         {{form | as_bootstrap }}
+        {{form.media}}
+        
         <button type="submit" class="btn btn-default">Save</button>
         
     </form>

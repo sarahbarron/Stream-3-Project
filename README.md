@@ -19,7 +19,8 @@
 
 ###### libraries i needed to install
 - django forms bootstrap library for styling of forms
-- pillow needed for using images
+- news & special offers - pillow needed for using images
+- new & special offers - ckeditor
 
 ### Problems encountered
 - I committed my env.py which held my develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
@@ -35,6 +36,9 @@ echo env.py >> .gitignore
 ```
 - I committed my SECRET KEY to GitHub. to solve this problem I generated a new SECRET_KEY using a [SECRET KEY Generator](https://www.miniwebtool.com/django-secret-key-generator/) I then added this new SECRET KEY to the env.py file 
 -I deleted the old SECRET KEY from the settings.py file and added the following code to the settings.py file to point the SECRET KEY to the environment variables.
+
+### Refernces
+- [thanks to Dalibor Nasevic's article which helped me with the commands to remove all env.py files from my git commits history.](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
 
 ``` SECRET_KEY = os.environ.get('SECRET_KEY')``` 
 

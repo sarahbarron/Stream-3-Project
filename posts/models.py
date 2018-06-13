@@ -1,12 +1,13 @@
 from django.db import models
 from django.utils import timezone
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # a blog post model
 
 class Post(models.Model):
 
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = RichTextUploadingField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True,
     default=timezone.now)

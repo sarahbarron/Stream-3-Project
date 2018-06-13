@@ -28,7 +28,7 @@
                 <h3>{{post.title}}</h3>
                 <div class="row">
                     <div class="col-xs-9">
-                        <p> {{ post.content | truncatewords:30 }}</p>
+                        <p> {{ post.content|safe|linebreaks|truncatewords:30 }}</p>
                         <p> <a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read More</a></p>
                         <p><span class="boldtext">Published On: </span>{{post.published_date}}</p>
                         <p><span class="boldtext">Views: </span>{{post.views}}</p>
