@@ -36,11 +36,12 @@ echo env.py >> .gitignore
 ```
 - I committed my SECRET KEY to GitHub. to solve this problem I generated a new SECRET_KEY using a [SECRET KEY Generator](https://www.miniwebtool.com/django-secret-key-generator/) I then added this new SECRET KEY to the env.py file 
 -I deleted the old SECRET KEY from the settings.py file and added the following code to the settings.py file to point the SECRET KEY to the environment variables.
+``` SECRET_KEY = os.environ.get('SECRET_KEY')``` 
 
 ### Refernces
-- [thanks to Dalibor Nasevic's article which helped me with the commands to remove all env.py files from my git commits history.](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo)
+- Thanks to [Dalibor Nasevic's article](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo) which helped me with the commands to remove all env.py files from my git commit history.
+- I used the [CKEDITOR documentation](https://django-ckeditor.readthedocs.io/en/latest/) to give me a text editor and image uploader for my News & Special Offers content field.
 
-``` SECRET_KEY = os.environ.get('SECRET_KEY')``` 
 
 
 [![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
