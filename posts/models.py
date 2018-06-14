@@ -15,6 +15,7 @@ class Post(models.Model):
     tag = models.CharField(max_length=30, blank=True, null=True)
     category = models.CharField(max_length=30, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True)
+    view_on_front_page = models.BooleanField(default=True)
 
     
     def __unicode__(self):

@@ -165,6 +165,7 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
+        'extraPlugins': 'image2',
         
         'toolbar_GinasToolbar': [
            
@@ -176,17 +177,11 @@ CKEDITOR_CONFIGS = {
             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
             {'name': 'insert',
              'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
-            '/',
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-            {'name': 'yourcustomtools', 'items': [
-                # put the name of your editor.ui.addButton here
-                'Preview',
-                'Maximize',
-
-            ]},
             {'name': 'spellcheck', 'items': ['Scayt']},
             {'name': 'document', 'items': ['Source']},
+             {'name': 'maximize', 'items': ['Maximize',]},
              
         ], 
         
