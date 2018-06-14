@@ -38,7 +38,7 @@ echo env.py >> .gitignore
 -I deleted the old SECRET KEY from the settings.py file and added the following code to the settings.py file to point the SECRET KEY to the environment variables.
 ``` SECRET_KEY = os.environ.get('SECRET_KEY')``` 
 
-### Refernces
+### References
 - Thanks to [Dalibor Nasevic's article](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo) which helped me with the commands to remove all env.py files from my git commit history.
 - I used the [CKEDITOR documentation](https://django-ckeditor.readthedocs.io/en/latest/) to give me a text editor and image uploader for my News & Special Offers content field.
 

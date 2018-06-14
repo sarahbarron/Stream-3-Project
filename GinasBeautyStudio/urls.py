@@ -26,10 +26,10 @@ urlpatterns = [
     # url to direct to the django's admin area
     url(r'^admin/', admin.site.urls),
     # url to direct to the index.html file
-    #url(r'^$', get_index, name="get_index"),
+    url(r'^$', get_index, name="get_index"),
     
     
-    url(r'^$', RedirectView.as_view(url='posts/')),
+    #url(r'^$', RedirectView.as_view(url='posts/')),
     
     
     # url to include the urls.py urls from the accounts app
