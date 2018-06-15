@@ -5,24 +5,24 @@
 {% load bootstrap_tags %}
 
 <!--page title-->
-{% block page_title %} Gina's New Post {% endblock %}
+{% block page_title %} Gina's Create/Edit Post {% endblock %}
 
 <!--page heading-->
-{% block page_heading%} Gina's New Post {% endblock %}
+{% block page_heading%} Create New / Edit Post {% endblock %}
 
 <!--main content of the page-->
 {% block content%}
-    <h1>New Post</h1>
-    <!-- the method will post & it will be encrypted-->
-    <form method="POST" enctype="multipart/form-data">
-        <!--protection against cross site request forgery-->
-        {% csrf_token %}
-        {{form | as_bootstrap }}
-        {{form.media}}
-        
-        <button type="submit" class="btn btn-default">Save</button>
-        
-    </form>
-    
+    <div class="container">
+        <!-- the method will post & it will be encrypted-->
+        <form method="POST" enctype="multipart/form-data">
+            <!--protection against cross site request forgery-->
+            {% csrf_token %}
+            {{form | as_bootstrap }}
+            {{form.media}}
+            
+            <button type="submit" class="btn btn-default">Save</button>
+            
+        </form>
+    </div>
 <!--end of main content-->
 {% endblock %}

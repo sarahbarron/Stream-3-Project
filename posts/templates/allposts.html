@@ -1,0 +1,57 @@
+<!--extension to the base.html file-->
+{% extends 'base.html' %}
+
+<!--loads bootstrap tags -->
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}News & Special Offers{% endblock %}
+
+<!--page heading-->
+{% block page_heading%}News & Special Offers{% endblock %}
+
+<!--main content of the page-->
+{% block content%}
+    <div class="container"></div>
+    
+        <div class="row">
+            
+            <div class="col-md-2 col-sm-3 text-center">
+               <img src="/media/img/profile.jpg" alt="ginas profile picture" class="img-circle">
+                <p><span class="boldtext">Author</span>Gina</p>
+            </div>
+        </div>
+        
+        {% for post in posts %}
+         
+        <div class="row">
+        
+            <div class="col-sm-12">
+                <h3>{{post.title}}</h3>
+                <p><span class="boldtext">Published On: </span>{{post.published_date}}<span class="boldtext">  Views: </span>{{post.views}}
+            </div>
+            
+            <div class="col-sm-4">
+                {% if post.image %}
+                    <img class="img-thumbnail img-responsive" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image" class="img-blogpost">
+                {% else %}
+                    <img class ="img-thumbnail img-responsive" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image" class="img-blogpost">
+                {% endif %}
+            </div>
+            
+            <div class="col-xs-10 col-sm-6">
+    
+                <p> {{ post.content|safe|linebreaks|truncatewords:30 }}</p>
+                <p> <a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read More</a></p>
+                {% if user.is_staff %}
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-primary" role="button">EDIT POST </a>
+                {% endif %}
+                
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+       
+<!--end the main content block-->
+{% endblock %}

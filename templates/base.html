@@ -46,7 +46,7 @@
 
 <!-- load the current HEADING -->
     
-    <h1>{% block page_heading %}{% endblock %}</h1>
+    <h1 class="block-heading">{% block page_heading %}{% endblock %}</h1>
 
 <!-- if there are messages passed from the views load them here-->
     
@@ -63,6 +63,7 @@
 
 <!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
+    {%block test %}{%endblock%}
     
     
 <!-- LOAD SCRIPTS -->

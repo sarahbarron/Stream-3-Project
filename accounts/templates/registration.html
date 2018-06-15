@@ -12,22 +12,24 @@
 
 <!--main content of the page-->
 {% block content%}
+<div class="container">
 
-<div>
-    <p>If you are already registered you can just <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">LOGIN</a></p>
+    <div>
+        <p>If you are already registered you can just <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/">LOGIN</a></p>
+    </div>
+    <!--a customer registration form with a POST method-->
+    <form method="POST">
+        
+        <!--csrf token for security to prevent JavaScript injection-->
+        {% csrf_token %}
+        
+        <!--registration form requesting customer details-->
+        {{ registration_form | as_bootstrap}}
+        
+        <!--Register button -->
+            <button type="submit" class="btn btn-default"> REGISTER </button>
+    </form>   
 </div>
-<!--a customer registration form with a POST method-->
-<form method="POST">
-    
-    <!--csrf token for security to prevent JavaScript injection-->
-    {% csrf_token %}
-    
-    <!--registration form requesting customer details-->
-    {{ registration_form | as_bootstrap}}
-    
-    <!--Register button -->
-        <button type="submit" class="btn btn-default"> REGISTER </button>
-</form>   
 
 <!--end of main content-->
 {% endblock %}        

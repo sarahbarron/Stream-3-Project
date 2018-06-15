@@ -12,6 +12,8 @@
 
 <!--main content of the page-->
 {% block content%}
-<p>email: {{customer_profile.email}}</p>
-<p>name: {{customer_profile.first_name}} {{customer_profile.last_name}}</p>
+<div class="container">
+    <p>email: {{customer_profile.email}}</p>
+    <p>name: {{customer_profile.first_name}} {{customer_profile.last_name}}</p>
+</div>
 {% endblock %}

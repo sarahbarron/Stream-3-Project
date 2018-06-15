@@ -75,7 +75,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'GinasBeautyStudio.wsgi.application'
 
 
