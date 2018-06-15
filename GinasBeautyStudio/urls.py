@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from home.views import get_index
 from accounts import urls as urls_accounts
 from posts import urls as urls_posts
+from products import urls as urls_products
+from cart import urls as urls_cart
+from home.views import get_index
+from products.views import all_products
 from django.views.static import serve
 from .settings import MEDIA_ROOT
 from django.views.generic import RedirectView
@@ -35,8 +38,9 @@ urlpatterns = [
     # url to include the urls.py urls from the accounts app
     url(r'^accounts/', include(urls_accounts)),
     url(r'^posts/', include(urls_posts)),
+    url(r'^products/', include(urls_products)),
+    url(r'^cart/', include(urls_cart)),
     url(r'^media/(?P<path>.*)$', serve, {'document_root':MEDIA_ROOT}),
-    
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     
     

@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'posts',
+    'products',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #needed to serve our media files properly
                 'django.template.context_processors.media',
+                'cart.contexts.cart_contents',
             ],
         },
     },
@@ -160,7 +163,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
-
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
