@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'posts',
     'products',
     'cart',
-    'productsearch'
+    'productsearch',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -160,6 +161,10 @@ EMAIL_PORT = 587
 # tells Django where our media files are held
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# stripe for payments
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 # CKEDITOR text editor and media uploader used to create posts
 CKEDITOR_UPLOAD_PATH = "uploads/"

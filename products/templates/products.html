@@ -3,34 +3,37 @@
 {% load bootstrap_tags %}
 {% block content %}
 
-<div class="row row-flex">
-    {% for product in products %}
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-
-        <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-
-            <h3>{{ product.name }}</h3>
-            <p class="product-description">{{ product.description }}</p>
-            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ product.price }}</p>
-
-
-           <form method="post" action ="{% url 'add_to_cart' product.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input name="quantity" type="number" min="1" max="999" class="form-control" value="1">
-                    <span class="input-group">
-                    <button class="btn btn-primary"><span class="span glyphicon glyphicon-plus"></span></button>
-                    <button class="btn btn-warning"><span class="span glyphicon glyphicon-minus"></span></button>
-                    <button class="btn btn-success" type="submit">ADD</button></span>
-                </div>
-            </form>
-
-
+<div class="container">
+    
+    <div class="row row-flex">
+        {% for product in products %}
+    
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+    
+            <div class="panel-body">
+                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+    
+                <h3>{{ product.name }}</h3>
+                <p class="product-description">{{ product.description }}</p>
+                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ product.price }}</p>
+    
+    
+               <form method="post" action ="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" value="1">
+                        <span class="input-group">
+                        <button class="btn btn-primary"><span class="span glyphicon glyphicon-plus"></span></button>
+                        <button class="btn btn-warning"><span class="span glyphicon glyphicon-minus"></span></button>
+                        <button class="btn btn-success" type="submit">ADD</button></span>
+                    </div>
+                </form>
+    
+    
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
 
