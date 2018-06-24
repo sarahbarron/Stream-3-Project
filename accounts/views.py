@@ -15,7 +15,7 @@ def register_customer(request):
         messages.info(request, 
         'You are already registered and logged in! If this is not you please <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/logout/">logout</a> and click register again', 
         extra_tags="safe")
-        return redirect(reverse('get_index'))
+        return redirect(reverse('index'))
     
     # if its a POST method
     if request.method=="POST":
@@ -35,7 +35,7 @@ def register_customer(request):
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, "Welcome you are now registered")
-                return redirect(reverse('get_index'))
+                return redirect(reverse('index'))
         
         # otherwise throw an error message to tell the person they can't register
         else:
@@ -64,7 +64,7 @@ def login_customer(request):
         messages.info(request, 
         'You are already logged in! If this is not you <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/logout/">logout</a> and log back in again under your own username', 
         extra_tags="safe")
-        return redirect(reverse('get_index'))
+        return redirect(reverse('index'))
         
         
     # if its a POST method
@@ -82,7 +82,7 @@ def login_customer(request):
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, 'WELCOME You have successfully logged in!')
-                return redirect(reverse('get_index'))
+                return redirect(reverse('index'))
                 
             #otherwise send a message to say the form is invalid
             else:
@@ -114,7 +114,7 @@ def logout_customer(request):
     extra_tags="safe" )
     
     #return to the home page index.html
-    return redirect(reverse('get_index'))
+    return redirect(reverse('index'))
     
 
 

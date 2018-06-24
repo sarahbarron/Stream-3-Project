@@ -19,7 +19,8 @@ from accounts import urls as urls_accounts
 from posts import urls as urls_posts
 from products import urls as urls_products
 from cart import urls as urls_cart
-from home.views import get_index
+from productsearch import urls as urls_productsearch
+from home.views import index
 from products.views import all_products
 from django.views.static import serve
 from .settings import MEDIA_ROOT
@@ -29,17 +30,20 @@ urlpatterns = [
     # url to direct to the django's admin area
     url(r'^admin/', admin.site.urls),
     # url to direct to the index.html file
-    url(r'^$', get_index, name="get_index"),
+    url(r'^$', index, name="index"),
     
     
     #url(r'^$', RedirectView.as_view(url='posts/')),
     
     
-    # url to include the urls.py urls from the accounts app
+    # include the urls.py files from all our apps
     url(r'^accounts/', include(urls_accounts)),
     url(r'^posts/', include(urls_posts)),
     url(r'^products/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),
+    url(r'^search/', include(urls_productsearch)),
+    
+    # urls to handle our media files
     url(r'^media/(?P<path>.*)$', serve, {'document_root':MEDIA_ROOT}),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     

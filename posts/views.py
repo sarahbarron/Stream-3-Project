@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
 from .models import Post
 from .forms import BlogPostForm
-
+from django.contrib.auth.models import User
 
 def get_posts(request):
     
@@ -29,13 +29,21 @@ def create_or_edit_post(request, pk=None):
     """ 
     a view for creating a new post or editing a post 
     """
-    post = get_object_or_404(Post, pk=pk) if pk else None
-    if request.method == "POST":
-        form = BlogPostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            post = form.save()
-            return redirect(post_full, post.pk)
+    if request.user.is_staff:
+    
+        post = get_object_or_404(Post, pk=pk) if pk else None
+        if request.method == "POST":
+            form = BlogPostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save()
+                return redirect(post_full, post.pk)
+        else:
+            form = BlogPostForm(instance=post)
+        return render(request, 'blogpostform.html', {'form': form})
+    
     else:
-        form = BlogPostForm(instance=post)
-    return render(request, 'blogpostform.html', {'form': form})
+        return redirect(reverse('index'))
+        
+        
+        
     

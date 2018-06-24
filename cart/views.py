@@ -1,33 +1,43 @@
 from django.shortcuts import render, redirect, reverse
 
+# Create your views here.
+
 def view_cart(request):
-    """ view that renders all the contents of the cart_contents"""
+    ''' a view that renders the entire contents of the cart '''
     return render(request, "cart.html")
 
 def add_to_cart(request, id):
-    """ Add a quantity of the specified products to the cart """
+    #add a quantity of the specified product to the cart
     
-    quantity = int(request.POST.get('quantity'))
+    #when you select the quantity and press submit this takes the quantity from there
+    quantity=int(request.POST.get('quantity'))
     
-    #will get the cart of the session
+    #gets the cart from the session from a cart that exists or an empty 
+    #dictionary if it doesn't exist already
     cart = request.session.get('cart', {})
+    
+    # what we add is an id and a quantity
     cart[id] = cart.get(id, quantity)
     
     request.session['cart'] = cart
     return redirect(reverse('index'))
-    
 
-def amend_cart(request):
-    """ view to amend a carts contents """
+def adjust_cart(request, id):
+    #adjust the quantity of the product to the specified amount
+    
+    #gets the existing quantity as an integer
     quantity = int(request.POST.get('quantity'))
     
-    #will get the cart of the session
+    #we get a cart that exists or and empty 1 if one is not already created
     cart = request.session.get('cart', {})
     
+    #we can only adjust if there is something in the cart 
+    #therefore must be greater that 0
     if quantity > 0:
         cart[id] = quantity
+    
     else:
         cart.pop(id)
-    
+        
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('view_cart'))

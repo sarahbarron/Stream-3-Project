@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'posts',
     'products',
     'cart',
+    'productsearch'
 ]
 
 MIDDLEWARE = [
@@ -157,10 +158,10 @@ EMAIL_PORT = 587
 
 
 # tells Django where our media files are held
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
-
+# CKEDITOR text editor and media uploader used to create posts
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {

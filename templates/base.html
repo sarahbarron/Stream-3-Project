@@ -17,9 +17,12 @@
     <!-- bootstrap 3.3.7 Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
+    <!-- font awesome stylesheet -->
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" />
     
     <!-- developers personal stylesheet-->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
+
 </head>
 
 <body>
@@ -41,6 +44,15 @@
             {% if user.is_staff %}
                 <li><a href = "{% url 'new_post' %}"> New Post </a></li>
             {% endif %}
+            <li>
+                <a href="{% url 'view_cart' %}">
+                    <i class="fa fa-shipping-cart"></i> Cart
+                    <!--if there are items in the cart add a badge with the number of items in the cart-->
+                    {% if product_count > 0 %}
+                        <label class="badge badge-warning">{{ product_count }}</label>
+                    {% endif %}    
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -54,13 +66,20 @@
     <div id="messages">
         <hr>
         {% for message in messages %} 
-            {{message|safe}} 
+            {{message|safe}}     
         {% endfor %} 
         <hr>
     </div>
     {% endif %} 
 
-
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type ="submit">Search</button>
+            </form>
+        </div>
+    </div>
 <!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
     {%block test %}{%endblock%}
