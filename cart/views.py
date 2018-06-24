@@ -1,6 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from products.models import Product
+from django.contrib import messages
+'''
+CART VIEWS
 
-# Create your views here.
+'''
 
 def view_cart(request):
     ''' a view that renders the entire contents of the cart '''
@@ -12,8 +16,16 @@ def add_to_cart(request, id):
     #when you select the quantity and press submit this takes the quantity from there
     quantity=int(request.POST.get('quantity'))
     
-    #gets the cart from the session from a cart that exists or an empty 
-    #dictionary if it doesn't exist already
+
+    product = get_object_or_404(Product, pk=id)
+                
+    available_stock = product.available_stock - quantity
+                
+    if available_stock < 0:
+        quantity = product.available_stock
+        available_stock = product.available_stock - quantity
+        messages.info(request,"there is not enough please we have amended the quantity to the max available")
+            
     cart = request.session.get('cart', {})
     
     # what we add is an id and a quantity
