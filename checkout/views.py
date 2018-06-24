@@ -24,8 +24,22 @@ def checkout(request):
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
+                
                 product = get_object_or_404(Product, pk=id)
+                
+                available_stock = product.available_stock - quantity
+                
+                if available_stock < 0:
+                    quantity = product.available_stock
+                    available_stock = product.available_stock - quantity
+                    messages.info(request,"you have bought all available stock we have had to reduce the number of items in your cart to maximum available as a result" , extra_tags="safe")
+                    
+                product.available_stock = available_stock    
+                product.save()
                 total +=quantity * product.price
+                
+                    
+                
                 order_line_item = OrderLineItem(order=order, product=product, quantity=quantity)
                 order_line_item.save()
             
@@ -41,7 +55,7 @@ def checkout(request):
             
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-                request. session['cart'] = {}
+                request.session['cart'] = {}
                 return redirect(reverse('all_products'))
             
             else:
