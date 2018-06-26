@@ -71,12 +71,14 @@
 <!-- if there are messages passed from the views load them here-->
     
     {% if messages %}
-    <div id="messages">
-        <hr>
-        {% for message in messages %} 
-            {{message|safe}}     
-        {% endfor %} 
-        <hr>
+    <div class="container">
+        <div id="messages">
+            <hr>
+            {% for message in messages %} 
+                {{message|safe}}     
+            {% endfor %} 
+            <hr>
+        </div>
     </div>
     {% endif %} 
 

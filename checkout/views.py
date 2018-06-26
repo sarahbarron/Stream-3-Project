@@ -8,11 +8,28 @@ from django.utils import timezone
 from products.models import Product
 import stripe
 
+'''
+CHECKOUT VIEWS
+
+'''
+
 stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
-def checkout(request): 
+def checkout(request):
+    
+    cart = request.session.get('cart', {})
+
+    # if the stock level changed to 0 at checkout this for loop will check for any products in the cart whose quantity was changed to 0 and remove them from the cart. (you can't amend a dictionary during iteration so i had to change the dic)
+    for id, quantity in list(cart.items()):
+            
+        if quantity == 0:
+            cart.pop(id)
+            
+    
+    # if the       
     if request.method=="POST":
+        
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
         
@@ -23,16 +40,70 @@ def checkout(request):
             
             cart = request.session.get('cart', {})
             total = 0
+            
             for id, quantity in cart.items():
-                
                 product = get_object_or_404(Product, pk=id)
-                
                 available_stock = product.available_stock - quantity
-                
+               
                 if available_stock < 0:
-                    quantity = product.available_stock
-                    available_stock = product.available_stock - quantity
-                    messages.info(request,"you have bought all available stock we have had to reduce the number of items in your cart to maximum available as a result" , extra_tags="safe")
+                    
+                    for id, quantity in cart.items():
+                        product = get_object_or_404(Product, pk=id)
+                        available_stock = product.available_stock - quantity
+                        if available_stock < 0:
+                            quantity = product.available_stock
+                            available_stock = product.available_stock - quantity
+                            
+            
+                            #we get a cart that exists or and empty 1 if one is not already created
+                        cart = request.session.get('cart', {})
+                        #we can only adjust if there is something in the cart 
+                        #therefore must be greater that 0
+                        
+                        
+                        cart[id] = quantity
+                            
+                        request.session['cart'] = cart
+                        
+                    messages.info(request,'We have limited stock available for we have amended your cart to the maximum available at this time. Please check your cart and checkout again once you are happy to do so<br>', extra_tags="safe")
+                    
+                    return redirect(reverse('view_cart'))
+                    break
+    
+            for id, quantity in cart.items():
+                product = get_object_or_404(Product, pk=id)
+                available_stock = product.available_stock - quantity
+               
+                
+                # if available_stock < 0:
+                    
+                #     for id, quantity in cart.items():
+                #         product = get_object_or_404(Product, pk=id)
+                #         available_stock = product.available_stock - quantity
+                #         if available_stock < 0:
+                #             quantity = product.available_stock
+                #             available_stock = product.available_stock - quantity
+                            
+            
+                #             #we get a cart that exists or and empty 1 if one is not already created
+                #         cart = request.session.get('cart', {})
+                #         #we can only adjust if there is something in the cart 
+                #         #therefore must be greater that 0
+                        
+                        
+                #         cart[id] = quantity
+                            
+                #         # else:
+                #         #     cart.pop(id)
+                            
+                            
+                #         request.session['cart'] = cart
+                        
+                #     messages.info(request,'We have limited stock available for we have amended your cart to the maximum available at this time. Please check your cart and checkout again once you are happy to do so<br>', extra_tags="safe")
+                    
+                #     return redirect(reverse('view_cart'))
+                #     break
+    
                     
                 product.available_stock = available_stock    
                 product.save()
