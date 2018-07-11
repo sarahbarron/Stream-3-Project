@@ -40,6 +40,7 @@
                 <div class="row">
                     {% if user.is_staff %}
                     <a href="{% url 'edit_post' post.id %}" class="btn btn-primary" role="button">EDIT POST </a>
+                    <a href="{% url 'delete_post' post.id %}" class="btn btn-primary" role="button">DELETE POST </a>
                     {% endif %}
                      <a href="{% url 'get_posts' %}" class="btn btn-default">Back to News & Special Offers</a>
                 </div>

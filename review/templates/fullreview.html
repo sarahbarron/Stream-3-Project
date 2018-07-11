@@ -1,0 +1,38 @@
+<!--extension to the base.html file-->
+{% extends 'base.html' %}
+
+<!--loads bootstrap tags -->
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}Review{% endblock %}
+
+<!--page heading-->
+{% block page_heading%}Review{% endblock %}
+
+<!--main content of the page-->
+{% block content%}
+    <div class="container">
+        <div class="row">
+            <h1>{{review.product}}</h1><hr>
+            <div class="col-sm-12">
+                <h3>{{review.title}}</h3>
+                <p><span class="boldtext"> Written By: </span>{{review.user}}</p>
+                <p><span class="boldtext"> Published On: </span>{{review.date}}</p>
+            </div>
+             <div class="col-xs-10 col-sm-6">
+                        <p> {{ review.comment|safe|linebreaks }}</p>
+                     
+            </div>
+            {% if review.user == user or user.is_staff %}
+                <a href="{% url 'edit_review' review.id %}" class="btn btn-primary" role="button">Edit Review </a>
+                <a href="{% url 'delete_review' review.id %}" class="btn btn-primary" role="button">Delete Review</a>
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+
+

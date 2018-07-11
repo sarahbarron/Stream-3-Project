@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Post
 from .forms import BlogPostForm
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 '''
 VIEWS FOR BLOG POSTS
@@ -48,6 +49,14 @@ def create_or_edit_post(request, pk=None):
     else:
         return redirect(reverse('index'))
         
-        
+def delete_post(request, pk):
+    
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    
+    messages.success(request, 'your post was deleted')
+    
+    return redirect(reverse('index'))
+
         
     

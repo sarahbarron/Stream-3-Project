@@ -3,6 +3,7 @@ from products.models import Product
 from .forms import ReviewForm
 from .models import Review
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 '''
 REVIEW VIEWS
@@ -23,6 +24,7 @@ def new_review(request, id, pk=None):
         if form.is_valid():
             review = form.save()
             review.product = product
+            review.user = request.user
             review.save()
         return redirect(reverse('index'))
         
@@ -58,7 +60,24 @@ def full_review(request, pk):
     
     review = get_object_or_404(Review, pk=pk)
     return render(request, "fullreview.html", {'review':review})
+
+def delete_review(request, pk):
     
+    review = get_object_or_404(Review, pk=pk)
+    review.delete()
+    
+    messages.success(request, 'your review was deleted')
+    
+    return redirect(reverse('index'))
+    
+    
+    
+    
+    
+    
+    
+    
+
     
     
     

@@ -15,7 +15,8 @@
 
 
 <div class="container">
-    
+
+{% if reviews %}
    {% for reviews in reviews %}
    
        {% if forloop.first %}
@@ -26,7 +27,8 @@
         
         <div class="col-sm-12">
             <h3>{{reviews.title}}</h3>
-            <p><span class="boldtext">Published On: </span>{{reviews.date}}
+            <p><span class="boldtext"> Written By: </span>{{reviews.user}}</p>
+            <p><span class="boldtext"> Published On: </span>{{reviews.date}}</p>
         </div>
         
         
@@ -40,7 +42,14 @@
     </div>
     <hr>
     {% endfor %}
+
+{% else %}
+
+<h3> No Reviews for this product yet</h3>
+
+{% endif %}
+
 </div>
-   
+
 <!--end the main content block-->
 {% endblock %}

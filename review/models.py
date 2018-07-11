@@ -1,6 +1,6 @@
 from django.db import models
 from products.models import Product
-# from django.contrib.auth.models import User
+from django.conf import settings
 from django.utils import timezone
 
 
@@ -21,7 +21,8 @@ class Review(models.Model):
         (False, 'NO')
     )
    
-    product = models.ForeignKey(Product, null=True)
+    product = models.ForeignKey(Product, null=True, related_name='reviews')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='reviews')
     title = models.CharField(max_length=200)
     comment = models.TextField(blank=True, null=True)
     rating = models.IntegerField(choices=RATING_CHOICES)
