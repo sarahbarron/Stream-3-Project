@@ -82,7 +82,14 @@ def login_customer(request):
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, 'WELCOME You have successfully logged in!')
-                return redirect(reverse('index'))
+                nexturl= request.POST.get('next')
+                # if the customer is required to login for checkout / reviews they will be redirected back to the checkout and review after login
+                if nexturl:
+                    return redirect(nexturl)
+                #otherwise they will be redirected back to the index.html page
+                else:
+                    return redirect('index')
+               
                 
             #otherwise send a message to say the form is invalid
             else:

@@ -23,13 +23,13 @@
                     <div class="input-group">
                         <input name="quantity" type="number" min="1" max="999" class="form-control" value="1">
                         <span class="input-group">
-                        <button class="btn btn-primary"><span class="span glyphicon glyphicon-plus"></span></button>
-                        <button class="btn btn-warning"><span class="span glyphicon glyphicon-minus"></span></button>
                         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>ADD</button> 
                     </div>
                 </form>
-    
-    
+                <a href="{% url 'new_review' product.id %}"> Write a Review </a><br>
+                <a href="{% url 'view_reviews' product.id %}"> View Reviews </a>
+                
+                
             </div>
         </div>
         {% endfor %}

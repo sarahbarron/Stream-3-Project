@@ -15,5 +15,6 @@
 <div class="container">
     <p>email: {{customer_profile.email}}</p>
     <p>name: {{customer_profile.first_name}} {{customer_profile.last_name}}</p>
+    <p><a href="{% url 'password_reset' %}"> Reset Password</a></p>
 </div>
 {% endblock %}

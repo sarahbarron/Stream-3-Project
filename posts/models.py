@@ -18,5 +18,5 @@ class Post(models.Model):
     view_on_front_page = models.BooleanField(default=True)
 
     
-    def __unicode__(self):
+    def __str__(self):
         return self.title

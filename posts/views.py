@@ -4,6 +4,10 @@ from .models import Post
 from .forms import BlogPostForm
 from django.contrib.auth.models import User
 
+'''
+VIEWS FOR BLOG POSTS
+'''
+
 def get_posts(request):
     
     """ 

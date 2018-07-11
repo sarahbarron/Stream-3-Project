@@ -66,3 +66,14 @@ caption p{
 .product-description{
     min-height: 40px;
 }
+
+#search{
+    padding:0px;
+    margin:0px;
+}
+
+#search>button{
+    display:inline;
+}
+}
+}
