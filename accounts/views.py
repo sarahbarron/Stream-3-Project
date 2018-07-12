@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from .forms import CustomerLoginForm, CustomerRegistrationForm, EditProfileForm
 from checkout.models import OrderLineItem
 from review.models import Review
-
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # REGISTRATION
 
@@ -148,15 +148,39 @@ def customer_profile(request):
    
     profileuser = request.user
     
+    # get all orders made by customer logged in
     myorders = OrderLineItem.objects.filter(user = profileuser).order_by('-order')
    
-
+    # paginator for orders with 5 orders per page
+    paginator = Paginator(myorders, 5) 
+    page = request.GET.get('page')
+    try:
+        orders = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        orders = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results.
+        orders = paginator.page(paginator.num_pages)
     
-    reviews = Review.objects.filter(user = profileuser)
+    #get all reviews made by the customer logged in
+    customer_review = Review.objects.filter(user = profileuser)
+    
+    #paginator for reviews with 2 reviews per page
+    review_paginator = Paginator(customer_review, 2) 
+    review_page = request.GET.get('page')
+    try:
+        reviews = review_paginator.page(review_page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        reviews = review_paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results.
+        reviews = review_paginator.page(review_paginator.num_pages)
     
     #this will return the user matching the email address stored in the request
     customer = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"customer_profile": customer, "myorders": myorders, "reviews": reviews})
+    return render(request, 'profile.html', {"customer_profile": customer, "orders": orders, "reviews": reviews})
 
 
     
