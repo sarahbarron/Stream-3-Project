@@ -12,9 +12,64 @@
 
 <!--main content of the page-->
 {% block content%}
+
+<!--         PROFILE         -->
 <div class="container">
+    <h2> Your Profile </h2>
     <p>email: {{customer_profile.email}}</p>
     <p>name: {{customer_profile.first_name}} {{customer_profile.last_name}}</p>
-    <p><a href="{% url 'password_reset' %}"> Reset Password</a></p>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary" role="button">Edit Profile </a>
+</div><hr>
+
+<!--          ORDERS         -->
+
+{% if myorders %}
+    <h2> PAST ORDERS </h2>
+    {% for orders in myorders %}
+    <div>
+        <hr>
+        <p><span class="boldtext">{{orders.order.date}} - {{ orders.product.name }} </span>X {{ orders.quantity }} <span class="boldtext"> @ </span> {{ orders.product.price }} each - {{ orders.status }}</p>
+        <p>
+    </div>
+    
+    {% endfor %}
+    <hr><hr>
+{% endif %}
+
+
+<!--          REVIEWS      -->
+{% if reviews %}
+
+    <h2> PAST REVIEWS </h2>
+   {% for reviews in reviews %}
+   
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <p><span class="boldtext">Ratings: </span><span class="green">{{ reviews.rating }} / 5 </span> </p>
+            <p><span class="boldtext">Reviewed Product: </span> {{reviews.product}}</h4>
+            <p><span class="boldtext">{{reviews.title}}</span></p>
+            <p><span class="boldtext"> Written By: </span>{{reviews.user}}</p>
+            <p><span class="boldtext"> Published On: </span>{{reviews.date}}</p>
+        </div>
+        
+        
+        
+        <div class="col-xs-10 col-sm-6">
+        
+            <p> {{ reviews.comment|safe|linebreaks }}</p>
+            <p><span class="boldtext"> Would you recommend to a friend: {{ reviews.would_you_recommend_to_a_friend}} </span> </p>
+            <a href="{% url 'edit_review' reviews.id %}" class="btn btn-primary" role="button">Edit Review </a>
+            <a href="{% url 'delete_review' reviews.id %}" class="btn btn-primary" role="button">Delete Review</a>
+            
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+
+
+{% endif %}
+
 </div>
+
 {% endblock %}

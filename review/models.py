@@ -17,16 +17,16 @@ class Review(models.Model):
         (5, '5'),
     )
     YES_NO = (
-        (True, 'YES'),
-        (False, 'NO')
+        ('YES', 'YES'),
+        ('NO', 'NO')
     )
    
     product = models.ForeignKey(Product, null=True, related_name='reviews')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='reviews')
     title = models.CharField(max_length=200)
     comment = models.TextField(blank=True, null=True)
-    rating = models.IntegerField(choices=RATING_CHOICES)
-    would_you_recommend_to_a_friend = models.BooleanField(choices=YES_NO)
+    rating = models.IntegerField(choices=RATING_CHOICES, default=5)
+    would_you_recommend_to_a_friend = models.CharField(max_length=3, choices=YES_NO, default='YES')
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

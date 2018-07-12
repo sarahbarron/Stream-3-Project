@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import CustomerLoginForm, CustomerRegistrationForm
+from .forms import CustomerLoginForm, CustomerRegistrationForm, EditProfileForm
+from checkout.models import OrderLineItem
+from review.models import Review
 
 
 # REGISTRATION
@@ -123,17 +125,38 @@ def logout_customer(request):
     #return to the home page index.html
     return redirect(reverse('index'))
     
-
-
+@login_required
+def edit_profile(request):
+    
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+    
+        if form.is_valid():
+            form.save()
+            return redirect('customer_profile')
+        
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'editprofile.html', {'form': form})
+   
+    
 
 
 # CUSTOMER PROFILE
-
+@login_required
 def customer_profile(request):
+   
+    profileuser = request.user
+    
+    myorders = OrderLineItem.objects.filter(user = profileuser).order_by('-order')
+   
+
+    
+    reviews = Review.objects.filter(user = profileuser)
     
     #this will return the user matching the email address stored in the request
     customer = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"customer_profile": customer})
+    return render(request, 'profile.html', {"customer_profile": customer, "myorders": myorders, "reviews": reviews})
 
 
     

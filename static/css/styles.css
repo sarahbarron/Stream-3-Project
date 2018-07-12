@@ -7,6 +7,11 @@ form {
     font-weight: bold;
 }
 
+.green{
+    color: green;
+}
+
+
 @media screen and (min-width: 768px){
     #masthead h1{
         font-size: 80px;
@@ -74,6 +79,4 @@ caption p{
 
 #search>button{
     display:inline;
-}
-}
 }

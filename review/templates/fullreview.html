@@ -16,12 +16,14 @@
         <div class="row">
             <h1>{{review.product}}</h1><hr>
             <div class="col-sm-12">
+                <p><span class="boldtext">Ratings: </span><span class="green">{{ review.rating }} / 5 </span> </p>
                 <h3>{{review.title}}</h3>
                 <p><span class="boldtext"> Written By: </span>{{review.user}}</p>
                 <p><span class="boldtext"> Published On: </span>{{review.date}}</p>
             </div>
              <div class="col-xs-10 col-sm-6">
                         <p> {{ review.comment|safe|linebreaks }}</p>
+                        <p><span class="boldtext"> Would you recommend to a friend: {{ review.would_you_recommend_to_a_friend}} </span> </p>
                      
             </div>
             {% if review.user == user or user.is_staff %}

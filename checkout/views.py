@@ -7,7 +7,8 @@ from django.conf import settings
 from django.utils import timezone
 from products.models import Product
 import stripe
-from django.core.mail import send_mail
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 
 '''
 CHECKOUT VIEWS
@@ -49,8 +50,9 @@ def checkout(request):
             # the total price initally assigned to 0
             total = 0
             
-            # itterate through the products in the cart
+            # iterate through the products in the cart
             for id, quantity in cart.items():
+                #get an instance of the product
                 product = get_object_or_404(Product, pk=id)
                 
                 #check to see if stock is available before payment
@@ -67,7 +69,7 @@ def checkout(request):
                         is_stock_available = product.available_stock - quantity
                         # if the quantity needed by the customer is less than 0 there is not enough stock 
                         if is_stock_available < 0:
-                            # change the quantity requested to the maximum available
+                            # therefore change the quantity requested to the maximum available
                             quantity = product.available_stock
             
                         #we get a cart that exists or and empty 1 if one is not already created
@@ -85,12 +87,14 @@ def checkout(request):
             
             # when all products are available iterate through the cart
             for id, quantity in cart.items():
+                 # set the user to logged in user
+                user = request.user
                 #get an instance of the product object or 404
                 product = get_object_or_404(Product, pk=id)
                 # total price equals the quantity multiplied by the product price
                 total +=quantity * product.price
                 # order line item is the deatails from the order form, the product and the quantity requested
-                order_line_item = OrderLineItem(order=order, product=product, quantity=quantity)
+                order_line_item = OrderLineItem(order=order, product=product, quantity=quantity, user=user)
                 # save this to the database
                 order_line_item.save()
             
@@ -124,20 +128,36 @@ def checkout(request):
                     product.available_stock = new_available_stock    
                     # save this to the database
                     product.save()
-                # send a message to the customer to say payment has been received
-                    
-                    # if stock levels go below 10 an email will be sent to Gina to warn her.
-                    if current_available_stock > 10 & new_available_stock <= 10:
-                        send_mail(
-                            'LOW STOCK LEVELS',
-                            'STOCK LEVELS RUNNING LOW FOR: %s' %product,
-                            'sarahflavinbarron@gmail.com',
-                            ['sarahflavin@yahoo.com'],
-                            fail_silently=False,
-                        )
+                   
+                    # if stock levels reach 10 or below an email will be sent to Gina to warn her.
+                    if current_available_stock > 10 and new_available_stock <= 10:
                         
+                        subject = 'LOW STOCK LEVELS'
+                        message = 'STOCK LEVELS RUNNING LOW FOR: %s' %product
+                        from_email = 'EMAIL_ADDRESS'
+                        if subject and message and from_email:
+                            try:
+                                send_mail(subject, message, from_email,  ['sarahflavin@yahoo.com'],              fail_silently=False,)
+                            except BadHeaderError:
+                                return HttpResponse ('Invalid header found.')
+                            
+                                
+                        
+                # send a message to the customer to say payment has been received
                 messages.success(request, "You have successfully paid")
                 # set the cart back to empty
+                
+                # EMAIL TO CUSTOMER
+                subject = "GINA'S BEAUTY STUDIO ORDER"
+                message = " "
+                html_message = "<p> Thank You,</p><p> Your order has been received at Gina's Beauty Studio </p><p> We will dispatch your order within the next 24 hours.</p><p> You can view the status of your order by logging into your account on our website and viewing your profile <a href='https://stream-3-project-sarahbarron.c9users.io/accounts/profile/'>Click Here to Login</a></p><p> Thank you for your custom </p><p>Gina xxx </p>"
+                from_email = 'EMAIL_ADDRESS'
+                if subject and html_message and from_email:
+                    try:
+                        send_mail(subject, message, from_email, [request.user.email], fail_silently=False, html_message=html_message)
+                    except BadHeaderError:
+                        return HttpResponse ('Invalid header found.')
+                
                 request.session['cart'] = {}
                 # redirect back to products.html
                 return redirect(reverse('index'))
