@@ -40,19 +40,7 @@
             <li><a href="{% url 'index' %}">home</a></li>
             <li><a href= "{% url 'get_posts'%}">News & Special Offers</a></li>
              <li><a href= "{% url 'all_products'%}">Shop</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'customer_profile' %}">Profile</a></li>
-                <li><a href="{% url 'logout_customer' %}">Logout</a></li>
-                <li> {{user}} </li>
-            <!-- if a customer is not logged in show the login and register links-->
-            {% else %}
-                <li><a href="{% url 'login_customer' %}">Login</a></li>
-                <li><a href="{% url 'register_customer' %}">Register</a></li>
-            {% endif %}
-            {% if user.is_staff %}
-                <li><a href = "{% url 'new_post' %}"> New Post </a></li>
-            {% endif %}
-            <li>
+              <li>
                 <a href="{% url 'view_cart' %}">
                     <i class="fa fa-shipping-cart"></i> Cart
                     <!--if there are items in the cart add a badge with the number of items in the cart-->
@@ -61,6 +49,33 @@
                     {% endif %}    
                 </a>
             </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            
+                <li> {{user}} </li>
+           
+                <li><a href="{% url 'customer_profile' %}">Profile/Track Order</a></li>
+                <li><a href="{% url 'logout_customer' %}">Logout</a></li>
+                
+            <!-- if a customer is not logged in show the login and register links-->
+            {% else %}
+                <li><a href="{% url 'login_customer' %}">Login</a></li>
+                <li><a href="{% url 'register_customer' %}">Register</a></li>
+            {% endif %}
+            
+            {% if user.is_staff %}
+                <li><a href = "{% url 'new_post' %}"> New Post </a></li>
+            {% endif %}
+           
+            
+             <form class="navbar-form navbar-right" action="{% url 'search' %}" method="get">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="q">
+                </div>
+                <button class="btn btn-default" type ="submit">Search</button>
+            </form>
+            
         </ul>
     </nav>
 
@@ -82,14 +97,6 @@
     </div>
     {% endif %} 
 
-    <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
-                <button type ="submit">Search</button>
-            </form>
-        </div>
-    </div>
 <!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
     {%block test %}{%endblock%}

@@ -6,6 +6,6 @@ from django.contrib import messages
 def search_for_product(request):
     products = Product.objects.filter(name__icontains=request.GET['q'])
     if products:
-        return render(request, "allproducts.html", {"products": products})
+        return render(request, "products.html", {"products": products})
     else:
-        return render(request, "allproducts.html", messages.info(request,  'Sorry but we are unable to find a product matching this description'))
+        return render(request, "products.html", messages.info(request,  'Sorry but we are unable to find a product matching this description'))
