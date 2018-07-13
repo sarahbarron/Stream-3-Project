@@ -14,6 +14,10 @@
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
     
                 <h3>{{ product.name }}</h3>
+                {% if product.average_rating > 0 %}
+                    <p> {{product.average_rating }} / 5</p>
+                {% endif %}
+                
                 <p class="product-description">{{ product.description }}</p>
                 <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ product.price }}</p>
     

@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class CustomerRegistrationForm(UserCreationForm):
     #this form inherits from Djangos already created User Creation Form
     
-    #passwords
+    #password fields
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput)
@@ -17,7 +17,7 @@ class CustomerRegistrationForm(UserCreationForm):
     
     # an inner class to provide information about the form (known as Meta classes in Django) 
     class Meta:
-        # the model we want to store the information in
+        # the model we want to store the information in which is the User model
         model = User
         #the fields we want in our form
         fields = ['email', 'username', 'password1', 'password2','first_name', 'last_name']
@@ -63,9 +63,11 @@ class CustomerLoginForm(forms.Form):
 
 # Edit Customer Profile
 class EditProfileForm(UserChangeForm):
-    
+     # an inner class to provide information about the form (known as Meta classes in Django) 
     class Meta:
+        # the model we want to store the information in which is the User model
         model = User
+        # the fields we want to be able to edit
         fields = ['email', 'username','first_name', 'last_name', 'password']
         
     

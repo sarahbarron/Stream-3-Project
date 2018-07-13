@@ -7,6 +7,7 @@ class EmailAuth:
     def authenticate(self, username=None, password=None):
         
         try:
+            # get an instance of the user
             user = User.objects.get(email=username)
             
             # if the user & password match return the user
@@ -24,6 +25,7 @@ class EmailAuth:
     def get_user(self, user_id):
         
         try: 
+            #get an instance of the User with the user id
             user = User.objects.get(pk=user_id)
             
             # if the user is active return the user 

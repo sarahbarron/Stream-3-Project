@@ -33,7 +33,7 @@ def register_customer(request):
                 username=request.POST['username'],
                 password=request.POST['password1'])
         
-        #log the newly registered customer in
+            #log the newly registered customer in
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, "Welcome you are now registered")
@@ -80,12 +80,13 @@ def login_customer(request):
             customer = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
         
-            #if the form is valid log the customer 
+            #if the form is valid login the customer 
             if customer:
                 auth.login(user=customer, request=request)
                 messages.success(request, 'WELCOME You have successfully logged in!')
+                
+                # if the customer is required to login for checkout / reviews they will be redirected back to the checkout or review pages after login
                 nexturl= request.POST.get('next')
-                # if the customer is required to login for checkout / reviews they will be redirected back to the checkout and review after login
                 if nexturl:
                     return redirect(nexturl)
                 #otherwise they will be redirected back to the index.html page
@@ -108,7 +109,7 @@ def login_customer(request):
 
 # LOGOUT 
 
-# the logout_customer view can only be accessed in the customer is already logged in
+# the logout_customer view can only be accessed if the customer is already logged in
 # if they are not logged in they will be reverted to the login page
 @login_required
 
@@ -124,58 +125,52 @@ def logout_customer(request):
     
     #return to the home page index.html
     return redirect(reverse('index'))
-    
-@login_required
-def edit_profile(request):
-    
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-    
-        if form.is_valid():
-            form.save()
-            return redirect('customer_profile')
-        
-    else:
-        form = EditProfileForm(instance=request.user)
-        return render(request, 'editprofile.html', {'form': form})
-   
-    
 
 
 # CUSTOMER PROFILE
+
+# you must be logged in to view your profiel
 @login_required
 def customer_profile(request):
-   
+    
+    # PROFILE SECTION
+    
+    # an instance of the customer that is logged in
     profileuser = request.user
     
-    # get all orders made by customer logged in
+    # ORDERS SECTION
+    
+    # an instance of all orders made by customer logged in
     myorders = OrderLineItem.objects.filter(user = profileuser).order_by('-order')
    
-    # paginator for orders with 5 orders per page
+    # paginator for myorders with 5 orders per page
     paginator = Paginator(myorders, 5) 
     page = request.GET.get('page')
     try:
         orders = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+        # If page is not an integer, give the first page of results.
         orders = paginator.page(1)
     except EmptyPage:
-        # If page is out of range deliver last page of results.
+        # If page is out of range give the last page of results.
         orders = paginator.page(paginator.num_pages)
     
-    #get all reviews made by the customer logged in
+    
+    # REVIEWS SECTION
+    
+    # an instance of all reviews made by the customer logged in
     customer_review = Review.objects.filter(user = profileuser)
     
-    #paginator for reviews with 2 reviews per page
-    review_paginator = Paginator(customer_review, 2) 
+    #paginator for reviews with 3 reviews per page
+    review_paginator = Paginator(customer_review, 3) 
     review_page = request.GET.get('page')
     try:
         reviews = review_paginator.page(review_page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+        # If page is not an integer, give the first page of results.
         reviews = review_paginator.page(1)
     except EmptyPage:
-        # If page is out of range deliver last page of results.
+        # If page is out of range give the last page of results.
         reviews = review_paginator.page(review_paginator.num_pages)
     
     #this will return the user matching the email address stored in the request
@@ -183,4 +178,25 @@ def customer_profile(request):
     return render(request, 'profile.html', {"customer_profile": customer, "orders": orders, "reviews": reviews})
 
 
+# EDIT PROFILE
+
+# you must be logged in to edit your profile
+@login_required
+def edit_profile(request):
+    
+    # if it is a post method
+    if request.method == 'POST':
+        #get an instance of the edit profile form
+        form = EditProfileForm(request.POST, instance=request.user)
+    
+        #if its valid save it & return to the customer profile page
+        if form.is_valid():
+            form.save()
+            return redirect('customer_profile')
+    
+    # otherwise return an empty instance of the edit profile form    
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request, 'editprofile.html', {'form': form})
+   
     
