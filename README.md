@@ -378,7 +378,7 @@ Initial value for stock for both product 1 and product 2 was 100
 - I clicked on the Read More button on the review I wanted to see the full review
 - This brought me to the fullreview html page showing the expected review in full.
 
-### Problems encountered
+## Problems encountered
 - I committed my env.py which held my develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
 
 ```
@@ -405,7 +405,7 @@ echo env.py >> .gitignore
 ```
 - The edit_profile view. after doing a simple view when testing the view I discovered that you could change the username and email address to the same username or email address of other users. I add to add extra python code to the view to check that other users did not have the same username or email address as what the user wanted to change to.
 
-### References
+## References
 - Thanks to [Dalibor Nasevic's article](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo) which helped me with the commands to remove all env.py files from my git commit history.
 - I used the [CKEDITOR documentation](https://django-ckeditor.readthedocs.io/en/latest/) to give me a text editor and image uploader for my News & Special Offers content field.
 - [QUORA Article](https://www.quora.com/Working-in-Python-how-can-I-delete-items-while-iterating-over-a-dictionary) This article helped me with the "RUNTIME ERROR dictionary changed size during iteration" I used their tip to change the dictionary to a list.
