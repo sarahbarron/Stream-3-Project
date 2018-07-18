@@ -391,11 +391,10 @@ echo env.py >> .gitignore
 
 ```
 - I committed my SECRET KEY to GitHub. to solve this problem I generated a new SECRET_KEY using a [SECRET KEY Generator](https://www.miniwebtool.com/django-secret-key-generator/) I then added this new SECRET KEY to the env.py file 
--I deleted the old SECRET KEY from the settings.py file and added the following code to the settings.py file to point the SECRET KEY to the environment variables.
+-I deleted the old SECRET KEY from the settings.py file and added the following code to the settings.py file to point to the new SECRET KEY in the env.py file.
 ``` SECRET_KEY = os.environ.get('SECRET_KEY')``` 
 
-- Iterating a dictionary and trying to remove using .pop() method. 
-- I tried to iterate through my cart and pop/remove any items that had a 0 quantity value. Everytime the for loop poped/removed a value i would get a runtime error dictionary changed size during iteration. When i read up on this i discovered that you can not change a dictionary size during iteration. I came across an article [QUORA Article](https://www.quora.com/Working-in-Python-how-can-I-delete-items-while-iterating-over-a-dictionary) and used there tip to change the dictionary to a list and then iterate and pop. This worked perfectly.
+- Iterating a dictionary and trying to remove using .pop() method. I tried to iterate through my cart and pop/remove any items that had a 0 quantity value. Everytime the for loop poped/removed a value i would get a runtime error dictionary changed size during iteration. When i read up on this i discovered that you can not change a dictionary size during iteration. I came across an article [QUORA Article](https://www.quora.com/Working-in-Python-how-can-I-delete-items-while-iterating-over-a-dictionary) and used there tip to change the dictionary to a list and then iterate and pop. This worked perfectly.
 
 ``` 
     for id, quantity in list(cart.items()):
@@ -403,12 +402,14 @@ echo env.py >> .gitignore
         if quantity == 0:
             cart.pop(id)
 ```
-- The edit_profile view. after doing a simple view when testing the view I discovered that you could change the username and email address to the same username or email address of other users. I add to add extra python code to the view to check that other users did not have the same username or email address as what the user wanted to change to.
+- The edit_profile view. When manually testing the view I discovered that you could change the username and email address to the same username or email address of other users. I had to add extra python code to the view to check that other users did not have the same username or email address as what the user wanted to change to.
 
 ## References
+- [Django Documentation](https://docs.djangoproject.com/en/2.0/) helped me with all backend aspects of my project. 
 - Thanks to [Dalibor Nasevic's article](https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo) which helped me with the commands to remove all env.py files from my git commit history.
 - I used the [CKEDITOR documentation](https://django-ckeditor.readthedocs.io/en/latest/) to give me a text editor and image uploader for my News & Special Offers content field.
 - [QUORA Article](https://www.quora.com/Working-in-Python-how-can-I-delete-items-while-iterating-over-a-dictionary) This article helped me with the "RUNTIME ERROR dictionary changed size during iteration" I used their tip to change the dictionary to a list.
-- [YouTube Video that helped with setting up editing user profile using a UserChangeForm](https://www.youtube.com/watch?v=D9Xd6jribFU) 
+- Max Goodridge's [YouTube Video](https://www.youtube.com/watch?v=D9Xd6jribFU) helped put me in the right direction with setting up editing the user profile by talking about the UserChangeForm.
+
 
 [![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
