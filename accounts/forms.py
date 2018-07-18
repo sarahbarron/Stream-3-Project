@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
 
+
 # CUSTOMER REGISTRATION FORM
 class CustomerRegistrationForm(UserCreationForm):
     #this form inherits from Djangos already created User Creation Form
@@ -68,7 +69,7 @@ class EditProfileForm(UserChangeForm):
         # the model we want to store the information in which is the User model
         model = User
         # the fields we want to be able to edit
-        fields = ['email', 'username','first_name', 'last_name', 'password']
-        
+        fields = ['email', 'username', 'first_name', 'last_name', 'password']
     
+   
     

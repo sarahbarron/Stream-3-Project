@@ -14,12 +14,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 CHECKOUT VIEWS
 
 '''
-
+# the stripe API key
 stripe.api_key = settings.STRIPE_SECRET
 
+# customer must be logged in to checkout
 @login_required()
 def checkout(request):
     
+    # return an instance of the cart or an empty one if there is none
     cart = request.session.get('cart', {})
 
     '''
@@ -45,7 +47,7 @@ def checkout(request):
             # save the order
             order.save()
 
-            #we get a cart that exists or and empty 1 if one is not already created
+            # return a cart that exists or and empty 1 if one is not already created
             cart = request.session.get('cart', {})
             # the total price initally assigned to 0
             total = 0
@@ -63,39 +65,53 @@ def checkout(request):
                     
                     #iterate through all items in the cart to check if stock is available for all items in the cart before payment
                     for id, quantity in cart.items():
+                        
                         # get an instance of the product object
                         product = get_object_or_404(Product, pk=id)
+                        
                         # gets the available stock for the product from the database subtracts the quantity needed by the customer
                         is_stock_available = product.available_stock - quantity
+                        
                         # if the quantity needed by the customer is less than 0 there is not enough stock 
                         if is_stock_available < 0:
+                        
                             # therefore change the quantity requested to the maximum available
                             quantity = product.available_stock
             
-                        #we get a cart that exists or and empty 1 if one is not already created
+                        # get a cart that exists or and empty 1 if one is not already created
                         cart = request.session.get('cart', {})
+        
                         # assign the value quantity to the product id in the cart
                         cart[id] = quantity
+        
                         # assign cart to the session    
                         request.session['cart'] = cart
+        
                     # send a message to the customer to notify them of the stock limitations and amendments to cart    
                     messages.info(request,'We have limited stock available for we have amended your cart to the maximum available at this time. Please check your cart and checkout again once you are happy to do so<br>', extra_tags="safe")
+    
                     # return to cart.html
                     return redirect(reverse('view_cart'))
+
                     # break out of the view as there are amendments made to the cart, therefore customer needs to check the amendments before proceeding to checkout again
                     break
             
             # when all products are available iterate through the cart
             for id, quantity in cart.items():
-                 # set the user to logged in user
+                
+                # assign the logged in user to user
                 user = request.user
+                
                 #get an instance of the product object or 404
                 product = get_object_or_404(Product, pk=id)
+                
                 # total price equals the quantity multiplied by the product price
                 total +=quantity * product.price
-                # order line item is the deatails from the order form, the product and the quantity requested
+                
+                # assigns order_line_item to OrderLineItem which stores the order, product, quantity & user
                 order_line_item = OrderLineItem(order=order, product=product, quantity=quantity, user=user)
-                # save this to the database
+               
+                # save this to the OrderLineItem model
                 order_line_item.save()
             
             # try to take payment
@@ -114,62 +130,95 @@ def checkout(request):
             
             # if payment cant be taken throw an error
             except stripe.error.CardError:
+               
                 # inform the customer of the error
                 messages.error(request, "Your card has been declined: ")
             
             # if the customer has paid
             if customer.paid:
+               
                 for id, quantity in cart.items():
+               
                     product = get_object_or_404(Product, pk=id)
+                
                     # the new available stock will be the available stock for the product in the database less the quantity being bought by the customer now
                     current_available_stock = product.available_stock
                     new_available_stock = current_available_stock - quantity
+                    
                     # assign the new available stock to the product available stock in the database
                     product.available_stock = new_available_stock    
+                    
                     # save this to the database
                     product.save()
                    
-                    # if stock levels reach 10 or below an email will be sent to Gina to warn her.
+                    # if stock levels reach 10 or below an email will be sent to Gina to warn her of low stock levels.
                     if current_available_stock > 10 and new_available_stock <= 10:
-                        
+                    
+                        # email subject
                         subject = 'LOW STOCK LEVELS'
+                        
+                        # email message
                         message = 'STOCK LEVELS RUNNING LOW FOR: %s' %product
+                        
+                        # email address to send from
                         from_email = 'EMAIL_ADDRESS'
+                        
+                        # if there is a subject, message and a from email address do the following
                         if subject and message and from_email:
                             try:
+                                # send the email to sarahflavin@yahoo.com
                                 send_mail(subject, message, from_email,  ['sarahflavin@yahoo.com'],              fail_silently=False,)
+                            
+                            # except if there is a bad header, hackers will often try to intercept an email by injecting into the header this exception should spot this and throw an error
                             except BadHeaderError:
                                 return HttpResponse ('Invalid header found.')
                             
                                 
                         
-                # send a message to the customer to say payment has been received
-                messages.success(request, "You have successfully paid")
                 # set the cart back to empty
+                request.session['cart'] = {}
+                
+                # message to the customer to say payment has been received
+                messages.success(request, "You have successfully paid")
+               
                 
                 # EMAIL TO CUSTOMER
+                
+                # email subject
                 subject = "GINA'S BEAUTY STUDIO ORDER"
+                
+                # email message
                 message = " "
+                
+                # html message
                 html_message = "<p> Thank You,</p><p> Your order has been received at Gina's Beauty Studio </p><p> We will dispatch your order within the next 24 hours.</p><p> You can view the status of your order by logging into your account on our website and viewing profile/Track Order <a href='https://stream-3-project-sarahbarron.c9users.io/accounts/profile/'>Click Here to Login</a></p><p> Thank you for your custom </p><p>Gina xxx </p>"
+                
+                # email address to send the email from
                 from_email = 'EMAIL_ADDRESS'
+                
+                # if there is a subject, html message and from email address
                 if subject and html_message and from_email:
                     try:
+                        #send the email to the logged in user
                         send_mail(subject, message, from_email, [request.user.email], fail_silently=False, html_message=html_message)
+                    
+                    # except if there is a bad header, hackers will often try to intercept an email by injecting into the header this exception should spot this and throw an error
                     except BadHeaderError:
                         return HttpResponse ('Invalid header found.')
                 
-                request.session['cart'] = {}
                 # redirect back to products.html
                 return redirect(reverse('index'))
             
             else:
-                # if payment is not successfull send a message to the customer informing them of this
+                # otherwise if payment is not successfull send a message to the customer informing them of this
                 messages.error(request, "Sorry there seems to be a problem we are unable to take payment")
         
         # if the forms are invalid
         else:
+            
             # print the payment form errors in the console
             print(payment_form.errors)
+            
             # send a message to the customer informing them of the problems with the payment card
             messages.error(request, "We were unable to take payment with that card!")
     

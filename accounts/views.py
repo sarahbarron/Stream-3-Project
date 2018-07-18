@@ -7,6 +7,7 @@ from checkout.models import OrderLineItem
 from review.models import Review
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+
 # REGISTRATION
 
 # register a new customer
@@ -15,7 +16,7 @@ def register_customer(request):
     #if memeber is already logged in return to the index page
     if request.user.is_authenticated:
         messages.info(request, 
-        'You are already registered and logged in! If this is not you please <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/logout/">logout</a> and click register again', 
+        'You are already logged in! If this is not you please <a href="https://stream-3-project-sarahbarron.c9users.io/accounts/logout/">logout</a> and click register again', 
         extra_tags="safe")
         return redirect(reverse('index'))
     
@@ -140,7 +141,7 @@ def customer_profile(request):
     
     # ORDERS SECTION
     
-    # an instance of all orders made by customer logged in
+    # an instance of all orders made by customer logged in and order them by most recent date
     myorders = OrderLineItem.objects.filter(user = profileuser).order_by('-order')
    
     # paginator for myorders with 5 orders per page
@@ -158,8 +159,8 @@ def customer_profile(request):
     
     # REVIEWS SECTION
     
-    # an instance of all reviews made by the customer logged in
-    customer_review = Review.objects.filter(user = profileuser)
+    # an instance of all reviews made by the customer logged in and order it by most recent date
+    customer_review = Review.objects.filter(user = profileuser).order_by('-date')
     
     #paginator for reviews with 3 reviews per page
     review_paginator = Paginator(customer_review, 3) 
@@ -186,11 +187,68 @@ def edit_profile(request):
     
     # if it is a post method
     if request.method == 'POST':
+        
         #get an instance of the edit profile form
         form = EditProfileForm(request.POST, instance=request.user)
+        
+        # set someone_has_this initially to false
+        someone_has_this= False
+        
+        
+        # if the email field or the username field or both fields were changed do the following
+       
+        if "email" in form.changed_data or "username" in form.changed_data:
+             
+            # if the email field was changed do the following
+            if "email" in form.changed_data:
+                
+                # the email input from the form
+                form_email = request.POST['email']
+                
+                # a filter of all users with the same email address as what was posted in the form
+                filter_emails= User.objects.filter(email = form_email)
+                
+                            
+                # for all users with the same email address as what was posted in the form
+                for filter_email in filter_emails:
+                    
+                    # if the email address is associated with another user id
+                    if filter_email.id != request.user.id:
+                        
+                        # set someone_has_email to True
+                        someone_has_this = True
+                        
+                        # display a message to say someone has this email address
+                        messages.error(request, "Somebody with this email address is already registered please enter a unique email address" )
+                        #return to the edit profile page
+                        return redirect(reverse('edit_profile'))
+            
+            # if the username field has been changed do the following
+            if "username" in form.changed_data:
+                
+                # the username input from the form
+                form_username = request.POST['username']
+                
+                # a filter of all users with the same username as what was posted in the form
+                filter_usernames = User.objects.filter(username = form_username)
+                        
+                # for all users with the same username as what was posted in the form 
+                for filter_username in filter_usernames:
+                    
+                    # if the username is associated with another user id
+                    if filter_username.id != request.user.id:
+                        
+                        # set someone has this to True
+                        someone_has_this = True
+                        
+                        # otherwise display a message to say someone has this username
+                        messages.error(request, "Somebody already has this username please enter a unique username" )
+                        #return to the edit profile page
+                        return redirect(reverse('edit_profile'))
     
-        #if its valid save it & return to the customer profile page
-        if form.is_valid():
+    
+        # if the form is valid and nobody has the same email address or username save the form and redirect back to the customer profile
+        if form.is_valid() and someone_has_this==False:
             form.save()
             return redirect('customer_profile')
     

@@ -7,9 +7,9 @@ CART VIEWS
 '''
 
 def view_cart(request):
-    ''' 
-    a view that renders the entire contents of the cart 
-    '''
+    
+    # a view that renders the entire contents of the cart 
+    
     return render(request, "cart.html")
 
 
@@ -18,6 +18,7 @@ def add_to_cart(request, id):
     add a quantity of the specified product to the cart
     when you select the quantity and press add the product id & quantity are added to the cart dictionary
     '''
+    
     # gets the quantity inputted by the customer
     quantity=int(request.POST.get('quantity'))
     # gets the product object or 404 
@@ -52,6 +53,7 @@ def adjust_cart(request, id):
     adjust the quantity of the product to the specified amount
     gets the existing quantity as an integer
     '''
+    
     # gets the quantity inputted by the customer
     quantity = int(request.POST.get('quantity'))
     # gets the product object or 404

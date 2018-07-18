@@ -138,12 +138,14 @@ USE_TZ = True
 
 # tells Django where our static files are held
 STATIC_URL = '/static/'
-# a list of directorys where static files can be stored
+# a list of directories where static files can be stored
 STATICFILES_DIRS = [
            os.path.join(BASE_DIR, 'static'),
     ]
+# the static root directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    
+
+# session storage for messages 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # authentication - forgotten password - email requirements
@@ -164,11 +166,11 @@ EMAIL_PORT = 587
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# stripe for payments
+# tells Django where to find our stripe publishable key and secret key for payments 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
-# CKEDITOR text editor and media uploader used to create posts
+# CKEDITOR text editor and media uploader used during post creations
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {

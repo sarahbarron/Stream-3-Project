@@ -6,10 +6,10 @@ class OrderLineAdminInLine(admin.TabularInline):
     model = OrderLineItem
     
 '''
-the admin interface has the ability to edit more than 1 model on a single page. 
-This is known as inlines we need this for customer details & payment details.
+Inlines to edit customer details & payment details at the same time.
 '''
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineAdminInLine, )
 
+# registering the Order and OrderAdmin models so that it will be shown in the admin panel
 admin.site.register(Order, OrderAdmin)

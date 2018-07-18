@@ -31,14 +31,11 @@ from django.views.generic import RedirectView
 urlpatterns = [
     # url to direct to the django's admin area
     url(r'^admin/', admin.site.urls),
+    
     # url to direct to the index.html file
     url(r'^$', index, name="index"),
     
-    
-    #url(r'^$', RedirectView.as_view(url='posts/')),
-    
-    
-    # include the urls.py files from all our apps
+    # include the urls.py files from all apps
     url(r'^accounts/', include(urls_accounts)),
     url(r'^posts/', include(urls_posts)),
     url(r'^products/', include(urls_products)),
@@ -50,6 +47,4 @@ urlpatterns = [
     # urls to handle our media files
     url(r'^media/(?P<path>.*)$', serve, {'document_root':MEDIA_ROOT}),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    
-    
 ]
