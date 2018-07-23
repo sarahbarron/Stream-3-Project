@@ -18,7 +18,7 @@ def add_to_cart(request, id):
     add a quantity of the specified product to the cart
     when you select the quantity and press add the product id & quantity are added to the cart dictionary
     '''
-    
+
     # gets the quantity inputted by the customer
     quantity=int(request.POST.get('quantity'))
     
@@ -26,9 +26,10 @@ def add_to_cart(request, id):
     product = get_object_or_404(Product, pk=id)
     # we get a cart that exists or and empty 1 if one is not already created
     cart = request.session.get('cart', {})
-    
+   
     # if the product is already in the cart add the quantity in the cart to the new customer inputted quantity 
     if id in cart:
+       
         quantity = cart.get(id) + quantity
     
     # checks to see if there is available stock 
