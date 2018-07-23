@@ -17,6 +17,18 @@
 
 
 ## Testing
+### Django Test Suite
+##### I used the Django Test Suite to test all my apps with a score of 94% tested. Which covered 1356 statements and missing 83. All tests can be viewed within each app folder
+- Accounts App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests_views.py 
+- Cart App: tests\_app.py, and tests_views.py
+- Checkout App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests_views.py 
+- Posts App: tests\_apps.py, tests\_forms.py, tests\_models.py, and tests_views.py 
+- Products App: tests\_apps.py, tests\_models.py, and tests_views.py 
+- Productsearch App: tests\_apps.py and tests_views.py
+- Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests_views.py 
+
+![Django Testing](/static/img/DjangoTestingScore.jpg)
+
 
 ### Users & Authentications - accounts app
 
