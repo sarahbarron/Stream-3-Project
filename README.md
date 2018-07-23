@@ -30,6 +30,8 @@
 - Productsearch App: tests\_apps.py and tests_views.py
 - Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests_views.py 
 - Home App: tests_app.py
+
+
 ![Django Testing](/static/img/DjangoTestingScore.JPG)
 
 ## Manual Testing
