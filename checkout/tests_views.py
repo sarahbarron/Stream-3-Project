@@ -18,7 +18,7 @@ class TestCheckOutViews(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "login.html")
     
-    def test_cart(self):
+    def test_post_forms(self):
         user = User.objects.create_user('username', 'myemail@test.com', 'password')
         self.client.login(username='username', password='password')
         
