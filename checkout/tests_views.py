@@ -32,7 +32,6 @@ class TestCheckOutViews(TestCase):
         item.save()
         
         item2 = Product(id='2', name="Product", available_stock="100", content="product content", price="30", image="img.jpg", num_of_ratings="1", average_rating="5")
-        item.save()
         item2.save()
         
         cart = self.client.session
