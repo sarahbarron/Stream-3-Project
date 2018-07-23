@@ -27,7 +27,7 @@
 - Productsearch App: tests\_apps.py and tests_views.py
 - Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests_views.py 
 
-![Django Testing](/static/img/DjangoTestingScore.jpg)
+![Django Testing](/static/img/DjangoTestingScore.JPG)
 
 
 ### Users & Authentications - accounts app
