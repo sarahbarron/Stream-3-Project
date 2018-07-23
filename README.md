@@ -19,7 +19,7 @@
 
 
 ## Testing
-### Django Test Suite
+## Django Test Suite
 ##### I used the Django Test Suite to test all my apps and used Coverage to generate a report in which I initally scored 83% and after adding extra tests i finished with a score of 94% tested. Which covered 1356 statements and missing 83. All tests can be viewed within each app folder
 
 - Accounts App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests_views.py 
@@ -32,7 +32,7 @@
 
 ![Django Testing](/static/img/DjangoTestingScore.JPG)
 
-
+## Manual Testing
 ### Users & Authentications - accounts app
 
 #### Manual testing registering 
