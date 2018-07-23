@@ -184,7 +184,7 @@ def customer_profile(request):
 # you must be logged in to edit your profile
 @login_required
 def edit_profile(request):
-    
+  
     # if it is a post method
     if request.method == 'POST':
         

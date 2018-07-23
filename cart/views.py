@@ -21,6 +21,7 @@ def add_to_cart(request, id):
     
     # gets the quantity inputted by the customer
     quantity=int(request.POST.get('quantity'))
+    
     # gets the product object or 404 
     product = get_object_or_404(Product, pk=id)
     # we get a cart that exists or and empty 1 if one is not already created

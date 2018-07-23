@@ -32,10 +32,10 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, related_name='reviews')
     
     # the title of the review
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, blank=False)
     
     # the review comment or message
-    comment = models.TextField(blank=True, null=True)
+    comment = models.TextField(null=True, blank=False)
     
     # the rating of the product between 1 and 5
     rating = models.IntegerField(choices=RATING_CHOICES, default=5)

@@ -12,7 +12,7 @@ REVIEW VIEWS
 # you must be logged in to create a review
 @login_required()
 def new_review(request, id, pk=None):
-
+    
     # the product being reviewed
     product = get_object_or_404(Product, pk=id)
     
@@ -86,6 +86,7 @@ def edit_review(request, pk):
     
     # you can only edit a review if you are the person who created the review
     if review.user == request.user:
+        
         # if it is a POST method
         if request.method == "POST":
             

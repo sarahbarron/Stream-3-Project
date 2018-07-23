@@ -7,10 +7,10 @@
 ##### CSS - cascading style sheets 
 ##### Javascript - client side scripting language
 ##### Python - Programming Language
-##### git Bash & GitHub -for version control and backup of code
+##### Git Bash & GitHub -for version control and backup of code
 ##### Bootstrap - A framework for developing responsive, mobile 1st websites.
 ##### Django - python web framework
-##### libraries i needed to install
+##### Libraries i needed to install
 - django forms bootstrap library for styling of forms
 - pillow needed for using images
 - ckeditor for rich text editing in creating and editing posts 

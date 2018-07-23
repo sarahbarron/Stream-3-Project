@@ -15,6 +15,10 @@ class CustomerRegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         label='Re-enter your password', 
         widget=forms.PasswordInput)
+    # email field required    
+    email = forms.CharField(
+        required=True, 
+        widget=forms.EmailInput(attrs={'class': 'validate',}))
     
     # an inner class to provide information about the form (known as Meta classes in Django) 
     class Meta:

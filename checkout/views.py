@@ -23,24 +23,27 @@ def checkout(request):
     
     # return an instance of the cart or an empty one if there is none
     cart = request.session.get('cart', {})
-
+    
     '''
     if the stock level changed to 0 at checkout this for loop will check for any products in the cart whose quantity was changed to 0 and remove them from the cart. (you can't amend a dictionary during iteration so i had to change the dictionary to a list)
     '''
     for id, quantity in list(cart.items()):
-            
+        
         if quantity == 0:
             cart.pop(id)
             
     # if the method is a POST method       
     if request.method=="POST":
+    
         # form with customer personal details
         order_form = OrderForm(request.POST)
         # form with customer bank details
         payment_form = MakePaymentForm(request.POST)
         
+            
         # if the order form and payment form are valid
         if order_form.is_valid() and payment_form.is_valid():
+            
             order = order_form.save(commit=False)
             #set the date to the time right now. (ie. the time the customer submitted their personal & payment details)
             order.date = timezone.now()
@@ -51,9 +54,10 @@ def checkout(request):
             cart = request.session.get('cart', {})
             # the total price initally assigned to 0
             total = 0
-            
+            print(cart)
             # iterate through the products in the cart
             for id, quantity in cart.items():
+                
                 #get an instance of the product
                 product = get_object_or_404(Product, pk=id)
                 
