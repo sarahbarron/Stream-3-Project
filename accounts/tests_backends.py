@@ -1,32 +1,44 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-
+# TEST - accounts -backend.py
 class TestAccountsBackend(TestCase):
     
+    # testing login with an email address instead of a username
     def test_login_with_email_address(self):
         
+        # creates a test user
         user = User.objects.create_user('username', 'myemail@test.com', 'password')
+        # logs in the test user
         self.client.login(username='myemail@test.com', password='password')
 
+        # tests that the url for login with email address has a 200 status and goes to index.html
         page = self.client.get("/accounts/login/", follow=True)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "index.html")
     
-    def test_login_with_email_address_and_wrong_password(self):
+    # testing login with a correct email address and a wrong password
+    def test_login_with_a_registered_email_address_and_wrong_password(self):
         
+        # create a user to test
         user = User.objects.create_user('username', 'myemail@test.com', 'password')
+        # try to login the user with the correct email address but the wrong password
         self.client.login(username='myemail@test.com', password='wrong')
 
+        # tests that the url for login has a 200 status and returns you to login.html 
         page = self.client.get("/accounts/login/", follow=True)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "login.html")
     
+    # tesing login with correct details but the user is not an active user
     def test_login_with_email_address_but_inactive_user(self):
         
+        # create an inactive user to test
         user = User.objects.create_user('username', 'myemail@test.com', 'password',is_active=False)
+        # try to log in the inactive user
         self.client.login(username='myemail@test.com', password='password')
-
+        
+        # tests that the url for login has a 200 status and returns you to login.html 
         page = self.client.get("/accounts/login/", follow=True)
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "login.html")

@@ -1,6 +1,33 @@
 from django.test import TestCase
-from .forms import OrderForm
+from .forms import OrderForm, MakePaymentForm
 
+
+class Test_Make_Payment_Form(TestCase):
+    def test_a_valid_make_payment_form(self):
+        form = MakePaymentForm({'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':'pk_test_nbWefqblVg8HnYsFmpcld8qj'})
+        self.assertTrue(form.is_valid())
+    
+    
+    def test_an_invalid_payment_form_no_credit_card_number_input(self):
+        form = MakePaymentForm({'credit_card_number': '','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':'pk_test_nbWefqblVg8HnYsFmpcld8qj'})
+        self.assertFalse(form.is_valid())
+    
+    def test_an_invalid_payment_form_no_cvv_input(self):
+        form = MakePaymentForm({'credit_card_number': '4242424242424242','cvv':'', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':'pk_test_nbWefqblVg8HnYsFmpcld8qj'})
+        self.assertFalse(form.is_valid())
+    
+    def test_an_invalid_payment_form_no_expiry_month_input(self):
+        form = MakePaymentForm({'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'','expiry_year':'2019', 'stripe_id':'pk_test_nbWefqblVg8HnYsFmpcld8qj'})
+        self.assertFalse(form.is_valid())
+    
+    def test_an_invalid_payment_form_no_expiry_year_input(self):
+        form = MakePaymentForm({'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'2','expiry_year':'', 'stripe_id':'pk_test_nbWefqblVg8HnYsFmpcld8qj'})
+        self.assertFalse(form.is_valid())
+    
+    def test_an_invalid_payment_form_no_stripe_id_input(self):
+        form = MakePaymentForm({'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'2','expiry_year':'', 'stripe_id':''})
+        self.assertFalse(form.is_valid())
+        
 class Test_Order_Form(TestCase):
 
     def test_a_valid_order_form(self):

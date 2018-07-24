@@ -10,16 +10,16 @@ class MakePaymentForm(forms.Form):
     YEAR_CHOICES = [(i,i) for i in range (2018, 2030)]
     
     # credit card number 
-    credit_card_number = forms.CharField(label='Credit Card Number', required=False)
+    credit_card_number = forms.CharField(label='Credit Card Number', required=True)
     
     # 3 digit CVV security number
-    cvv = forms.CharField(label='Security code (CVV)', required=False)
+    cvv = forms.CharField(label='Security code (CVV)', required=True)
     
     # expiry month
-    expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=False)
+    expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=True)
     
     # expiry year
-    expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
+    expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=True)
     
     # stripe id which is hidden from the customer
     stripe_id = forms.CharField(widget=forms.HiddenInput)

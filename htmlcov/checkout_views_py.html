@@ -30,9 +30,9 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            86 statements &nbsp;
+            87 statements &nbsp;
             <span class="run hide_run shortkey_r button_toggle_run">24 run</span>
-            <span class="mis shortkey_m button_toggle_mis">62 missing</span>
+            <span class="mis shortkey_m button_toggle_mis">63 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -112,7 +112,7 @@
 <p id="n43" class="pln"><a href="#n43">43</a></p>
 <p id="n44" class="pln"><a href="#n44">44</a></p>
 <p id="n45" class="stm run hide_run"><a href="#n45">45</a></p>
-<p id="n46" class="pln"><a href="#n46">46</a></p>
+<p id="n46" class="stm mis"><a href="#n46">46</a></p>
 <p id="n47" class="stm mis"><a href="#n47">47</a></p>
 <p id="n48" class="pln"><a href="#n48">48</a></p>
 <p id="n49" class="stm mis"><a href="#n49">49</a></p>
@@ -352,7 +352,7 @@
 <p id="t43" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t44" class="pln">        <span class="com"># if the order form and payment form are valid</span><span class="strut">&nbsp;</span></p>
 <p id="t45" class="stm run hide_run">        <span class="key">if</span> <span class="nam">order_form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span> <span class="key">and</span> <span class="nam">payment_form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t46" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t46" class="stm mis">            <span class="nam">print</span> <span class="op">(</span><span class="str">'passed through the form validation'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t47" class="stm mis">            <span class="nam">order</span> <span class="op">=</span> <span class="nam">order_form</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="nam">commit</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t48" class="pln">            <span class="com">#set the date to the time right now. (ie. the time the customer submitted their personal &amp; payment details)</span><span class="strut">&nbsp;</span></p>
 <p id="t49" class="stm mis">            <span class="nam">order</span><span class="op">.</span><span class="nam">date</span> <span class="op">=</span> <span class="nam">timezone</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -554,7 +554,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-07-23 16:15
+            created at 2018-07-24 23:30
         </p>
     </div>
 </div>

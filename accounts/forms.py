@@ -68,10 +68,14 @@ class CustomerLoginForm(forms.Form):
 
 # Edit Customer Profile
 class EditProfileForm(UserChangeForm):
-     # an inner class to provide information about the form (known as Meta classes in Django) 
+     
+      # email field required    
+    email = forms.CharField(required=True, widget=forms.EmailInput(attrs={'class': 'validate',}))
+    # an inner class to provide information about the form (known as Meta classes in Django)     
     class Meta:
         # the model we want to store the information in which is the User model
         model = User
+       
         # the fields we want to be able to edit
         fields = ['email', 'username', 'first_name', 'last_name', 'password']
     

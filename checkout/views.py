@@ -34,16 +34,16 @@ def checkout(request):
             
     # if the method is a POST method       
     if request.method=="POST":
-    
+       
         # form with customer personal details
         order_form = OrderForm(request.POST)
         # form with customer bank details
         payment_form = MakePaymentForm(request.POST)
         
-            
+         
         # if the order form and payment form are valid
         if order_form.is_valid() and payment_form.is_valid():
-            
+            print ('passed through the form validation')
             order = order_form.save(commit=False)
             #set the date to the time right now. (ie. the time the customer submitted their personal & payment details)
             order.date = timezone.now()
