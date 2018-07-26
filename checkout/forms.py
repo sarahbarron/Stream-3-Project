@@ -9,17 +9,19 @@ class MakePaymentForm(forms.Form):
     # year ranges for expiry date
     YEAR_CHOICES = [(i,i) for i in range (2018, 2030)]
     
+    # Stripe deals with the encryption of all our data so we set all our required to False, so that plain text is not transmitted through the browser
+    
     # credit card number 
-    credit_card_number = forms.CharField(label='Credit Card Number', required=True)
+    credit_card_number = forms.CharField(label='Credit Card Number', required=False)
     
     # 3 digit CVV security number
-    cvv = forms.CharField(label='Security code (CVV)', required=True)
+    cvv = forms.CharField(label='Security code (CVV)', required=False)
     
     # expiry month
-    expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=True)
+    expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=False)
     
     # expiry year
-    expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=True)
+    expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
     
     # stripe id which is hidden from the customer
     stripe_id = forms.CharField(widget=forms.HiddenInput)
