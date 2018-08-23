@@ -7,16 +7,14 @@ body{
     
 }
 
-footer .container-fluid{
-    padding:0px;
-}
 
-/* THIS REMOVES ANY WHITE SPACE AROUND THE EDGE OF THE PAGE*/
-/*html,body*/
-/*{*/
-/*  overflow-x: hidden; */
-/*  
-/*}*/
+
+ THIS REMOVES ANY WHITE SPACE AROUND THE EDGE OF THE PAGE
+html,body
+{
+  overflow-x: hidden; 
+  
+}
 
 
 
@@ -113,6 +111,7 @@ h1, h2, h3, h4, h5{
 .font-purple{
     color: #A326CE;
 }
+
 /* links */
 a{
     color: #A326CE;
@@ -243,12 +242,14 @@ p{
     font-size: 20px;
 }
 .treatment-front H1, .treatment-back H1, .treatment-back a, .landing-page-div a{
-    font-size:25px;
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-color: #EB3EF4;
  }
 
+.treatment-front H1, .treatment-back H1{
+    font-size: 25px;
+}
 .treatment-back a, .landing-page-div a{
     font-family: 'Gloria Hallelujah', cursive;
     color:#EB3EF4;
@@ -273,7 +274,7 @@ p{
      padding:7px;
  }
  
- /****************LANDING PAGE SHOP*******************************************/
+ /****************LANDING PAGE SHOP**************************/
 #landing-page-shop-div{
     background-color: white;
     color: #A326CE;
@@ -289,6 +290,42 @@ p{
      line-height: 200%;
 }
 
+/**************** LANDING PAGE NEWS & SPECIALS ****************/
+#landing-page-news-div{
+    background-color: #A326CE;
+    }
+
+#single-post{
+    border: 10px 5px;
+    border-style: solid;
+    border-color: white;
+    height:600px;
+    background-color: #A326CE;
+}
+#single-post .thumbnail{
+    background-color: #A326CE;
+    border:none;
+}
+#post-img{
+    max-width: 500px;
+    height: 250px;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+.thumbnail a{
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+}
+.thumbnail .caption{
+    color:white;
+}
+/**************** LANDING PAGE CONTACT  ********************************/
+
+
+#landing-page-contact-div{
+    background-color: black;
+}
 /******************** LANDING PAGE GENERAL ***********************************/
 
 
@@ -571,9 +608,19 @@ footer .btn{
 #profile-div>div>h2{
     padding:50px;
 }
-.treatment-front H1, .treatment-back H1, .treatment-back a, .landing-page-div a{
+.treatment-front H1, .treatment-back H1{
     font-size:36px;
 }
+#landing-page-news-div{
+    
+    padding: 0 100px 0 50px;
+}
+  
+#post-img{
+        background-size:cover;
+        width: auto
+    }
+
 
 }
 
@@ -611,7 +658,7 @@ footer .btn{
     .full-post-heading, #profile-heading, #cart-heading{
         font-size: 60px;
     }
-
+  
     
 }   
 
