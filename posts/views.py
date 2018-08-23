@@ -73,7 +73,7 @@ def create_or_edit_post(request, pk=None):
 # view to delete a post requires the posts primary key        
 @login_required
 def delete_post(request, pk):
-     # only a staff memeber can create or edit a post
+     # only a staff memeber can delete a post
     if request.user.is_staff:
         # get the post object with the primary key
         post = get_object_or_404(Post, pk=pk)

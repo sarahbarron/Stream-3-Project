@@ -12,15 +12,17 @@
 
 <!--main content of the page-->
 {% block content%}
-    <div class="container">
+    <div class="container main-page">
+        
+         <h1 class="line-center padding10 bld"> Blog Post </h1>
         <!-- the method will post & it will be encrypted-->
-        <form method="POST" enctype="multipart/form-data">
+        <form  id="blog-form" class="center ginas-forms" method="POST" enctype="multipart/form-data">
             <!--protection against cross site request forgery-->
             {% csrf_token %}
             {{form | as_bootstrap }}
             {{form.media}}
             
-            <button type="submit" class="btn btn-default">Save</button>
+            <button type="submit" class="btn btn-success">Save</button>
             
         </form>
     </div>

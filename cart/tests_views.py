@@ -2,48 +2,47 @@ from django.test import TestCase
 from products.models import Product
 from django.shortcuts import get_object_or_404
 
-#cart views: view_cart, add_to_cart, adjust_cart
-
+# test cart views
 class TestCartViews(TestCase):
-
+    
+    # test viewing a cart
     def test_view_cart_view(self):
+        # view a cart url
         page = self.client.get("/cart/")
+        # check status code is 200
         self.assertEqual(page.status_code, 200)
+        # check Template Used is cart.html page
         self.assertTemplateUsed(page, "cart.html")
         
     #test to check add_to_cart view - i changed the quantity in the view to 5 for this test
     def test_add_to_cart_view(self):
-        item = Product(id='2', name="Product", available_stock="4", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # create a Product
+        item = Product(name="Product", available_stock="4", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # save the product
         item.save()
-        id = item.id
-        
-        cart = self.client.session
-        cart['1'] = 3
-        cart['2'] = 1
-        cart.save() 
-       
-        cart.save() 
-       
-        page = self.client.post("/cart/add/{0}".format(id), data={'quantity': '100'}, follow=True)
+        # post product and quantity to cart
+        page = self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '20'}, follow=True)
+        # check the status code is 200
         self.assertEqual(page.status_code, 200)
+         # check Template Used is products.html
         self.assertTemplateUsed(page, "products.html")
     
     
-    #test to check adjust_cart view - I changed the quantity in the view to 5 for this test
+    #test adjusting the cart view
     def test_adjust_cart_view(self):
-        item = Product(id='1', available_stock="4", name="Product", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # create an item
+        item = Product(available_stock="4", name="Product", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # save the item
         item.save()
-        id = item.id
-        
-        cart = self.client.session
-        cart['1'] = 3
-        cart['2'] = 1
-        cart.save() 
-       
-        
-        response = self.client.post("/cart/adjust/{0}".format(id), data={"quantity":100}, follow=True)
-        item = get_object_or_404(Product, pk=id)
-        self.assertEqual('1', id)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "cart.html")
+        # post the product id and ammended quantity
+        page = self.client.post("/cart/adjust/{0}".format(item.id), data={"quantity":100}, follow=True)
+        # check the status code is 200
+        self.assertEqual(page.status_code, 200)
+        #  # check Template Used is cart.html page
+        self.assertTemplateUsed(page, "cart.html")
+    
+    
+    
+    
+    
     

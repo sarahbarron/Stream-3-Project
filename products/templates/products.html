@@ -1,43 +1,209 @@
 {% extends 'base.html' %} 
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
-{% block content %}
 
-<div class="container">
+{% block content %}
+<!--open container-->
+<div class="container main-page">
+    <div id="tomitago-logo">
+    <img class="img-responsive center"  src="{% static 'img/tomitago-logo.jpg' %}"></img></div>
     
+    <!----------- open AVAILABLE STOCK row ----------------------------------->
     <div class="row row-flex">
-        {% for product in products %}
-    
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-    
-            <div class="panel-body">
-                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-    
-                <h3>{{ product.name }}</h3>
-                {% if product.average_rating > 0 %}
-                    <p> {{product.average_rating }} / 5</p>
-                {% endif %}
+        {% for in_stock_products in in_stock_products %}
+        <!-- open available products column -->
+        <div class="col-sm-6">
+            <!-- open product body -->
+            <div class="product-body padding10">
                 
-                <p class="product-description">{{ product.description }}</p>
-                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ product.price }}</p>
-    
-    
-               <form method="post" action ="{% url 'add_to_cart' product.id %}">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" value="1">
-                        <span class="input-group">
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>ADD</button> 
+    <!------------------ open PRODUCT NAME row ------------------------------->
+                <div class="row padding10">
+                    <!-- product name -->
+                    <h3 class="product-front padding10 line-center"><span class="bld">{{ in_stock_products.name }}</span></h3>
+                <!--close product name row-->
+                </div>
+    <!------------------ open PRODUCT RATING row ------------------------------>
+                <div class="row rating padding10">
+                    <!--product rating-->
+                    {% if in_stock_products.average_rating > 0 %}
+                    <h4 class="product-front line-center"><span class="bld"> {{in_stock_products.average_rating }} / 5</span>  <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h4>
+                    {% endif %}
+                <!-- end star rating row-->
+                </div>
+                
+    <!------------------ open PRODUCT DETAILS row ----------------------------->
+                <div class="row">
+                    
+     <!----------------------------- FLIP CARD COLUMN-------------------------->            <!-- open the filp card outer container -->
+                    <div class="flip-card col-md-7 treatment-flip-card">
+                        
+                        <!--open the flip div which contains the image and description-->
+                        <div class="flip product-flip-card-dimensions">
+                            <!-- open front image of product -->
+                            <div class="product-img img-responsive front" style="background-image: url('{{ MEDIA_URL }}{{ in_stock_products.image }}')">
+                            <!-- close front image of product -->
+                            </div>
+                            
+                            <!--open back description-->
+                            <div class="back product-back">
+                                <!--Description of product-->
+                                <p class="product-description padding10"> {{ in_stock_products.content }}</p>
+                            <!--close back description-->
+                            </div>
+                        <!-- close the flip div -->
+                        </div>  
+            
+                    <!-- close the flip card with image and description -->
                     </div>
-                </form>
-                <a href="{% url 'new_review' product.id %}"> Write a Review </a><br>
-                <a href="{% url 'view_reviews' product.id %}"> View Reviews </a>
-                
-                
+                    
+    <!------------------ PURCHASE DETAILS COLUMN ------------------------------>                 
+                    <!-- open the purchase div -->
+                    <div class="purchase-col col-md-5  treatment-flip-card">
+                        
+                        <!-- row for the product price -->
+                        <div class="row price-row padding10">
+                            <!--product price-->
+                            <h3 class="bld"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ in_stock_products.price }}</h3>
+                        <!--close product price row-->
+                        </div>
+                        
+                        <!-- row for add to cart form-->
+                        <div class="row add-to-cart-row padding10">
+                        <!-- add the product to the cart -->
+                           <form method="post" action ="{% url 'add_to_cart' in_stock_products.id %}">
+                                {% csrf_token %}
+                                <!-- open the input group-->
+                                <div class="input-group">
+                                    <input name="quantity" type="number" min="1" max="999" class="form-control" value="1"></input>
+                                   
+                                    <button type="submit" class="button-purchase btn btn-success bld"><span class="glyphicon glyphicon-plus"></span> ADD </button> 
+                                <!--close the input group-->
+                                </div>
+                            <!--close the add product to cart form-->
+                            </form>
+                        <!--close row for add to cart form-->
+                        </div>
+                        
+                        <!-- row or review links-->
+                        <div class="row review-row padding10">
+                            <!--open review div-->
+                            <div class="review">
+                                <h4><span class="bld">
+                                <!-- view a review about the product-->
+                                <a href="{% url 'view_reviews' in_stock_products.id %}"> View Reviews </a><br><br>
+                                <!-- write a review -->
+                                <a href="{% url 'new_review' in_stock_products.id %}"> Write a Review </a>
+                                </span></h4>
+                            <!--close the reivew div-->
+                            </div>
+                        <!-- close row for review links-->
+                        </div>
+                    <!-- close the purchase div-->
+                    </div>
+                <!-- close the product details row -->
+                </div>
+            <!-- close product body -->
             </div>
+        <!-- close available product column -->
+        </div>
+        {% endfor %}
+    <!--close available stock row-->
+    </div>
+    
+<!---------------  OUT OF STOCK PRODUCTS ------------------------------------->
+
+    <div class="row row-flex">
+        {% for in_stock_products in out_of_stock_products %}
+    
+       <div class="col-sm-6">
+            <!-- open product body -->
+            <div class="product-body padding10">
+                
+    <!------------------ open PRODUCT NAME row ------------------------------->
+                <div class="row padding10">
+                    <!-- product name -->
+                    <h3 class="product-front padding10 line-center"><span class="bld">{{ in_stock_products.name }}</span></h3>
+                <!--close product name row-->
+                </div>
+    <!------------------ open PRODUCT RATING row ------------------------------>
+                <div class="row rating padding10">
+                    <!--product rating-->
+                    {% if in_stock_products.average_rating > 0 %}
+                    <h4 class="product-front padding10 line-center"><span class="bld"> {{in_stock_products.average_rating }} / 5</span>  <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h4>
+                    {% endif %}
+                <!-- end star rating row-->
+                </div>
+                
+    <!------------------ open PRODUCT DETAILS row ----------------------------->
+                <div class="row">
+                    
+     <!----------------------------- FLIP CARD COLUMN-------------------------->            <!-- open the filp card outer container -->
+                    <div class="flip-card col-md-7 treatment-flip-card">
+                        
+                        <!--open the flip div which contains the image and description-->
+                        <div class="flip product-flip-card-dimensions">
+                            <!-- open front image of product -->
+                            <div class="product-img img-responsive front" style="background-image: url('{{ MEDIA_URL }}{{ in_stock_products.image }}')">
+                            <!-- close front image of product -->
+                            </div>
+                            
+                            <!--open back description-->
+                            <div class="back product-back">
+                                <!--Description of product-->
+                                <p class="product-description padding10"> {{ in_stock_products.content }}</p>
+                            <!--close back description-->
+                            </div>
+                        <!-- close the flip div -->
+                        </div>  
+            
+                    <!-- close the flip card with image and description -->
+                    </div>
+                    
+    <!------------------ PURCHASE DETAILS COLUMN ------------------------------>                 
+                    <!-- open the purchase div -->
+                    <div class="purchase-col col-md-5  treatment-flip-card">
+                        
+                        <!-- row for the product price -->
+                        <div class="row price-row padding10">
+                            <!--product price-->
+                            <h3 class="bld"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ in_stock_products.price }}</h3>
+                        <!--close product price row-->
+                        </div>
+                        
+                        <!-- row for add to cart form-->
+                        <div class="row add-to-cart-row padding10">
+                            <h3 class="sold-out">SOLD OUT</h3>
+                        <!--close row for add to cart form-->
+                        </div>
+                        
+                        <!-- row or review links-->
+                        <div class="row review-row padding10">
+                            <!--open review div-->
+                            <div class="review">
+                                <h4><span class="bld">
+                                <!-- view a review about the product-->
+                                <a href="{% url 'view_reviews' in_stock_products.id %}"> View Reviews </a><br><br>
+                                <!-- write a review -->
+                                <a href="{% url 'new_review' in_stock_products.id %}"> Write a Review </a>
+                                </span></h4>
+                            <!--close the reivew div-->
+                            </div>
+                        <!-- close row for review links-->
+                        </div>
+                    <!-- close the purchase div-->
+                    </div>
+                <!-- close the product details row -->
+                </div>
+            <!-- close product body -->
+            </div>
+        <!-- close available product column -->
         </div>
         {% endfor %}
     </div>
+<!--close container-->
 </div>
 {% endblock %}
+
+
+
 

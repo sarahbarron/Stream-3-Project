@@ -12,9 +12,11 @@ class TestAccountsBackend(TestCase):
         # logs in the test user
         self.client.login(username='myemail@test.com', password='password')
 
-        # tests that the url for login with email address has a 200 status and goes to index.html
+        # login url
         page = self.client.get("/accounts/login/", follow=True)
+        # check the status code is 200
         self.assertEqual(page.status_code, 200)
+        # check Template Used is index.html
         self.assertTemplateUsed(page, "index.html")
     
     # testing login with a correct email address and a wrong password
@@ -25,9 +27,11 @@ class TestAccountsBackend(TestCase):
         # try to login the user with the correct email address but the wrong password
         self.client.login(username='myemail@test.com', password='wrong')
 
-        # tests that the url for login has a 200 status and returns you to login.html 
+        # login url
         page = self.client.get("/accounts/login/", follow=True)
+        # check the status code is 200
         self.assertEqual(page.status_code, 200)
+         # check Template Used is login.html
         self.assertTemplateUsed(page, "login.html")
     
     # tesing login with correct details but the user is not an active user
@@ -38,9 +42,10 @@ class TestAccountsBackend(TestCase):
         # try to log in the inactive user
         self.client.login(username='myemail@test.com', password='password')
         
-        # tests that the url for login has a 200 status and returns you to login.html 
+        # login url
         page = self.client.get("/accounts/login/", follow=True)
+        # check status code is 200
         self.assertEqual(page.status_code, 200)
+         # check Template Used is login.html
         self.assertTemplateUsed(page, "login.html")
         
-   

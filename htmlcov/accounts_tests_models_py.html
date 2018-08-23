@@ -73,13 +73,15 @@
 <p id="n4" class="stm run hide_run"><a href="#n4">4</a></p>
 <p id="n5" class="pln"><a href="#n5">5</a></p>
 <p id="n6" class="stm run hide_run"><a href="#n6">6</a></p>
-<p id="n7" class="stm run hide_run"><a href="#n7">7</a></p>
+<p id="n7" class="pln"><a href="#n7">7</a></p>
 <p id="n8" class="stm run hide_run"><a href="#n8">8</a></p>
 <p id="n9" class="stm run hide_run"><a href="#n9">9</a></p>
-<p id="n10" class="stm run hide_run"><a href="#n10">10</a></p>
+<p id="n10" class="pln"><a href="#n10">10</a></p>
 <p id="n11" class="stm run hide_run"><a href="#n11">11</a></p>
 <p id="n12" class="stm run hide_run"><a href="#n12">12</a></p>
-<p id="n13" class="pln"><a href="#n13">13</a></p>
+<p id="n13" class="stm run hide_run"><a href="#n13">13</a></p>
+<p id="n14" class="stm run hide_run"><a href="#n14">14</a></p>
+<p id="n15" class="pln"><a href="#n15">15</a></p>
 
             </td>
             <td class="text">
@@ -87,15 +89,17 @@
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">contrib</span><span class="op">.</span><span class="nam">auth</span><span class="op">.</span><span class="nam">models</span> <span class="key">import</span> <span class="nam">User</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="key">class</span> <span class="nam">TestItemModel</span><span class="op">(</span><span class="nam">TestCase</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t5" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t5" class="pln">    <span class="com"># test the user model</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm run hide_run">    <span class="key">def</span> <span class="nam">test_user_model</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm run hide_run">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">User</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">create_user</span><span class="op">(</span><span class="nam">username</span> <span class="op">=</span> <span class="str">'username'</span><span class="op">,</span> <span class="nam">email</span> <span class="op">=</span><span class="str">'myemail@test.com'</span><span class="op">,</span> <span class="nam">first_name</span><span class="op">=</span><span class="str">'first'</span><span class="op">,</span> <span class="nam">last_name</span><span class="op">=</span><span class="str">'last'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t8" class="stm run hide_run">        <span class="nam">user</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t9" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">username</span><span class="op">,</span> <span class="str">"username"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">email</span><span class="op">,</span> <span class="str">"myemail@test.com"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">first_name</span><span class="op">,</span> <span class="str">"first"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t12" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">last_name</span><span class="op">,</span> <span class="str">"last"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t13" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t7" class="pln">        <span class="com"># create and save a user</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="stm run hide_run">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">User</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">create_user</span><span class="op">(</span><span class="nam">username</span> <span class="op">=</span> <span class="str">'username'</span><span class="op">,</span> <span class="nam">email</span> <span class="op">=</span><span class="str">'myemail@test.com'</span><span class="op">,</span> <span class="nam">first_name</span><span class="op">=</span><span class="str">'first'</span><span class="op">,</span> <span class="nam">last_name</span><span class="op">=</span><span class="str">'last'</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="stm run hide_run">        <span class="nam">user</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln">        <span class="com"># check if each field value is equal to the value entered for the user</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">username</span><span class="op">,</span> <span class="str">"username"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t12" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">email</span><span class="op">,</span> <span class="str">"myemail@test.com"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">first_name</span><span class="op">,</span> <span class="str">"first"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">user</span><span class="op">.</span><span class="nam">last_name</span><span class="op">,</span> <span class="str">"last"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -106,7 +110,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-07-21 21:47
+            created at 2018-07-27 14:55
         </p>
     </div>
 </div>

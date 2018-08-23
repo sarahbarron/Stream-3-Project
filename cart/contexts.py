@@ -16,6 +16,7 @@ def cart_contents(request):
     cart_items =[]
     # total cost initially is 0
     total = 0
+    # item_total = 0
     # the number of products in the cart is set to 0 initially
     product_count=0
     # while there are products & quantities in the cart
@@ -23,11 +24,12 @@ def cart_contents(request):
         # get an instance of the product
         product = get_object_or_404(Product, pk=id)
         # add the cost of buying the product(s) to the total
+        item_total =  quantity * product.price
         total += quantity * product.price
         # add the quantity to the product count
         product_count += quantity
         # append a dictionary with the id, quantity and product to the cart items list
-        cart_items.append({'id': id, 'quantity': quantity, 'product': product})
+        cart_items.append({'id': id, 'quantity': quantity, 'product': product, 'item_total': item_total})
     
     #return a dictionary of the cart items, total cost, and product count
     return{ 'cart_items': cart_items, 'total': total, 'product_count': product_count}

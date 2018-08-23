@@ -1,6 +1,6 @@
 <!--extension to the base.html file-->
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 
@@ -10,4 +10,234 @@
 
 <!--main content of the page-->
 {% block content%}
+<div class="container-fluid">
+    
+<!---------------- landing page main PICTURE ---------------------------------->
+    <div class="row">
+        <div id="firstpic" class="col-xs-12">
+            <img class="img-responsive"  src="{% static 'img/gina5.jpg' %}"></img>
+        </div>
+    </div>
+    
+<!----------------- landing page TREATMENTS ----------------------------------->
+
+    <div class="row landing-page-div">
+        <div class="col-xs-12">
+            <!-- treatments HEADING -->
+            <h1 class="line-center landing-page-heading"> TREATMENTS </h1><hr>
+             <div class="row hidden-md hidden-lg">
+                <!-- waxing div -->
+                <div class="front treatment-front">
+                    <H1 class="line-center"> WAXING </H1>
+                <!-- close waxing div -->
+                </div>
+                <!-- open brow & lash  bar -->
+                <div class="front treatment-front">
+                    <H1 class="line-center"> BROW & LASH BAR </H1>
+                <!-- close brow & lash bar -->
+                </div>
+                 <!-- open suntana div -->
+                <div class="front treatment-front">
+                    <H1 class="line-center"> SUNTANA TAN</H1>
+                <!-- close suntana div -->
+                </div>
+                 <!-- open makeup div -->
+                <div class="front treatment-front">
+                    <H1 class="line-center"> MAKEUP </H1>
+                <!-- close makeup div -->
+                </div>
+                 <!-- open nail bar div -->
+                <div class="front treatment-front">
+                    <H1 class="line-center"> NAIL BAR </H1>
+                <!-- close nail bar div -->
+                </div>
+             </div>
+             <div class="row hidden-xs hidden-sm">
+                    
+             <!--------- TREATMENTS FLIP CARD FEMALE WAXING -----------------> <!-- open the filp card outer container -->
+                <div class="flip-card col-md-6 treatment-flip-card">
+                    
+                    <!--open the flip div which contains the front & back divs-->
+                    <div class="flip treatment-flip-card-dimensions">
+                    
+                        <!-- open front image of product -->
+                        <div class="front treatment-front">
+                            <H1 class="line-center"> WAXING </H1>
+                        <!-- close front image of product -->
+                        </div>
+                        
+                        <!--open back description-->
+                        <div class="back treatment-back">
+                            <!--Description of wax-->
+                            <h1 class="line-center padding10">Waxing</h1>
+                            <p> At Ginas Beauty Studio we use the award winning wax Waxperts </p>
+                            <h3 class="line-center"> Voted number 1 wax in Ireland</h3>
+                            <p> Waxperts wax has a lower melting point which is perfect for sensitive skin. It is lavender base which is known for it's antiseptic, anti inflammatory, soothing and healing properties.</p>
+                            
+                            <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL WAXING TREATMENTS & PRICES </a>
+                        <!--close back description-->
+                        </div>
+                    <!-- close the flip div -->
+                    </div>
+                    
+                    
+                <!-- close the flip card front & back container -->
+                </div>
+                
+            
+                
+                <!--------- TREATMENTS FLIP CARD BROW & LASH BAR --------------> <!-- open the filp card outer container -->
+                <div class="flip-card col-md-6 treatment-flip-card">
+                    
+                    <!--open the flip div which contains the front & back divs-->
+                    <div class="flip treatment-flip-card-dimensions">
+                    
+                        <!-- open front image of product -->
+                        <div class="front treatment-front">
+                            <H1> BROW & LASH BAR</H1>
+                        <!-- close front image of product -->
+                        </div>
+                        
+                        <!--open back description-->
+                        <div class="back treatment-back">
+                            <h1 class="line-center padding10">BROW & LASH BAR</h1>
+                            <h3> Waxing,   Threading,   Tinting </h3>
+                            <br>
+                            <h3> HD Brows,   Weekenders, </h3>
+                            <br>
+                            <h3> Express Lashes  &  Strip Lashes</h3>
+                            
+                            <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL BROW & LASH BAR TREATMENTS & PRICES </a>
+                        <!--close back description-->
+                        </div>
+                    <!-- close the flip div -->
+                    </div>  
+                <!-- close the flip card front & back container -->
+                </div>
+                
+                <!--------- TREATMENTS FLIP CARD TAN ----------------------> <!-- open the filp card outer container -->
+                <div class="flip-card col-md-4 treatment-flip-card">
+                    
+                    <!--open the flip div which contains the front & back divs-->
+                    <div class="flip treatment-flip-card-dimensions">
+                    
+                        <!-- open front image of product -->
+                        <div class="front treatment-front">
+                            <H1> SUNTANA TAN</H1>
+                        <!-- close front image of product -->
+                        </div>
+                        
+                        <!--open back description-->
+                        <div class="back treatment-back">
+                            <h1 class="line-center padding10">SUNTANA TAN</h1>
+                            <p>Available in light, medium, dark, after dark</p>
+                            <p>rapid tan ready to go in 1 hour</p>
+                            <p>violet based for a deep exotic tan.</p>
+                            <p>Half Body & Full Body</p>
+                            
+                            <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL SUNTANA TAN PRICES </a>
+                        <!--close back description-->
+                        </div>
+                    <!-- close the flip div -->
+                    </div>  
+                <!-- close the flip card front & back container -->
+                </div>
+            
+             <!--------- TREATMENTS FLIP CARD MAKEUP ----------------------> <!-- open the filp card outer container -->
+                <div class="flip-card col-md-4 treatment-flip-card">
+                    
+                    <!--open the flip div which contains the front & back divs-->
+                    <div class="flip treatment-flip-card-dimensions">
+                    
+                        <!-- open front image of product -->
+                        <div class="front treatment-front">
+                            <H1> MAKEUP </H1>
+                        <!-- close front image of product -->
+                        </div>
+                        
+                        <!--open back description-->
+                        <div class="back treatment-back">
+                            <!--Description of product-->
+                            <H1 class="line-center padding10">  MAKEUP </H1>
+                            <h3> Need your makeup done for a: </h3>
+                            <h3> Night Out, Wedding, Debs </h3>
+                            <h3> or any special occasion </h3>
+                            <h3>Come to Gina's Beauty Studio</h3>
+                            <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL MAKEUP PRICES </a>
+                        <!--close back description-->
+                        </div>
+                    <!-- close the flip div -->
+                    </div>  
+                <!-- close the flip card front & back container -->
+                </div>
+            
+            <!--------- TREATMENTS FLIP CARD NAIL BAR---------------------> <!-- open the filp card outer container -->
+                <div class="flip-card col-md-4 treatment-flip-card">
+                    
+                    <!--open the flip div which contains the front & back divs-->
+                    <div class="flip treatment-flip-card-dimensions">
+                    
+                        <!-- open front image of product -->
+                        <div class="front treatment-front">
+                            <H1> NAIL BAR</H1>
+                        <!-- close front image of product -->
+                        </div>
+                        
+                        <!--open back description-->
+                        <div class="back treatment-back">
+                            <!--Description of product-->
+                            <H1 class="line-center padding10"> NAIL BAR </H1>
+                            
+                            <h3>Manicures, Pedicures, Callus Peels</h3>
+                            <h3> Gel Polish & Extensions</h3>
+                            <h3>Shellac Hands & Feet</h3>
+                            <h3>File & Polish </h3>
+                            
+                             <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL NAIL BAR PRICES </a>
+                        <!--close back description-->
+                        </div>
+                    <!-- close the flip div -->
+                    </div>  
+                <!-- close the flip card front & back container -->
+                </div>
+            
+            <!-- close the row-->
+            </div>
+        <!-- close the column -->
+        </div>
+        
+        <!--link to treatments page-->
+        <h3><a class="bld" href="{% url 'treatments'%}"> VIEW ALL TREATMENTS & PRICES </a></h3>
+           
+    <!-- close the treatments landing page div-->
+    </div>
+
+<!---------------- SHOP - BUY PRODUCTS ---------------------------------------->
+ 
+  <div id="landing-page-shop-div" class="row landing-page-div">
+    <div class="col-xs-12">
+        <!-- shop HEADING -->
+        <h1 class="line-center landing-page-heading"> SHOP </h1><hr>
+         <div class="row">
+            <div id="landing-product-description" class="col-xs-12">
+                <img class="img-responsive center"  src="{% static 'img/tomitago-logo.jpg' %}"></img>
+                <h3> At Gina's Beauty Studio we sell the locally sorced chemical free Tomitago</h3>
+                <h3>The aim of Tomitago is to produce 100% chemical-free skin care products that are as effective as their chemical counter parts. </h3>
+
+                <h3>There unisex products have been formulated to be effective and gentle on all skin types.</h3>
+
+                <h3>All the ingredients are specially sourced  and expertly blended to create products which contain naturally nourishing and invigorating properties.     </h3>
+            
+            </div>
+            
+             <!--link to products page-->
+            <h3><a class="bld" href="{% url 'all_products'%}"> SHOP TOMITAGO PRODUCTS </a></h3>
+<!---------------------------------------------------------------------------->
+<!-- close the container fluid-->
+</div></div></div>
 {% endblock %}

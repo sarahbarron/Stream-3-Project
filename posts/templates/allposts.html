@@ -12,41 +12,42 @@
 
 <!--main content of the page-->
 {% block content%}
-<div class="container">
+<div class="container main-page">
 
     <div class="row">
-        
-        <div class="col-md-2 col-sm-3 text-center">
-           <img src="/media/img/profile.jpg" alt="ginas profile picture" class="img-circle">
-            <p><span class="boldtext">Author</span>Gina</p>
+        <div id="news-heading" class="col-xs-12 line-center">  
+            <h1 class="padding10"> News & Special Offers </h1>
         </div>
     </div>
     
     {% for post in posts %}
      
-    <div class="row">
+    <div class="mini-post row background-white b-radius">
     
-        <div class="col-sm-12">
-            <h3>{{post.title}}</h3>
-            <p><span class="boldtext">Published On: </span>{{post.published_date}}<span class="boldtext">  Views: </span>{{post.views}}
-        </div>
-        
-        <div class="col-sm-4">
+     
+        <div class="col-xs-12 col-md-4 col-lg-3 padding50">
             {% if post.image %}
-                <img class="img-thumbnail img-responsive" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image" class="img-blogpost">
+                <img class="img-thumbnail img-responsive post-img" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
             {% else %}
-                <img class ="img-thumbnail img-responsive" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image" class="img-blogpost">
+                <img class ="img-thumbnail img-responsive post-img" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image">
             {% endif %}
         </div>
         
-        <div class="col-xs-10 col-sm-6">
-
-            <p> {{ post.content|safe|linebreaks|truncatewords:30 }}</p>
-            <p> <a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read More</a></p>
-            {% if user.is_staff %}
-            <a href="{% url 'edit_post' post.id %}" class="btn btn-primary" role="button">EDIT POST </a>
-            <a href="{% url 'delete_post' post.id %}" class="btn btn-primary" role="button">DELETE POST </a>
-            {% endif %}
+        <div class="post-details col-xs-12 col-md-8 col-sm-6 col-lg-9">
+            <div class="col-sm-12 font-purple">
+                <h2 class="padding10">{{post.title}}</h2>
+                <p class="padding10"><span class="boldtext">Published On: </span>{{post.published_date}}<span class="boldtext">  Views: </span>{{post.views}}</p><hr>
+            </div>
+            <div class="col-sm-12 font-black">
+                <p> {{ post.content|safe|linebreaks|truncatewords:40 }}</p><br>
+            </div>
+            <div class="col-sm-12 align-right">
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
+                {% if user.is_staff %}
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-success" role="button">EDIT POST </a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a>
+                {% endif %}
+            </div>
             
         </div>
     </div>

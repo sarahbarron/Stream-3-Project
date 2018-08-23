@@ -100,13 +100,13 @@ class Test_Login_Form(TestCase):
         form = CustomerLoginForm({'username':'test', 'password': '',})
         self.assertFalse(form.is_valid())
     
-    # Test that the message 'This field is required' when the username is missing
+    # Test that the form error 'This field is required' occurs when the username is missing
     def test_correct_message_for_missing_username(self):
         form = CustomerLoginForm({'username': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['username'], [u'This field is required.'])
     
-    # Test that the message 'This field is required' when the password is missing
+    # Test that the form error 'This field is required' occurs when the password is missing
     def test_correct_message_for_missing_password(self):
         form = CustomerLoginForm({'password': ''})
         self.assertFalse(form.is_valid())
@@ -116,13 +116,14 @@ class Test_Login_Form(TestCase):
 # Test the Edit Profile Form        
 class Test_Edit_Profile_Form(TestCase):
     
-    # Test that the Edit Profile Form returns valid when there is input
+    # Test that the Edit Profile Form returns valid when there is valid changes
     def test_Edit_Profile_Form(self):
         user = User.objects.create_user(username = 'username', email = 'myemail@test.com', password='password', first_name='first', last_name='last')
         data = {'username': 'changed', 'first_name':'changed', 'last_name':'changed', 'email':'changed@change.ie'}
         form = EditProfileForm(data, instance=user)
         self.assertTrue(form.is_valid())
     
+    # Test that the error message 'This field is required' occurs when there is no username inputted in the field
     def test_correct_message_for_no_username_input(self):
         user = User.objects.create_user(username = 'username', email = 'myemail@test.com', password='password')
         data = {'username': ''}
@@ -130,6 +131,7 @@ class Test_Edit_Profile_Form(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['username'], [u'This field is required.'])
     
+    # Test that the error message 'This field is required' occurs when there is no email inputted in the field
     def test_correct_message_for_no_email_input(self):
         user = User.objects.create_user(username = 'username', email = 'myemail@test.com', password='password')
         data = {'email': ''}

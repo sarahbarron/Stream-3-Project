@@ -1,17 +1,14 @@
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
+
 
 # Product Model - stores details of products 
 class Product(models.Model):
     
     # name of product
-    name = models.CharField(max_length=254, default='')
-    
-    # quantity of stock available for the product
-    available_stock = models.PositiveSmallIntegerField(default=0)
+    name = models.CharField(max_length=100, default='')
     
     # description of the product
-    content = RichTextUploadingField(blank=True, null=True)
+    content = models.TextField(max_length=200, blank=True)
     
     # price of the product
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -24,6 +21,9 @@ class Product(models.Model):
     
     # average rating for the product
     average_rating = models.DecimalField(default=0, max_digits=3, decimal_places=1)
+    
+    # quantity of stock available for the product
+    available_stock = models.PositiveSmallIntegerField(default=0)
     
     
     def __str__(self):

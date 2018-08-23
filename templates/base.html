@@ -9,103 +9,152 @@
 
     <!--load the current PAGE TITLE-->
     <title>{% block page_title %}{% endblock %}</title>
-    
-    
-    <!-- bootstrap 3.3.7 Latest compiled and minified CSS -->
+   
+     <!--bootstrap 3.3.7 Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
-    <!-- bootstrap 3.3.7 Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+     <!--bootstrap 3.3.7 Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <!-- font awesome stylesheet -->
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" />
     
-    <!-- developers personal stylesheet-->
+     <!--developers personal stylesheet-->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
     
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
   
-    {% block head_js %}   {% endblock head_js %}
+{% block head_js %}   {% endblock head_js %}
 
 </head>
 
 <body>
-<!-- NAVIGATION -->
-    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
-        <ul class="nav navbar-nav">
-            <!--link to home page -->
-            <li><a href="{% url 'index' %}">home</a></li>
-            <li><a href= "{% url 'get_posts'%}">News & Special Offers</a></li>
-             <li><a href= "{% url 'all_products'%}">Shop</a></li>
-              <li>
-                <a href="{% url 'view_cart' %}">
-                    <i class="fa fa-shipping-cart"></i> Cart
-                    <!--if there are items in the cart add a badge with the number of items in the cart-->
-                    {% if product_count > 0 %}
-                        <label class="badge badge-warning">{{ product_count }}</label>
-                    {% endif %}    
-                </a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-            
-                <li> {{user}} </li>
-           
-                <li><a href="{% url 'customer_profile' %}">Profile/Track Order</a></li>
-                <li><a href="{% url 'logout_customer' %}">Logout</a></li>
-                
-            <!-- if a customer is not logged in show the login and register links-->
-            {% else %}
-                <li><a href="{% url 'login_customer' %}">Login</a></li>
-                <li><a href="{% url 'register_customer' %}">Register</a></li>
-            {% endif %}
-            
-            {% if user.is_staff %}
-                <li><a href = "{% url 'new_post' %}"> New Post </a></li>
-            {% endif %}
-           
-            
-             <form class="navbar-form navbar-right" action="{% url 'search' %}" method="get">
-                <div class="form-group">
-                    <input class="form-control" type="text" name="q">
-                </div>
-                <button class="btn btn-default" type ="submit">Search</button>
-            </form>
-            
-        </ul>
-    </nav>
+<!--if there are messages passed from the views load them here-->
 
-<!-- load the current HEADING -->
-    
-    <h1 class="block-heading">{% block page_heading %}{% endblock %}</h1>
 
-<!-- if there are messages passed from the views load them here-->
-    
-    {% if messages %}
-    <div class="container">
+    <div id="message-container" class="container">
+        {% if messages %}
         <div id="messages">
-            <hr>
+          
             {% for message in messages %} 
                 {{message|safe}}     
             {% endfor %} 
-            <hr>
+           
         </div>
+        {% endif %}
     </div>
-    {% endif %} 
+
+<!-- navbar-fixed-top-->
+ <!--NAVIGATION -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="hidden-sm hidden-md hidden-lg" href="{% url 'index'%}">
+                    <img id="logo-small" class="center" alt="Brand" src="{% static 'img/GinasBeautyStudioLogoSmall.jpg'%}">
+                </a>
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+               
+                
+            <!--close navbar header-->
+            </div>
+              
+            <div class="collapse navbar-collapse" id="myNavbar">
+           
+                <ul class="nav navbar-nav">
+            
+                   
+                    <li><a href="#">TREATMENTS</a></li>
+                    <li><a href= "{% url 'all_products'%}">SHOP</a></li>
+                    <li><a href= "{% url 'get_posts'%}">NEWS & SPECIALS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                <!--close left ul-->
+                </ul> 
+                    
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    {% if user.is_authenticated and not user.is_staff %}
+            
+                    <li><a href="{% url 'customer_profile' %}">PROFILE / TRACK ORDER</a></li>
+                    <li><a href="{% url 'logout_customer' %}">LOGOUT</a></li>
+                    
+                     <!--if a customer is not logged in show the login and register links-->
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                    
+                    <li><a href="{% url 'login_customer' %}">LOGIN</a></li>
+                    <li><a href="{% url 'register_customer' %}">REGISTER</a></li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'view_cart' %}">
+                            <i class="fa fa-shipping-cart"></i> CART
+                            <!--if there are items in the cart add a badge with the number of items in the cart-->
+                            {% if product_count > 0 %}
+                                <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}    
+                        </a>
+                    </li>
+            
+                    {% if user.is_staff %}
+                    <li><a href="admin/">ADMIN PANEL</a></li>
+                    <li><a href="{% url 'logout_customer' %}">LOGOUT</a></li>
+                    {% endif %}
+                    
+                <!--close right ul-->
+                </ul>
+                <!--close navbar collapse-->
+                </div>
+            <!--close row 1-->
+            </div>
+            <div class = "row hidden-xs">
+                <a class="navbar-brand col-xs-12" href="{% url 'index' %}">
+                <img id="logo" class="center img-responsive" alt="Ginas Beauty Studio"  src="{% static 'img/GinasBeautyStudioLogo.jpg'%}">
+                </a>
+                
+            <!--close row 2-->
+            </div>
+        <!--close container fluid-->
+        </div>
+        <div id="logo-line"><hr></div>
+    </nav>
+    
+ 
+    
 
 <!--load the current BLOCK CONTENT -->
     {%block content %}{% endblock %}
-    {%block test %}{%endblock%}
+    {%block footer %}
+    <!-- Footer -->
+    <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4">
+             <!-- Copyright -->
+            <p>Website designed by Sarah Barron</p>
+        </div>
+        <div class="col-sm-4">
+             <!-- Copyright -->
+            <p>© 2018 Copyright: Gina's Beauty Studio</p>
+        </div>
+        <div class="col-sm-4">
+            <!--Search Form -->
+            <form id="search-form" class="form-inline" action="{% url 'search' %}" method="get">
+                <input id="search-input" class="form-control" type="text" name="q">
+                
+                <button id="search-button" class="btn btn-default" type ="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+  </footer>
+  <!-- Footer -->
+    {%endblock%}
     
     
-<!-- LOAD SCRIPTS -->
+ <!--LOAD SCRIPTS -->
 
 
-<!-- bootstrap 3.3.7 Latest compiled and minified JavaScript -->
+ <!--bootstrap 3.3.7 Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>

@@ -1,82 +1,626 @@
-form {
-    padding:50px;
-    width: 40%;
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Gloria+Hallelujah:100,200,300,400,500,600,700');
+/*************************** BODY *******************************************/
+body{
+   font-family: 'Didact Gothic', sans-serif;
+    background-color: black;
+    color:white
+    
 }
 
-.boldtext{
+footer .container-fluid{
+    padding:0px;
+}
+
+/* THIS REMOVES ANY WHITE SPACE AROUND THE EDGE OF THE PAGE*/
+/*html,body*/
+/*{*/
+/*  overflow-x: hidden; */
+/*  
+/*}*/
+
+
+
+
+/************************************* NAVIGATION *****************************/
+
+.navbar{
+    border-radius: 0px;
+    background-color: black;
+    border-bottom: none;
+    padding-top: 20px;
+    min-height: 150px;
+}
+.navbar-inverse .navbar-nav>li> a{
+   
+    color:#A326CE;
     font-weight: bold;
-}
-
-.green{
-    color: green;
+    font-size: 1.6em;
 }
 
 
-@media screen and (min-width: 768px){
-    #masthead h1{
-        font-size: 80px;
+
+#logo{
+    padding:0px;
+    box-shadow:1px 1px 50px 10px #A326CE; 
+    border-radius: 50px 0;
+}
+
+
+#logo-line hr{
+    border: 3px solid #A326CE;
+}
+
+.badge{
+ 
+    background-color:#EB3EF4;
+}
+
+.navbar-toggle, .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover, .navbar-toggle:active{
+    background-color: #A326CE;
+}
+
+
+
+
+
+/********************  Classes used throughout *******************************/
+
+/* center images */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+/* text align center*/
+.line-center{
+    text-align: center;
+}
+
+/* Headings margin*/
+h1, h2, h3, h4, h5{
+    margin:0;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+
+/* padding 10px */
+.padding10{
+    padding:10px;
+}
+
+.padding20{
+    padding:20px;
+}
+
+/* padding 50px*/
+.padding50{
+    padding:50px;
+}
+
+/* bold */
+.bld{
+    font-weight: bolder;
+}
+
+/* border radius 50px 0 */
+.b-radius{
+    border-radius: 50px 0;
+}
+
+/* font color purple */
+.font-purple{
+    color: #A326CE;
+}
+/* links */
+a{
+    color: #A326CE;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.ginas-forms{
+    max-width:700px;
+    border: 3px solid #A326CE;
+    padding:50px;
+    margin-bottom: 20px;
+    border-radius: 50px 0;
+}
+
+
+.font-black{
+    color:black;
+}
+.background-white{
+    background-color: white;
+}
+
+p{
+    font-size: 18px;
+}
+
+.align-right{
+    text-align:right;
+}
+/**************************** MESSAGES ****************************************/
+#mesage-container{
+    z-index: 2;
+    background-color:white;
+    
+}
+#messages{
+    color: white;
+    min-height: 70px;
+}
+
+/************************ FLIP CARDS *****************************************/
+/* container for filp card */
+.flip-card
+{
+    position:relative;
+    -webkit-perspective:1000;
+    perspective:1000;
+}
+
+/* flip card div */
+.flip
+{
+    position:relative;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* what happens when the flip div is hovered over */
+.flip:hover{
+    transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+}
+
+/* the divs inside the flip div */
+.flip div{
+    position:absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* the front div which is the image */
+.front{
+    z-index: 2;
+}
+
+/* the back div which is the product details */
+.back{
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY( 180deg );
+   
+ }
+ 
+ 
+
+/************ LANDING PAGE ****************************************************/
+.landing-page-heading{
+    padding:50px 0;
+}
+
+/****************** LANDING PAGE MAIN PICTURE *********************************/
+#firstpic{
+    z-index: -1;
+   
+}
+
+/*******************LANDING PAGE TREATMENTS************************************/
+
+/*********** FLIP CARD FOR TREATMENTS **********/
+
+.treatment-flip-card-dimensions{
+    min-width:100%;
+    height: 320px;
+}
+.treatment-flip-card-dimensions div{
+    min-width:100%;
+    height:320px;
+    
+}
+
+.treatment-front{
+    padding:30px;
+   
+}
+.treatment-back{
+      
+    background-color:#A326CE;
+    color: white;
+    padding:20px;
+    font-size:16px;
+ }
+
+.treatment-front H1{
+    font-size: 20px;
+}
+.treatment-front H1, .treatment-back H1, .treatment-back a, .landing-page-div a{
+    font-size:25px;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #EB3EF4;
+ }
+
+.treatment-back a, .landing-page-div a{
+    font-family: 'Gloria Hallelujah', cursive;
+    color:#EB3EF4;
+    float:right;
+    background-color:black;
+    border-radius:50px 0;
+    padding:20px;
+}
+
+.treatment-back a{
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+}
+ .treatment-back p{
+     font-family: 'Gloria Hallelujah', cursive;
+     text-align: center;
+     font-size: 20px;
+ }
+ .treatment-back h3{
+     text-align: center;
+     padding:7px;
+ }
+ 
+ /****************LANDING PAGE SHOP*******************************************/
+#landing-page-shop-div{
+    background-color: white;
+    color: #A326CE;
+   
+} 
+#landing-page-shop-div h1{
+    color: #629B68;
+    
+}
+#landing-product-description h3{
+     font-family: 'Didact Gothic', sans-serif;
+     text-align: center;
+     line-height: 200%;
+}
+
+/******************** LANDING PAGE GENERAL ***********************************/
+
+
+
+.landing-page-div{
+    min-height:100vh;
+    min-width:100vw;
+}
+
+.landing-page-div h3 a{
+    background-color: #A326CE;
+    color:white;
+    text-decoration: none;
+    margin:70px;
+}
+/*********************** PRODUCTS *********************************************/
+/* container of all the product divs*/
+.product-body{
+     border: 3px solid  #A326CE;
+     border-radius: 15px 0;
+     height: 100%;
+     margin-bottom:100px;
+     padding: 0 30px;
+}
+
+/* star rating div */
+.rating{
+    min-height:40px;
+}
+
+/* sold out div */
+.sold-out{
+    color:red;
+    font-weight:bolder;
+    padding:10px 20px;
+    font-size:20px;
+    
+}
+
+/* quantity input area */
+.input-group .form-control{
+    width: 40%;
+    float: left;
+}
+
+/* add to cart button */
+.button-purchase{
+    float:right
+}
+
+.glyphicon-euro{
+    padding:2px 7px 0 0;
+}
+
+
+#tomitago-logo{
+    background-color: white;
+    margin-bottom: 80px;
+    border-radius: 50px 0;
+}
+
+/*********** FLIP CARD FOR PRODUCTS **********/
+ 
+.product-flip-card-dimensions{
+    width: 225px;
+    height:300px;
+}
+.product-flip-card-dimensions div{
+    width: 225px;
+    height:300px;
+    border-radius:15px 0;  
+}
+.product-back{
+      
+    background-color:white;
+    color: black;
+    padding:10px;
+    font-size:16px;
+    border: 3px solid #A326CE;
+ }
+/********************** NEWS & SPECIAL OFFERS *********************************/
+
+.post-details .btn{
+    margin:10px 20px 20px 10px;
+}
+
+.post-img{
+    max-height: 300px;
+}
+
+.mini-post{
+    margin:0px 20px 0 5px;
+}
+
+.full-post-heading{
+    padding:50px 0 20px 0;
+}
+
+#news-heading h1{
+    font-size: 60px;
+    padding:20px 0 100px 0;
+}
+#full-post-div{
+    padding-bottom: 50px;
+}
+#blog-form{
+    max-width: 920px;
+}
+/******************** PROFILE *************************************************/
+#profile-div{
+    border-radius: 50px 0;
+    margin-bottom: 50px;
+}
+
+#past-orders, #review-div, #cart-div{
+    border: 3px solid #A326CE;
+    margin:20px 0;
+    padding:20px;
+    border-radius: 15px 0;
+}
+
+#review-div .btn{
+     margin:10px 20px 20px 10px;
+}
+
+#profile-heading{
+    margin-bottom: 50px;
+}
+/*************************** REVIEWS ******************************************/
+
+/*************************** CART ********************************************/
+.cart-thumbnail{
+    max-height: 150px;
+    max-width: 150px;
+    
+}
+
+/*********************** CHECKOUT ********************************************/
+#payment-form div{
+    margin:10px;
+}
+
+#payment-form legend{
+    color:white;
+    padding:50px 0;
+    font-size:32px;
+    text-align: center;
+}
+#payment-form h2{
+    text-align: center;
+}
+#stripe-error-message{
+    font-size: 18px
+}
+/******************************** Footer **************************************/
+
+footer{
+    border-top: 3px solid #A326CE;;
+    min-height: 100px;
+    padding-top: 20px;
+}
+/* bootstrap buttons */
+footer .btn{
+    background-color:black;
+    color:white;
+    border:none;
+}
+
+/************************* Footer SEARCH FORM *********************************/
+
+#search-form{
+    max-width:220px;
+    float: right;
+   
+}
+#search-input{
+    width: 80%;
+    display: inline;
+}
+#search-button{
+    background-color: #A326CE;
+    
+}
+
+/*************  MEDIA QUERIES *************************************************/
+/************* Extra small devices (phones, 600px and down) *******************/
+
+@media only screen and (max-width: 350px){
+    
+    .product-body{
+        padding:10px;
+        height: 100%;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    
+    #logo{
+        max-height: 200px;
+        max-width: 200px;
     }
 }
 
-.messages{
-    margin-top: 250px;
+/******* XS devices (portrait tablets and large phones, 600px and up) ******/
+@media only screen and (min-width: 600px) {
+    #logo{
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+.main-page{
+    padding-top:100px;
+    min-height: 100vh;
 }
 
-.block-heading{
-    margin-top: 100px;
+
+    
 }
-.badge{
-    padding-left: 9px;
-    padding-right: 9px;
-    -webkit-border-radius:9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
+    
+/**************** SM devices (landscape tablets, 768px and up) ************/
+@media only screen and (min-width: 768px) {
+    .navbar-inverse .navbar-nav>li> a{
+   
+     font-size: 1.3em;
 }
 
-.label-warning[href],
-.badge-warning[href]{
-    background-color: #c67605;
+
+.navbar-inverse .navbar-nav>li> a{
+   
+     font-size: 1em;
 }
 
-.product{
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
-    /*center the div within the other divs*/
-    margin: 0 auto;
+.mini-post{
+    margin:0px 5px 0 5px;
 }
 
-caption p{
-    word-wrap: break-word;
+
 }
 
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
+/***************** MD devices (laptops/desktops, 992px and up) *************/
+@media only screen and (min-width: 992px) {
+    
+     #logo{
+        max-height: 300px;
+        max-width: 300px;
+    }
+    
+     
+.navbar-inverse .navbar-nav>li> a{
+   
+     font-size: 1.6em;
 }
 
-.panel-default{
-    border-color: transparent;
-    padding: 0 10px;
+.main-page{
+    padding-top:200px;
 }
 
-.panel-body{
-    height: 100%;
-    border: 1px solid #ddd;
+.product-body{
+    height: 450px;
+    width: 450px;
+}
+.flip{
+        float:left;
+    }
+    .purchase.col{
+    float:right;
+    }
+
+
+#payment-form .ginas-forms{
+    padding:5px;
+}
+#payment-form h2{
+    padding:20px;
+}
+#profile-div{
+    padding:50px;
 }
 
-.product-description{
-    min-height: 40px;
+#profile-div>div>h2{
+    padding:50px;
+}
+.treatment-front H1, .treatment-back H1, .treatment-back a, .landing-page-div a{
+    font-size:36px;
 }
 
-#search{
-    padding:0px;
-    margin:0px;
 }
 
-#search>button{
-    display:inline;
-}
+/***************** LG devices (laptops/desktops, 1200px and up) *************/
+@media only screen and (min-width: 1200px) {
+ 
+    #logo{
+         max-height: 400px;
+         max-width: 400px;
+     }   
+    
+    .purchase-col{
+        height:300px;
+        padding-left:30px;
+    }
+
+    .price-row{
+        padding-top:40px;
+        height:100px;
+    }
+    .add-to-cart-row{
+        height:100px;
+    }
+    .review-row{
+        text-align:center;
+        height:100px;
+    }
+    
+
+    .landing-page-heading{
+        padding: 100px 0;
+        font-size: 60px;
+    }
+    
+    .full-post-heading, #profile-heading, #cart-heading{
+        font-size: 60px;
+    }
+
+    
+}   
+
+    
+    
+    
+    
+    
+    
+    
+    
+    

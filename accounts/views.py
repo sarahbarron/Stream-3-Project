@@ -194,7 +194,6 @@ def edit_profile(request):
         # set someone_has_this initially to false
         someone_has_this= False
         
-        
         # if the email field or the username field or both fields were changed do the following
        
         if "email" in form.changed_data or "username" in form.changed_data:
