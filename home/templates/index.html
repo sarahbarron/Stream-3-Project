@@ -3,6 +3,11 @@
 {% load staticfiles %}
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
+{% block head_js %}
+
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+{% endblock %}
 
 <!--page title-->
 {% block page_title %}Ginas Beauty Studio{% endblock %}
@@ -251,65 +256,127 @@
 <!-------------------------- NEWS & SPECIALS ---------------------------------->
     
     <!--open news and specials section -->
-    <div id="landing-page-news-div" class="row landing-page-div">
-         <!-- open news & specials column-->
-        <div class="col-xs-12">
+    <div id="landing-page-news-div" class="container landing-page-div">
+         <!-- open news & specials heading-->
+        <div>
             <!-- news & specials HEADING -->
             <h1 class="line-center landing-page-heading"> NEWS & SPECIAL OFFERS </h1>
+        <!-- close heading-->
         
-               <!-- single post row -->
-               <div class="row">
-                   {% for post in posts %}
-                    <!-- open a single news container -->
-                    <div id="single-post" class="col-xs-12 col-sm-4">
-                        <!-- open post thumbnail-->
-                        <div class="thumbnail">
-                            <!-- IMAGE -->
-                            <!--div for image -->
-                            <div id="post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
-                            </div>
-                            <!-- IMAGE finished -->
-                            <hr>
-                            <!-- single post caption -->
-                            <div class="col-xs-12 caption font-white">
-                                <h3 class="padding10">{{post.title}}</h3>
-                                <p> {{ post.content|safe|linebreaks|truncatewords:20 }}</p>
-                            <!-- close single post caption-->
-                            </div>
-                        <!-- close thumbnail -->
-                        </div>
-                        <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
-                    <!-- close single post container -->
-                    </div>
+        
+                <!-- open carousel -->
+                <div id="myCarousel" class="carousel slide">
+                    
+                    <!-- Indicators -->
+                    {%for post in posts2 %}
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+
+                    </ol>
                     {% endfor %}
-                <!-- end single post row -->
+                    
+                    <!-- carousel inner -->
+                    <div class="carousel-inner">
+                
+                        <!-- active first div -->
+                        <div class="item active">
+                            
+                            <!-- inner row with first 3 columns-->
+                            <div class="row">
+                                    
+                                
+                                
+                                     
+                                {% for post in posts %}
+                                <!--open a single news container -->
+                                <div class="single-post col-xs-12 col-sm-4">
+                                    
+                                    <!--open post thumbnail-->
+                                    <div class="thumbnail">
+                                        
+                                        <!--IMAGE -->
+                                        <!--div for image -->
+                                        <div id="post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')"></div>
+                                         <!--IMAGE finished -->
+                               
+                                        <hr>
+                                         <!--single post caption -->
+                                        
+                                        <div class="col-xs-12 caption font-white">
+                               
+                                            <h3 class="padding10">{{post.title}}</h3>
+                                        
+                                         <p> {{post.content|safe|linebreaks}}</p>
+                                    
+                                        <!--close single post caption-->
+                                        </div>
+                                        
+                                         <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
+                                     <!--close thumbnail -->
+                                    </div>
+                                 
+                                 <!--end single news container-->
+                                </div>
+                            
+                                {% endfor %}
+                                
+                                
+                            <!-- end first inner row-->
+                            </div>
+                        <!-- end active div-->
+                        </div>
+                       
+                        <!-- item second div -->
+                        <div class="item">
+                            
+                            <!-- inner second row -->
+                            <div class="row">
+                             
+                                    
+                                {% for post in posts2 %}
+                                 <!--open a single news container -->
+                                <div class="single-post col-xs-12 col-sm-4">
+                                     <!--open post thumbnail-->
+                                    <div class="thumbnail">
+                                     <!--IMAGE -->
+                                        <!--div for image -->
+                                        <div id="post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
+                                        </div>
+                                         <!--IMAGE finished -->
+                                        <hr>
+                                         <!--single post caption -->
+                                        <div class="col-xs-12 caption font-white">
+                                            <h3 class="padding10">{{post.title}}</h3>
+                                       
+                                            <p> {{ post.content|safe|linebreaks|truncatewords:20 }}</p>
+                                        
+                                         <!--close single post caption-->
+                                        </div>
+                                         <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
+                                     <!--close thumbnail -->
+                                    </div>
+                                 <!--end single news container-->
+                                </div>
+                                {% endfor %}
+                            <!-- end second inner row-->
+                            </div>
+                        <!-- close item div -->
+                        </div>
+                       
+                    <!-- close carousel inner -->
+                    </div>
+                    
+                <!-- end myCarousel div-->
                 </div>
                 
-                <!-- pagination for the news & specials section only showing 3 orders per page-->
-                <div class="pagination">
-                    <span>
-                    {% if posts.has_previous %}
-                    <a href="?page={{ posts.previous_page_number }}">previous</a>
-                    {% endif %}
+            <!--end well single post row-->
+            </div>
             
-                    <span class="current">
-                        Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
-                    </span>
-            
-                    {% if posts.has_next %}
-                        <a href="?page={{ posts.next_page_number }}">next</a>
-                    {% endif %}
-                    </span>
-                 <!-- end pagination-->
-                </div>
-               
-                
-            <!-- close row that contains news-->
-             </div>
-        <!-- close news & specials column-->
+        <!-- close column -->
         </div>
-    <!-- close news and special section-->
-    </div>
+        
+    <!-- container -->
     </div>
 <!----------------------------------------------------------------------------->
 
@@ -322,12 +389,36 @@
             <h1 class="line-center landing-page-heading"> CONTACT GINA </h1><hr>
             
             
+            <!-- MAP of where ginas business is located-->
+            <div id="map"></div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         <!-- close contact column-->
         </div>
-    <!-- close news and special section-->
+    <!-- close contact section-->
     </div>
 <!----------------------------------------------------------------------------->
 
 <!-- close the container fluid-->
 </div>
+{% endblock %}
+
+{% block end_js %} 
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALGkVGZeOdVVPv2cBOPUobpOtS_8zwQ14&callback=initMap">
+    </script>
+ 
+ 
 {% endblock %}

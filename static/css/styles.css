@@ -16,7 +16,10 @@ html,body
   
 }
 
-
+.container-fluid{
+    padding:0;
+    margin:0;
+}
 
 
 /************************************* NAVIGATION *****************************/
@@ -295,14 +298,14 @@ p{
     background-color: #A326CE;
     }
 
-#single-post{
-    border: 10px 5px;
-    border-style: solid;
-    border-color: white;
+.single-post{
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
     height:600px;
     background-color: #A326CE;
 }
-#single-post .thumbnail{
+.single-post .thumbnail{
     background-color: #A326CE;
     border:none;
 }
@@ -316,9 +319,17 @@ p{
     position: absolute;
     bottom: 0px;
     right: 0;
+    background-color: white;
+    font-weight: bolder;
+    color: #A326CE;
 }
 .thumbnail .caption{
     color:white;
+}
+
+.caption{
+    max-height: 150px;
+    overflow: hidden;
 }
 /**************** LANDING PAGE CONTACT  ********************************/
 
@@ -326,6 +337,12 @@ p{
 #landing-page-contact-div{
     background-color: black;
 }
+
+ #map {
+   min-height: 70vh;
+   width: 50vw;
+ }
+
 /******************** LANDING PAGE GENERAL ***********************************/
 
 
@@ -620,7 +637,13 @@ footer .btn{
         background-size:cover;
         width: auto
     }
-
+    
+.single-post{
+    border-right-width: 5px;
+    border-right-style: solid;
+    border-right-color: white;
+    border-bottom:none;
+}
 
 }
 

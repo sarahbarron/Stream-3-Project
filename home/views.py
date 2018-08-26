@@ -6,11 +6,11 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # index page view 
 def index(request):
   
-    posts = Post.objects.filter(view_on_front_page = True).order_by('-published_date')
-    
+    posts = Post.objects.filter(view_on_front_page = True).order_by('-published_date')[:3]
+    posts2 = Post.objects.filter(view_on_front_page = True).order_by('-published_date')[3:6]
      # paginator for myorders with 5 orders per page
     
-    return render(request, "index.html", {'posts': posts})
+    return render(request, "index.html", {'posts': posts, 'posts2': posts2})
     
    
     
