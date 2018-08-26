@@ -340,7 +340,9 @@ p{
 
  #map {
    min-height: 70vh;
-   width: 50vw;
+   width: 95vw;
+   border:2px solid #A326CE;
+   margin-left: 20px;
  }
 
 /******************** LANDING PAGE GENERAL ***********************************/
@@ -645,6 +647,10 @@ footer .btn{
     border-bottom:none;
 }
 
+#map{
+    width: 50vw;
+    margin:0;
+}
 }
 
 /***************** LG devices (laptops/desktops, 1200px and up) *************/

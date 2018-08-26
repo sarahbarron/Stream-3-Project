@@ -1,16 +1,14 @@
+
+
 $(document).ready(function() {
     
-   
-    
+    // news and special offers carousel on index.html page 
     $('#myCarousel').carousel({
 	interval: 10000
 	})
-	
-
-    
 });
 
-// Initialize and add the map
+// Location of Ginas Beauty Studio on Google Maps on index.html page
 function initMap() {
   // The location of Ginas Beauty Studio
   var ginas = {lat: 52.162543, lng:  -7.152748};

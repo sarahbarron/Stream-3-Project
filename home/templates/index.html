@@ -4,8 +4,18 @@
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 {% block head_js %}
+   
+  
 
-    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+     <!-- EMAIL.JS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_5EwMyH87bNVAxejphaCXs");
+       })();
+    </script>
+
+    </script>
 
 {% endblock %}
 
@@ -388,10 +398,66 @@
             <!-- contact HEADING -->
             <h1 class="line-center landing-page-heading"> CONTACT GINA </h1><hr>
             
+            <div class="row">
             
-            <!-- MAP of where ginas business is located-->
-            <div id="map"></div>
-            
+                <!-- MAP of where ginas business is located-->
+                <div id="map" class="col-xs-12 col-md-6"></div>
+                
+                <!-- contact form -->
+                <div class="col-xs-12 col-md-6">
+                    
+                    <form class="form-horizontal" onsubmit="return sendMail(this);" method="POST">
+                        
+                        <!--csrf token for security to prevent JavaScript injection-->
+                        {% csrf_token %}
+                       
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                        <!-- end NAME -->
+                        </div>
+                      
+                      <!-- EMAIL -->
+                      <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                    <!-- end email-->
+                      </div>
+                      
+                       <!-- TELEPHONE -->
+                      <div class="form-group">
+                        <label for="telephone" class="col-sm-2 control-label">Telephone Number: </label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="telephone" placeholder="Telephone Number">
+                        </div>
+                    <!-- end email-->
+                      </div>
+                     
+                     <!-- COMMENT -->
+                     <div class="form-group">
+                        <label for="comment" class="col-sm-2 control-label">Comment</label>
+                        <div class="col-sm-10">
+                        <textarea class="form-control" rows="10" id="comment" placeholder="Your comment: ">
+                        </textarea>
+                    <!-- end comment-->
+                    </div>
+                        
+                        
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-primary">SEND</button>
+                        </div>
+                      </div>
+                    </form>
+                <!-- end contact form -->
+                </div>      
+            <!-- end row containing map & form-->
+            </div>
             
             
             
@@ -414,8 +480,12 @@
 </div>
 {% endblock %}
 
-{% block end_js %} 
-
+{% block end_js %}
+      <!-- index.js -->
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <!-- sendEmail.js -->
+    <script type="text/javascript" src="{% static 'js/sendEmail.js' %}"></script>
+    <!-- GOOGLE MAPS-->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALGkVGZeOdVVPv2cBOPUobpOtS_8zwQ14&callback=initMap">
     </script>
