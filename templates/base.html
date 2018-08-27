@@ -16,6 +16,9 @@
      <!--bootstrap 3.3.7 Optional theme -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
+    <!-- font awsome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
     
      <!--developers personal stylesheet-->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
@@ -66,7 +69,7 @@
                 <ul class="nav navbar-nav">
             
                    
-                    <li><a href="#">TREATMENTS</a></li>
+                    <li><a href="{% url 'treatments' %}">TREATMENTS</a></li>
                     <li><a href= "{% url 'all_products'%}">SHOP</a></li>
                     <li><a href= "{% url 'get_posts'%}">NEWS & SPECIALS</a></li>
                     <li><a href="#">CONTACT</a></li>
@@ -98,7 +101,7 @@
                     </li>
             
                     {% if user.is_staff %}
-                    <li><a href="admin/">ADMIN PANEL</a></li>
+                    <li><a href="../admin/">ADMIN PANEL</a></li>
                     <li><a href="{% url 'logout_customer' %}">LOGOUT</a></li>
                     {% endif %}
                     

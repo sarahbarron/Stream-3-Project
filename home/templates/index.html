@@ -4,9 +4,7 @@
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 {% block head_js %}
-   
   
-
      <!-- EMAIL.JS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -299,9 +297,6 @@
                             <!-- inner row with first 3 columns-->
                             <div class="row">
                                     
-                                
-                                
-                                     
                                 {% for post in posts %}
                                 <!--open a single news container -->
                                 <div class="single-post col-xs-12 col-sm-4">
@@ -347,7 +342,6 @@
                             <!-- inner second row -->
                             <div class="row">
                              
-                                    
                                 {% for post in posts2 %}
                                  <!--open a single news container -->
                                 <div class="single-post col-xs-12 col-sm-4">
@@ -384,11 +378,14 @@
                 <!-- end myCarousel div-->
                 </div>
                 
-            <!--end well single post row-->
+            <!--end single post row-->
             </div>
+             <!--link to products page-->
+            <h3><a class="bld" href="{% url 'get_posts'%}"> READ MORE NEWS & SPECIAL OFFERS </a></h3>
             
         <!-- close column -->
         </div>
+        
         
     <!-- container -->
     </div>
@@ -401,7 +398,17 @@
         <div class="col-xs-12">
             <!-- contact HEADING -->
             <h1 class="line-center landing-page-heading"> CONTACT GINA </h1><hr>
-            
+            <div id="contact" class="row line-center">
+                <h2 class="padding20"> Gina's Beauty Studio </h2>
+                <p> Upstairs @ Colm Morrisseys Hair Salon </p>
+                <p> 4 Main St </p>
+                <p> Tramore </p>
+                <p> Co. Waterford </p>
+                <p> X91 W9RX </p>
+                <p> Telephone: <a href="tel:+363892443030"> 089 244 30 30</a></p>
+                <p> Email: <a href="mailto:ginasbeautystudio35@gmail.com"> ginasbeautystudio35@gmail.com </a></p>
+                <p><i class="fab fa-facebook-f"></i><a href="https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/">https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/</a></p><hr>
+            </div>
             <div class="row">
             
                 <!-- MAP of where ginas business is located-->
@@ -409,6 +416,7 @@
                 
                 <!-- contact form -->
                 <div class="col-xs-12 col-md-6">
+                    <h2 class="line-center padding20"> Contact Form</h2>
                     
                     <form class="form-horizontal" onsubmit="return sendMail(this);" method="POST">
                         
@@ -450,11 +458,10 @@
                         </textarea>
                     <!-- end comment-->
                     </div>
-                        
-                        
+                        <!-- SUBMIT -->
                       <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">SEND</button>
+                        <div class="col-sm-offset-2 col-sm-10 align-right padding20">
+                          <button type="submit" class="btn btn-success">SEND</button>
                         </div>
                       </div>
                       <p id="after-submit"></p>
@@ -487,7 +494,7 @@
 {% endblock %}
 
 {% block end_js %}
-      <!-- index.js -->
+      <!-- index.js for treatment flip cards, news carousel, contact google maps and  email.js -->
     <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
     <!-- sendEmail.js -->
    

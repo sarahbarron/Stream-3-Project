@@ -9,7 +9,7 @@ body{
 
 
 
- THIS REMOVES ANY WHITE SPACE AROUND THE EDGE OF THE PAGE
+ /*THIS REMOVES ANY WHITE SPACE AROUND THE EDGE OF THE PAGE*/
 html,body
 {
   overflow-x: hidden; 
@@ -158,7 +158,18 @@ p{
     min-height: 70px;
 }
 
-/************************ FLIP CARDS *****************************************/
+/************ LANDING PAGE ****************************************************/
+.landing-page-heading{
+    padding:50px 0;
+}
+
+    /****************** LANDING PAGE MAIN PICTURE ************/
+#firstpic{
+    z-index: -1;
+   
+}
+
+    /***************************** TREATMENTS ****************/
  /*container for filp card */
 .flip-card
 {
@@ -176,7 +187,6 @@ p{
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-
 
 .flip.mousein{
      transform: rotateY( 180deg );
@@ -202,23 +212,6 @@ p{
    
  }
  
- 
-
-/************ LANDING PAGE ****************************************************/
-.landing-page-heading{
-    padding:50px 0;
-}
-
-/****************** LANDING PAGE MAIN PICTURE *********************************/
-#firstpic{
-    z-index: -1;
-   
-}
-
-/*******************LANDING PAGE TREATMENTS************************************/
-
-/*********** FLIP CARD FOR TREATMENTS **********/
-
 .treatment-flip-card-dimensions{
     min-width:100%;
     height: 320px;
@@ -277,11 +270,10 @@ p{
      padding:7px;
  }
  
- /****************LANDING PAGE SHOP**************************/
+    /****************LANDING PAGE SHOP**************************/
 #landing-page-shop-div{
     background-color: white;
     color: #A326CE;
-   
 } 
 #landing-page-shop-div h1{
     color: #629B68;
@@ -293,7 +285,7 @@ p{
      line-height: 200%;
 }
 
-/**************** LANDING PAGE NEWS & SPECIALS ****************/
+    /**************** LANDING PAGE NEWS & SPECIALS ****************/
 #landing-page-news-div{
     background-color: #A326CE;
     }
@@ -317,8 +309,8 @@ p{
 }
 .thumbnail a{
     position: absolute;
-    bottom: 0px;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
     background-color: white;
     font-weight: bolder;
     color: #A326CE;
@@ -331,7 +323,16 @@ p{
     max-height: 150px;
     overflow: hidden;
 }
-/**************** LANDING PAGE CONTACT  ********************************/
+
+.carousel-indicators{
+    bottom:0;
+    font-size: 2em;
+}
+#landing-page-news-div h3 a{
+    background-color: white;
+    color: #A326CE;
+}
+    /*************** LANDING PAGE CONTACT  ***************************/
 
 
 #landing-page-contact-div{
@@ -344,8 +345,31 @@ p{
    border:2px solid #A326CE;
    margin-left: 20px;
  }
+ 
+ #contact hr{
+     width: 50%;
+     text-align: center;
+     padding: 20px 0;
+ }
+ #contact a{
+    float:none;
+    padding:0 0 0 20px;
+    border-radius:0;
+     font-family: 'Didact Gothic', sans-serif;
+     text-decoration: none;
+     
+ }
+ 
+ .fa-facebook-f{
+	background: #3B5998;
+	color: #FFFFFF;
+    padding: 0.1em 0.3em;
+    border-radius: 50%;
+	margin: 0.15em;
+	font-size: 1.5em;
+	}
 
-/******************** LANDING PAGE GENERAL ***********************************/
+    /************** LANDING PAGE GENERAL ****************************/
 
 
 
@@ -358,8 +382,19 @@ p{
     background-color: #A326CE;
     color:white;
     text-decoration: none;
-    margin:70px;
+    margin:20px;
+    text-align: center;
 }
+
+/************************ TREATMENTS ******************************************/
+td>h2{
+    color: #A326CE;
+    padding: 20px 0;
+}
+tr>td, #wax{
+    padding-left:20px;
+}
+
 /*********************** PRODUCTS *********************************************/
 /* container of all the product divs*/
 .product-body{
@@ -443,9 +478,10 @@ p{
     padding:50px 0 20px 0;
 }
 
-#news-heading h1{
-    font-size: 60px;
-    padding:20px 0 100px 0;
+.page-main-heading h1{
+    font-size: 40px;
+     padding: 50px 10px;
+   
 }
 #full-post-div{
     padding-bottom: 50px;
@@ -530,8 +566,8 @@ footer .btn{
 }
 
 /*************  MEDIA QUERIES *************************************************/
-/************* Extra small devices (phones, 600px and down) *******************/
 
+/************* Extra small devices (phones, 600px and down) *******************/
 @media only screen and (max-width: 350px){
     
     .product-body{
@@ -630,6 +666,10 @@ footer .btn{
 .treatment-front H1, .treatment-back H1{
     font-size:36px;
 }
+
+.landing-page-div h3 a{
+    margin:70px;
+}
 #landing-page-news-div{
     
     padding: 0 100px 0 50px;
@@ -651,6 +691,12 @@ footer .btn{
     width: 50vw;
     margin:0;
 }
+  .page-main-heading h1{
+       font-size: 60px;
+        padding:20px 0 100px 0;
+      
+    }
+  
 
 }
 
@@ -688,6 +734,7 @@ footer .btn{
     .full-post-heading, #profile-heading, #cart-heading{
         font-size: 60px;
     }
+    
   
     
 }   

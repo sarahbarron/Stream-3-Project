@@ -31,7 +31,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     # url to direct to the django's admin area
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name="admin"),
     
     # url to direct to the index.html file
     url(r'^$', index, name="index"),
