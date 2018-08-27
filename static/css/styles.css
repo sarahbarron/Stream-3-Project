@@ -159,7 +159,7 @@ p{
 }
 
 /************************ FLIP CARDS *****************************************/
-/* container for filp card */
+ /*container for filp card */
 .flip-card
 {
     position:relative;
@@ -167,7 +167,7 @@ p{
     perspective:1000;
 }
 
-/* flip card div */
+ /*flip card div */
 .flip
 {
     position:relative;
@@ -177,25 +177,25 @@ p{
     transform-style: preserve-3d;
 }
 
-/* what happens when the flip div is hovered over */
-.flip:hover{
-    transform: rotateY( 180deg );
+
+.flip.mousein{
+     transform: rotateY( 180deg );
     -webkit-transform: rotateY(180deg);
 }
 
-/* the divs inside the flip div */
+ /*the divs inside the flip div */
 .flip div{
     position:absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
-/* the front div which is the image */
+ /*the front div which is the image */
 .front{
     z-index: 2;
 }
 
-/* the back div which is the product details */
+ /*the back div which is the product details */
 .back{
     -webkit-transform: rotateY(180deg);
     transform: rotateY( 180deg );
@@ -651,6 +651,7 @@ footer .btn{
     width: 50vw;
     margin:0;
 }
+
 }
 
 /***************** LG devices (laptops/desktops, 1200px and up) *************/
@@ -691,12 +692,6 @@ footer .btn{
     
 }   
 
-    
-    
-    
-    
-    
-    
     
     
     
