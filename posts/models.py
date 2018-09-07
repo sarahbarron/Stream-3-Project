@@ -35,6 +35,6 @@ class Post(models.Model):
     # if the post is to be viewed on the front page or not
     view_on_front_page = models.BooleanField(default=True)
 
-    
+    # return the title
     def __str__(self):
         return self.title

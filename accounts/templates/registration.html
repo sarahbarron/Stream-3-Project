@@ -12,26 +12,24 @@
 
 <!--main content of the page-->
 {% block content%}
+<!-- container -->
 <div class="container main-page">
-
+    <!-- heading -->
     <h1 class="line-center padding10 bld"> Registration Form</h1>
     <!--a customer registration form with a POST method-->
     <form class="center ginas-forms" method="POST">
-       
         <!--csrf token for security to prevent JavaScript injection-->
         {% csrf_token %}
-        
         <!--registration form requesting customer details-->
         {{ registration_form | as_bootstrap}}
-        
         <!--Register button -->
         <button type="submit" class="btn btn-success"> REGISTER </button>
-        
-        <a class="padding10" href="https://stream-3-project-sarahbarron.c9users.io/accounts/login/"> ALREADY REGISTERED CLICK HERE TO LOGIN</a>
-    </form>   
-    
-    
+        <!-- link to login if already registered-->
+        <a class="padding10" href="{% url 'login_customer' %}"> ALREADY REGISTERED CLICK HERE TO LOGIN</a>
+    <!-- close form-->
+    </form>
+<!--close container-->
 </div>
 
 <!--end of main content-->
-{% endblock %}        
+{% endblock %}

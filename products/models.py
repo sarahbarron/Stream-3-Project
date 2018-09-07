@@ -25,6 +25,6 @@ class Product(models.Model):
     # quantity of stock available for the product
     available_stock = models.PositiveSmallIntegerField(default=0)
     
-    
+    # return the name
     def __str__(self):
         return self.name

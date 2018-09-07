@@ -1,709 +1,748 @@
 <!--extension to the base.html file-->
-{% extends 'base.html' %}
-{% load staticfiles %}
+{% extends 'base.html' %} {% load staticfiles %}
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 
 <!--page title-->
 {% block page_title %}Ginas Beauty Studio Treatments{% endblock %}
 
-
 <!--main content of the page-->
 {% block content%}
-
+<!-- main container-->
 <div class="container main-page">
-    <!-- heading row-->
+    <!-- heading row -->
     <div class="row">
-        <div class="col-xs-12 line-center page-main-heading">  
+        <!-- heading column -->
+        <div class="col-xs-12 line-center page-main-heading">
+            <!-- heading -->
             <h1 class="padding10"> Treatments </h1>
+        <!-- end heading column -->
         </div>
+    <!-- close heading row -->
     </div>
+
     <!-- treatments row -->
     <div class="row">
-        <!-- waxing treatments-->
+        <!-- waxperts details -->
         <div id="wax">
             <h2> Waxperts Wax </h2>
             <p> No double dipping policy. Award winning products combined with waxperts wax and waxpert techniques</p>
             <p> Waxperts wax has a lower melting point which is perfect for sensitive skins. Gentler on clients skin and less rish of burns and heat sensitivity.</p>
             <p> Waxperts was is lavender based which is known for its antiseptic, anti inflammatory, soothing and healing properties. Voted the best wax in Ireland</p>
-            <!-- waxpert treatments-->
-            <div id="waxpert">
-               
-                 <!-- MOBILE TREATMENTS TABLE -->
-                 <table class="hidden-md hidden-lg hidden-xl" style="width:100%">
-                    <tr><td><h2>Waxpert Wax</h2></td></tr>
-                    <tr>
-                        <td>Lip wax</td>
-                        <td>€8.00</td>
-                    </tr>
-                    <tr>
-                        <td> 1/2 Leg wax</td>
-                        <td>€18.00</td>
-                    </tr>
-                    <tr>
-                        <td> Chin/neck wax</td>
-                        <td>€10.00</td>
-                     </tr>
-                    <tr>
-                        <td> Upper leg wax</td>
-                        <td>€25.00</td>
-                      </tr>
-                      <tr>
-                        <td>Sides of Face</td>
-                         <td>€12.00</td>
-                     </tr>
-                    <tr>
-                        <td> Full leg </td>
-                         <td>€30.00</td>
-                      </tr>
-                   <tr>
-                    <td> Facial wax - 2 areas</td>
-                     <td>€15.00</td>
-                     </tr>
-                    <tr>
-                        <td> Bikini </td>
-                         <td>€15.00</td>
-                      </tr>
-                   <tr>
-                        <td> Facial wax - 3 areas</td>
-                         <td>€20.00</td>
-                    </tr>
-                    <tr>
-                        <td> Extended </td>
-                         <td>€20.00</td>
-                  </tr>
-                   <tr>
-                    <td> Underarm </td>
-                     <td>€15.00</td>
-                     </tr>
-                <tr>
-                    <td> Inbetweeny </td>
-                     <td>€30.00</td>
-                  </tr>
-                   <tr>
-                    <td> Forearm </td>
-                     <td>€15.00</td>
-                     </tr>
-                <tr>
-                    <td> Brazilian </td>
-                     <td>€40.00</td>
-                  </tr>
-                 
-                <tr>
-                    <td> Hollywood </td>
-                     <td>€45.00</td>
-                  </tr>
-                
-                  
-                    <tr>
-                        <td>Bikini</td>
-                    </tr>
-                        <td>+ 1/2 leg</td>
-                        <td>€28.00</td>
-                    </tr>
-                    <tr>
-                        <td>+ upper leg</td>
-                        <td>€30.00 </td>
-                    </tr>
-                    <tr>
-                        <td>+ full leg</td>
-                        <td>€35.00 </td>
-                    </tr>
-                  
-                    <tr>
-                        <td>Extended</td>
-                    </tr>
-                        <td>+ 1/2 leg</td>
-                        <td>€32.00</td>
-                    </tr>
-                    <tr>
-                        <td>+ upper leg</td>
-                        <td>€35.00 </td>
-                    </tr>
-                    <tr>
-                        <td>+ full leg</td>
-                        <td>€45.00 </td>
-                    </tr>
-                  <tr>
-                   
-                    <tr>
-                        <td>Inbetweeney</td>
-                    </tr>
-                        <td>+ 1/2 leg</td>
-                        <td>€40.00</td>
-                    </tr>
-                    <tr>
-                        <td>+ upper leg</td>
-                        <td>€45.00 </td>
-                    </tr>
-                    <tr>
-                        <td>+ full leg</td>
-                        <td>€55.00 </td>
-                    </tr>
-                
-                    <tr>
-                        <td>Brazilain</td>
-                    </tr>
-                        <td>+ 1/2 leg</td>
-                        <td>€50.00</td>
-                    </tr>
-                    <tr>
-                        <td>+ upper leg</td>
-                        <td>€55.00 </td>
-                    </tr>
-                    <tr>
-                        <td>+ full leg</td>
-                        <td>€65.00 </td>
-                    </tr>
-                  
-                    <tr>
-                        <td>Hollywood</td>
-                    </tr>
-                        <td>+ 1/2 leg</td>
-                        <td>€55.00</td>
-                    </tr>
-                    <tr>
-                        <td>+ upper leg</td>
-                        <td>€60.00 </td>
-                    </tr>
-                    <tr>
-                        <td>+ full leg</td>
-                        <td>€75.00 </td>
-                    </tr>
-        
-                <tr>
-                <td><h2> Male Waxing </h2></td>
+        <!-- close waxperts details -->
+        </div>
+        <!-- treatments table container -->
+        <div id="table-container">
+            <!-- horizontal rule -->
+            <hr>
+            <!-- small devices treatments & prices table -->
+            <table class="hidden-md hidden-lg hidden-xl">
+                <!-- Wax rows and columns-->
+                <tr id="wax">
+                    <td>
+                        <h2>Waxpert Wax</h2>
+                    </td>
                 </tr>
-                
-            
-                  <tr>
-                    <td> Nasal</td>
-                    <td>€5.00</td>
-                     </tr>
                 <tr>
-                    <td> Ears </td>
-                    <td>€5.00</td>
-                  </tr>
-                  <tr>
-                    <td> Brows</td>
-                    <td>€10.00</td>
-                     </tr>
-                <tr>
-                    <td> Chest</td>
-                    <td>€25.00</td>
-                  </tr>
-                  <tr>
-                    <td>Stomach</td>
-                     <td>€20.00</td>
-                     </tr>
-                <tr>
-                    <td> Back </td>
-                     <td>€30.00</td>
-                  </tr>
-                   <tr>
-                    <td> Full leg</td>
-                     <td>€40.00</td>
-                    
-                  </tr>
-                  
-                  <tr><td><h2>Holiday Wax</h2></td></tr>
-                  <tr>
-                      <td>2 Facial, Underarm, Full leg & bikini</td>
-                      <td>€55.00</td>
-                     </tr>
-                <tr>
-                      <td> Include Extended</td>
-                      <td>€65.00</td>
-                  </tr>
-                  <tr>
-                      <td> + Inbetweeny</td>
-                      <td>€75.00</td>
-                     </tr>
-                <tr>
-                      <td> + Brazilain</td>
-                      <td>€85.00</td>
-                  </tr>
-                 <tr>
-                      <td> + Hollywood</td>
-                      <td>€90.00</td>
-                    
-                  </tr>
-                  <tr>
-                      <td><h2>Brow and Lash Bar</h2></td>
-                  </tr>
-                  <tr>
-                      <td>Brow wax</td>
-                      <td>€10.00</td>
-                     </tr>
-                <tr>
-                      <td> HD brows and lash tint</td>
-                      <td>€40.00</td>
-                  </tr>
-                   <tr>
-                      <td> Brow thread</td>
-                      <td>€10.00</td>
-                     </tr>
-                <tr>
-                       <td> HD top up with lash tint</td>
-                      <td>€3.00</td>
-                      
-                  </tr>
-                   <tr>
-                      <td> Brow wax/tint </td>
-                      <td>€15.00</td>
-                     </tr>
-                <tr>
-                      <td> Weekender clusters</td>
-                      <td>€20.00</td>
-                 </tr>
-                   <tr>
-                       <td> Brow tint</td>
-                      <td>€8.00</td>
-                     </tr>
-                <tr>
-                         <td> Express Lashes (2 wks)</td>
-                      <td>€30.00</td>                  
-                      
-                  </tr>
-                   <tr>
-                       <td> Lash tint</td>
-                      <td>€12.00</td>
-                     </tr>
-                <tr>
-                      <td> HD & Weekenders</td>
-                      <td>€45.00</td>
-                     
-                  </tr>
-                   <tr>
-                      <td> Eye combo: brow wax tint/lash tint</td>
-                      <td>€25.00</td>
-                     </tr>
-                <tr>
-                      <td> HD & Express Lashes</td>
-                      <td>€55.00</td>
-                      
-                  </tr>
-                   <tr>
-                       <td> High Definition brows (HD's) lasts 4/5 wks</td>
-                      <td>€30.00</td>
-                     </tr>
-                <tr>
-                      <td> Strip Lashes</td>
-                      <td>€10.00</td>
-                      
-                  </tr>
-                   <tr>
-                       <td> HD top ups (within 3 wks)</td>
-                      <td>€25.00</td>
-                    
-                  </tr>
-                  
-                  <tr><td><h2>Threading</h2></td></tr>
-                   <tr>
-                      <td> Brows</td>
-                      <td>€10.00</td>
-                     </tr>
-                <tr>
-                      <td> Lip or chin </td>
-                      <td>€10.00</td>
-                  </tr>
-                   <tr>
-                      <td> Sides of face starting from</td>
-                      <td>€12.00</td>
-                     </tr>
-                <tr>
-                      <td> Full facial</td>
-                      <td>€30.00</td>
-                  </tr>
-                 
-                  
-                  <tr><td><h2>Nail Bar</h2></td></tr>
-                   <tr>
-                      <td> File, Cuticles, Polish </td>
-                      <td>€15.00</td>
-                     </tr>
-                <tr>
-                      <td>Luxury Pedicure with Callus Peel & Shellac</td>
-                      <td>€50.00 </td>
-                  </tr>     
-                  <tr>
-                      <td> File, Cuticles, Treatment </td>
-                      <td>€15.00</td>
-                     </tr>
-                <tr>
-                      <td> Gel Polish with extensions </td>
-                      <td>€30.00 </td>
-                  </tr>
-                  <tr>
-                      <td> Shellac Manicure </td>
-                      <td>€20.00</td>
-                     </tr>
-                <tr>
-                      <td> Shellac hands and feet</td>
-                      <td>€35.00</td>
-                  </tr>
-                  <tr>
-                      <td> Shellac Pedicure </td>
-                      <td>€20.00</td>
-                     </tr>
-                <tr>
-                      <td>Callus peel, file and cuticles</td>
-                      <td>€30.00</td>
-                  </tr>
-                  <tr>
-                      <td> Luxury Manicure & Shellac </td>
-                      <td>€40.00</td>
-                     </tr>
-                <tr>
-                      <td> Callus peel, file, cuticles & Shellac</td>
-                      <td>€40.00</td>
-                  </tr>
-                  <tr>
-                      <td>Shellac Removal</td>
-                      <td>€5.00 </td>
-                     </tr>
-                <tr>
-                      <td> complimentary if shellac is reapplied</td>
-                  </tr>
-                   <tr><td><h2>Suntana Tan</h2></td></tr>
-                  <tr>
-                      <td>Available in many colours</td>
-                   </tr>
-                   <tr>
-                      <td> Half Body </td>
-                      <td>€15.00</td>
-                  </tr>
-                  <tr>
-                      <td> Full Body </td>
-                      <td>€20.00</td>
-                  </tr>
-                  
-                  <tr><td><h2>Make Up</h2></he></td></tr>
-                  <tr>
-                      <td> Makeup </td>
-                      <td>€25.00</td>
-                  </tr>
-                  <tr>
-                      <td> Makeup & lashes </td>
-                      <td>€30.00</td>
-                  </tr>
-                  <tr>
-                      <td> Makeup tutorial </td>
-                      <td>€35.00</td>
-                  </tr>
-                  <tr>
-                      <td> Bridal packages available </td>
-                  </tr>
-                 </table>
-                 
-<!--------------- TABLET & DESKTOP TREATMENTS TABLE -------------------------->
-                  <table class=" hidden-xs hidden-sm "style="width:100%">
-                    <tr><td><h2>Waxpert Wax</h2></td></tr>
-                  <tr>
                     <td>Lip wax</td>
-                    <td> € 8.00</td>
-                    <td> 1/2 Leg wax</td>
-                    <td> € 18.00</td>
-                  </tr>
-                  <tr>
-                    <td> Chin/neck wax</td>
-                    <td> € 10.00</td>
-                    <td> Upper leg wax</td>
-                    <td> € 25.00</td>
-                  </tr>
-                  <tr>
-                    <td>Sides of Face</td>
-                     <td> € 12.00</td>
-                    <td> Full leg </td>
-                     <td> € 30.00</td>
-                  </tr>
-                   <tr>
-                    <td> Facial wax - 2 areas</td>
-                     <td> € 15.00</td>
-                    <td> Bikini </td>
-                     <td> € 15.00</td>
-                  </tr>
-                   <tr>
-                    <td> Facial wax - 3 areas</td>
-                     <td> € 20.00</td>
-                    <td> Extended </td>
-                     <td> € 20.00</td>
-                  </tr>
-                   <tr>
-                    <td> Underarm </td>
-                     <td> € 15.00</td>
-                    <td> Inbetweeny </td>
-                     <td> € 30.00</td>
-                  </tr>
-                   <tr>
-                    <td> Forearm </td>
-                     <td> € 15.00</td>
-                    <td> Brazilian </td>
-                     <td> € 40.00</td>
-                  </tr>
-                   <tr>
-                    <td></td>
-                     <td></td>
-                    <td> Hollywood </td>
-                     <td> € 45.00</td>
-                  </tr>
-                
-                  <tr>
-                    <th> 1/2 Leg wax plus</th>
-                    <th></th>
-                    <th>Upper Leg</th> 
-                    <th>Full Leg</th>
-                  </tr>
-                  <tr>
-                    <td>+Bikini</td>
-                    <td> € 28.00</td>
-                    <td> € 30.00 </td>
-                    <td> €35.00 </td>
-                  </tr>
-                   <tr>
-                    <td>+Extended</td>
-                    <td> € 32.00</td>
-                    <td> € 35.00 </td>
-                    <td> € 45.00 </td>
-                  </tr>
-                  <tr>
-                    <td>+Inbetweeny</td>
-                    <td> € 40.00</td>
-                    <td> € 45.00 </td>
-                    <td> € 55.00 </td>
-                  </tr>
-                <tr>
-                    <td>+Brazilian</td>
-                    <td> € 50.00</td>
-                    <td> € 55.00 </td>
-                    <td> € 65.00 </td>
-                  </tr>
-                  <tr>
-                    <td>+Hollywood</td>
-                    <td> € 55.00</td>
-                    <td> € 60.00 </td>
-                    <td> € 75.00 </td>
-                  </tr>
-        
-                <tr>
-                <td><h2> Male Waxing </h2></td>
+                    <td>€8</td>
                 </tr>
-                
-            
-                  <tr>
-                    <td> Nasal</td>
-                    <td> € 5.00</td>
-                    <td> Ears </td>
-                    <td> € 5.00</td>
-                  </tr>
-                  <tr>
-                    <td> Brows</td>
-                    <td> € 10.00</td>
-                    <td> Chest</td>
-                    <td> € 25.00</td>
-                  </tr>
-                  <tr>
+                <tr>
+                    <td>1/2 Leg wax</td>
+                    <td>€18</td>
+                </tr>
+                <tr>
+                    <td>Chin/neck wax</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>Upper leg wax</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>Sides of Face</td>
+                    <td>€12</td>
+                </tr>
+                <tr>
+                    <td>Full leg</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Facial wax - 2 areas</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Bikini</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Facial wax - 3 areas</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Extended</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Underarm</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Inbetweeny</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Forearm</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Brazilian</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Hollywood</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Bikini</td>
+                </tr>
+                <td>+ 1/2 leg</td>
+                <td>€28</td>
+                </tr>
+                <tr>
+                    <td>+ upper leg</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>+ full leg</td>
+                    <td>€35</td>
+                </tr>
+
+                <tr>
+                    <td>Extended</td>
+                </tr>
+                <tr>
+                    <td>+ 1/2 leg</td>
+                    <td>€32</td>
+                </tr>
+                <tr>
+                    <td>+ upper leg</td>
+                    <td>€35</td>
+                </tr>
+                <tr>
+                    <td>+ full leg</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Inbetweeney</td>
+                </tr>
+                <tr>
+                    <td>+ 1/2 leg</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>+ upper leg</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>+ full leg</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>Brazilain</td>
+                </tr>
+                <tr>
+                    <td>+ 1/2 leg</td>
+                    <td>€50</td>
+                </tr>
+                <tr>
+                    <td>+ upper leg</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>+ full leg</td>
+                    <td>€65</td>
+                </tr>
+                <tr>
+                    <td>Hollywood</td>
+                </tr>
+                <tr>
+                    <td>+ 1/2 leg</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>+ upper leg</td>
+                    <td>€60</td>
+                </tr>
+                <tr>
+                    <td>+ full leg</td>
+                    <td>€75</td>
+                </tr>
+                <!-- male waxing rows and columns  -->
+                <tr>
+                    <td>
+                        <h2>Male Waxing </h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nasal</td>
+                    <td>€ 5</td>
+                </tr>
+                <tr>
+                    <td>Ears</td>
+                    <td>€ 5</td>
+                </tr>
+                <tr>
+                    <td>Brows</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>Chest</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
                     <td>Stomach</td>
-                     <td> € 20.00</td>
-                    <td> Back </td>
-                     <td> € 30.00</td>
-                  </tr>
-                   <tr>
-                    <td> Full leg</td>
-                     <td> € 40.00</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Back</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Full leg</td>
+                    <td>€40</td>
+                </tr>
+                <!-- holiday wax rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Holiday Wax</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2 Facial, Underarm, Full leg & bikini</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>Include Extended</td>
+                    <td>€65</td>
+                </tr>
+                <tr>
+                    <td>+ Inbetweeny</td>
+                    <td>€75</td>
+                </tr>
+                <tr>
+                    <td>+ Brazilain</td>
+                    <td>€85</td>
+                </tr>
+                <tr>
+                    <td>+ Hollywood</td>
+                    <td>€90</td>
+                </tr>
+                <!-- Brows and lashes rows and columns-->
+                <tr id="browandlash">
+                    <td>
+                        <h2>Brow and Lash Bar</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brow wax</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>HD brows and lash tint</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Brow thread</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>HD top up with lash tint</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Brow wax/tint </td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Weekender clusters</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Brow tint</td>
+                    <td>€ 8</td>
+                </tr>
+                <tr>
+                    <td>Express Lashes (2 wks)</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Lash tint</td>
+                    <td>€12</td>
+                </tr>
+                <tr>
+                    <td>HD & Weekenders</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Eye combo: brow wax tint/lash tint</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>HD & Express Lashes</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>High Definition brows (HD's) lasts 4/5 wks</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Strip Lashes</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>HD top ups (within 3 wks)</td>
+                    <td>€25</td>
+                </tr>
+                <!-- Threading  rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Threading</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brows</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>Lip or chin</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>Sides of face starting from</td>
+                    <td>€12</td>
+                </tr>
+                <tr>
+                    <td>Full facial</td>
+                    <td>€30</td>
+                </tr>
+
+                <!-- Nail bar rows and columns -->
+                <tr id="nailbar">
+                    <td>
+                        <h2>Nail Bar</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>File, Cuticles, Polish</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Luxury Pedicure with Callus Peel & Shellac</td>
+                    <td>€50</td>
+                </tr>
+                <tr>
+                    <td>File, Cuticles, Treatment</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Gel Polish with extensions</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Shellac Manicure</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Shellac hands and feet</td>
+                    <td>€35</td>
+                </tr>
+                <tr>
+                    <td>Shellac Pedicure</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Callus peel, file and cuticles</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Luxury Manicure & Shellac</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Callus peel, file, cuticles & Shellac</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Shellac Removal</td>
+                    <td>€ 5</td>
+                </tr>
+                <tr>
+                    <td>complimentary if shellac is reapplied</td>
+                </tr>
+                <!-- TAN  rows and columns-->
+                <tr id="tan">
+                    <td>
+                        <h2>Suntana Tan</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Available in many colours</td>
+                </tr>
+                <tr>
+                    <td>Half Body</td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Full Body </td>
+                    <td>€20</td>
+                </tr>
+                <!-- Makeup rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Make Up</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="makeup">Makeup</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>Makeup & lashes</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Makeup tutorial</td>
+                    <td>€35</td>
+                </tr>
+                <tr>
+                    <td>Bridal packages available</td>
+                </tr>
+                <!-- button link to contact details on index.html -->
+                <tr>
+                    <td colspan="4"><button id="contact-gina-lg" class="btn btn-success center"><a href="{% url 'index' %}#contact-gina">CONTACT GINA</a></button></td>
+                </tr>
+            <!-- close the table for small devices -->
+            </table>
+
+            <!--------------- LARGE DEVICES - TREATMENTS TABLE ---------------->
+            <!-- open table to display treatments -->
+            <table class=" hidden-xs hidden-sm ">
+                <!-- caption -->
+                <caption>Treatments & Price List</caption>
+                <!-- Waxing rows and columns -->
+                <tr id="waxing">
+                    <td>
+                        <h2>Waxpert Wax</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lip wax</td>
+                    <td>€ 8</td>
+                    <td>1/2 Leg wax</td>
+                    <td>€18</td>
+                </tr>
+                <tr>
+                    <td>Chin/neck wax</td>
+                    <td>€10</td>
+                    <td>Upper leg wax</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>Sides of Face</td>
+                    <td>€12</td>
+                    <td>Full leg </td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Facial wax - 2 areas</td>
+                    <td>€15</td>
+                    <td>Bikini </td>
+                    <td>€15</td>
+                </tr>
+                <tr>
+                    <td>Facial wax - 3 areas</td>
+                    <td>€20</td>
+                    <td>Extended </td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Underarm</td>
+                    <td>€15</td>
+                    <td>Inbetweeny</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Forearm</td>
+                    <td>€15</td>
+                    <td>Brazilian</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Hollywood</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Bikini + 1/2 leg</td>
+                    <td>€28</td>
+                    <td>Brazilain + 1/2 leg</td>
+                    <td>€50</td>
+                </tr>
+                <tr>
+                    <td>Bikini + upper leg</td>
+                    <td>€30 </td>
+                    <td>Brazilian + upper leg</td>
+                    <td>€55 </td>
+                </tr>
+                <tr>
+                    <td>Bikini + full leg</td>
+                    <td>€35 </td>
+                    <td>Brazilian + full leg</td>
+                    <td>€65 </td>
+                </tr>
+                <tr>
+                    <td>Extended + 1/2 leg</td>
+                    <td>€32</td>
+                    <td>Hollywood + 1/2 leg</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>Extended + upper leg</td>
+                    <td>€35</td>
+                    <td>Hollywood + upper leg</td>
+                    <td>€60</td>
+                </tr>
+                <tr>
+                    <td>Extended + full leg</td>
+                    <td>€45</td>
+                    <td>Hollywood + full leg</td>
+                    <td>€75</td>
+                </tr>
+                <tr>
+                    <td>Inbetweeney + 1/2 leg</td>
+                    <td>€40</td>
+                    <td>Inbetweeney + upper leg</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Inbetweeney + full leg</td>
+                    <td>€55</td>
+                </tr>
+                <!-- Male Waxing rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Male Waxing </h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nasal</td>
+                    <td>€ 5</td>
+                    <td>Ears</td>
+                    <td>€ 5</td>
+                </tr>
+                <tr>
+                    <td>Brows</td>
+                    <td>€10</td>
+                    <td>Chest</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>Stomach</td>
+                    <td>€20</td>
+                    <td>Back</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Full leg</td>
+                    <td>€40</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!-- Holiday wax rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Holiday Wax</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2 Facial, Underarm, Full leg & bikini</td>
+                    <td>€55</td>
+                    <td>Include Extended</td>
+                    <td>€65</td>
+                </tr>
+                <tr>
+                    <td>+ Inbetweeny</td>
+                    <td>€75</td>
+                    <td>+ Brazilain</td>
+                    <td>€85</td>
+                </tr>
+                <tr>
+                    <td>+ Hollywood</td>
+                    <td>€90</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!-- Brows and Lashes rows and columns-->
+                <tr id="brow-lash">
+                    <td>
+                        <h2>Brow and Lash Bar</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brow wax</td>
+                    <td>€10</td>
+                    <td>HD brows and lash tint</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Brow thread</td>
+                    <td>€10</td>
+                    <td>HD top up with lash tint</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Brow wax/tint </td>
+                    <td>€15</td>
+                    <td>Weekender clusters</td>
+                    <td>€20</td>
+                </tr>
+                <tr>
+                    <td>Brow tint</td>
+                    <td>€ 8</td>
+                    <td>Express Lashes (2 wks)</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Lash tint</td>
+                    <td>€12</td>
+                    <td>HD & Weekenders</td>
+                    <td>€45</td>
+                </tr>
+                <tr>
+                    <td>Eye combo: brow wax tint/lash tint</td>
+                    <td>€25</td>
+                    <td>HD & Express Lashes</td>
+                    <td>€55</td>
+                </tr>
+                <tr>
+                    <td>High Definition brows (HD's) lasts 4/5 wks</td>
+                    <td>€30</td>
+                    <td>Strip Lashes</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>HD top ups (within 3 wks)</td>
+                    <td>€25</td>
                     <td> </td>
-                     <td></td>
-                  </tr>
-                  
-                  <tr><td><h1>Holiday Wax</h1></td></tr>
-                  <tr>
-                      <td>2 Facial, Underarm, Full leg & bikini</td>
-                      <td> € 55.00</td>
-                      <td> Include Extended</td>
-                      <td> € 65.00</td>
-                  </tr>
-                  <tr>
-                      <td> + Inbetweeny</td>
-                      <td> € 75.00</td>
-                      <td> + Brazilain</td>
-                      <td> € 85.00</td>
-                  </tr>
-                 <tr>
-                      <td> + Hollywood</td>
-                      <td> € 90.00</td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td><h2>Brow and Lash Bar</h2></td>
-                  </tr>
-                  <tr>
-                      <td> Brow wax</td>
-                      <td> € 10.00</td>
-                      <td> HD brows and lash tint</td>
-                      <td> € 40.00</td>
-                  </tr>
-                   <tr>
-                      <td> Brow thread</td>
-                      <td> € 10.00</td>
-                       <td> HD top up with lash tint</td>
-                      <td> € 3.00</td>
-                      
-                  </tr>
-                   <tr>
-                      <td> Brow wax/tint </td>
-                      <td> € 15.00</td>
-                      <td> Weekender clusters</td>
-                      <td> € 20.00</td>
-                 </tr>
-                   <tr>
-                       <td> Brow tint</td>
-                      <td> € 8.00</td>
-                         <td> Express Lashes (2 wks)</td>
-                      <td> € 30.00</td>                  
-                      
-                  </tr>
-                   <tr>
-                       <td> Lash tint</td>
-                      <td> € 12.00</td>
-                      <td> HD & Weekenders</td>
-                      <td> € 45.00</td>
-                     
-                  </tr>
-                   <tr>
-                      <td> Eye combo: brow wax tint/lash tint</td>
-                      <td> € 25.00</td>
-                      <td> HD & Express Lashes</td>
-                      <td> € 55.00</td>
-                      
-                  </tr>
-                   <tr>
-                       <td> High Definition brows (HD's) lasts 4/5 wks</td>
-                      <td> € 30.00</td>
-                      <td> Strip Lashes</td>
-                      <td> € 10.00</td>
-                      
-                  </tr>
-                   <tr>
-                       <td> HD top ups (within 3 wks)</td>
-                      <td> € 25.00</td>
-                      
-                      
-                      <td> </td>
-                      <td> </td>
-                  </tr>
-                  
-                  <tr><td><h2>Threading</h2></td></tr>
-                   <tr>
-                      <td> Brows</td>
-                      <td> € 10.00</td>
-                      <td> Lip or chin </td>
-                      <td> € 10.00</td>
-                  </tr>
-                   <tr>
-                      <td> Sides of face starting from</td>
-                      <td> € 12.00</td>
-                      <td> Full facial</td>
-                      <td> € 30.00</td>
-                  </tr>
-                 
-                  
-                  <tr><td><h2>Nail Bar</h2></td></tr>
-                   <tr>
-                      <td> File, Cuticles, Polish </td>
-                      <td> € 15.00</td>
-                      <td>Luxury Pedicure with Callus Peel & Shellac</td>
-                      <td> €50.00 </td>
-                  </tr>     
-                  <tr>
-                      <td> File, Cuticles, Treatment </td>
-                      <td> € 15.00</td>
-                      <td> Gel Polish with extensions </td>
-                      <td> €30.00 </td>
-                  </tr>
-                  <tr>
-                      <td> Shellac Manicure </td>
-                      <td> € 20.00</td>
-                      <td> Shellac hands and feet</td>
-                      <td> €35.00</td>
-                  </tr>
-                  <tr>
-                      <td> Shellac Pedicure </td>
-                      <td> € 20.00</td>
-                      <td>Callus peel, file and cuticles</td>
-                      <td> €30.00</td>
-                  </tr>
-                  <tr>
-                      <td> Luxury Manicure & Shellac </td>
-                      <td> € 40.00</td>
-                      <td> Callus peel, file, cuticles & Shellac</td>
-                      <td> € 40.00</td>
-                  </tr>
-                  <tr>
-                      <td>Shellac Removal</td>
-                      <td> €5.00 </td>
-                      <td> complimentary if shellac is reapplied</td>
-                  </tr>
-                   <tr><td><h2>Suntana Tan</h2></td></tr>
-                  <tr>
-                      <td>Available in many colours</td>
-                   </tr>
-                   <tr>
-                      <td> Half Body </td>
-                      <td> € 15.00</td>
-                  </tr>
-                  <tr>
-                      <td> Full Body </td>
-                      <td> € 20.00</td>
-                  </tr>
-                  
-                  <tr><td><h2>Make Up</h2></he></td></tr>
-                  <tr>
-                      <td> Makeup </td>
-                      <td> € 25.00</td>
-                  </tr>
-                  <tr>
-                      <td> Makeup & lashes </td>
-                      <td> € 30.00</td>
-                  </tr>
-                  <tr>
-                      <td> Makeup tutorial </td>
-                      <td> € 35.00</td>
-                  </tr>
-                  <tr>
-                      <td> Bridal packages available </td>
-                  </tr>
-                 </table>
-            </div>
-            <!-- holiday wax treatments-->
-            <div id="holidaywax"></div>
+                    <td> </td>
+                </tr>
+                <!-- Threading rows and columns -->
+                <tr>
+                    <td>
+                        <h2>Threading</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brows</td>
+                    <td>€10</td>
+                    <td>Lip or chin</td>
+                    <td>€10</td>
+                </tr>
+                <tr>
+                    <td>Sides of face starting from</td>
+                    <td>€12</td>
+                    <td>Full facial</td>
+                    <td>€30</td>
+                </tr>
+                <!-- Nail Bar-->
+                <tr id="nails">
+                    <td>
+                        <h2>Nail Bar</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>File, Cuticles, Polish </td>
+                    <td>€15</td>
+                    <td>Luxury Pedicure with Callus Peel & Shellac</td>
+                    <td>€50</td>
+                </tr>
+                <tr>
+                    <td>File, Cuticles, Treatment </td>
+                    <td>€15</td>
+                    <td>Gel Polish with extensions </td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Shellac Manicure </td>
+                    <td>€20</td>
+                    <td>Shellac hands and feet</td>
+                    <td>€35</td>
+                </tr>
+                <tr>
+                    <td>Shellac Pedicure </td>
+                    <td>€20</td>
+                    <td>Callus peel, file and cuticles</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td>Luxury Manicure & Shellac </td>
+                    <td>€40</td>
+                    <td>Callus peel, file, cuticles & Shellac</td>
+                    <td>€40</td>
+                </tr>
+                <tr>
+                    <td>Shellac Removal</td>
+                    <td>€ 5 </td>
+
+                </tr>
+                <tr>
+                    <td>complimentary if shellac is reapplied</td>
+                </tr>
+                <!-- tan and makeup rows and columns -->
+                <tr>
+                    <td id="suntana">
+                        <h2>Suntana Tan</h2>
+                    </td>
+                    <td></td>
+                    <td id="make-up">
+                        <h2>Make Up</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Available in many colours</td>
+                    <td></td>
+                    <td>Bridal packages available </td>
+                </tr>
+                <tr>
+                    <td>Half Body</td>
+                    <td>€15</td>
+                    <td>Makeup</td>
+                    <td>€25</td>
+                </tr>
+                <tr>
+                    <td>Full Body</td>
+                    <td>€20</td>
+                    <td>Makeup & lashes</td>
+                    <td>€30</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Makeup tutorial</td>
+                    <td>€35</td>
+                </tr>
+                <!-- button link to contact details on index.html page-->
+                <tr>
+                    <td colspan="4"><button id="contact-gina-lg" class="btn btn-success center"><a href="{% url 'index' %}#contact-gina">CONTACT GINA TO MAKE AN APPOINTMENT</a></button></td>
+                </tr>
+            <!-- close the large devices table of treatments -->
+            </table>
+        <!-- close treatments table container -->
         </div>
-        
-        <!-- brows and lash treatments-->
-        <div id="brows-and-lashes">
-            <!-- brows and lashes-->
-            <div id="brow"></div>
-            <!-- hd brows -->
-            <div id="hdbrows"></div>
-            <!-- lash treatments-->
-            <div id="lashes"></div>
-            <!-- threading -->
-            <div id="threading"></div>
-        </div>
-        
-        <!-- Suntana Tan treatments-->
-        <div id="suntana"></div>
-        
-        <!-- makeup -->
-        <div id="makeup"></div>
-        
-        <!-- Nail Bar -->
-        <div id="nailbar">
-            <div id="polish"></div>
-            <div id="shellac"></div>
-            <div id="gel"></div>
-            <div id="manipedi"></div>
-        </div>
-        
+    <!-- close treatments row -->
     </div>
+<!-- close container -->
+</div>
 {% endblock %}

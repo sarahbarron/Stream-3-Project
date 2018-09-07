@@ -12,29 +12,50 @@
 
 <!--main content of the page-->
 {% block content%}
-    <div class="container main-page">
-        <div class="row">
-            <h1>{{review.product}}</h1><hr>
-            <div class="col-sm-12">
-                <p><span class="boldtext">Ratings: </span><span class="green">{{ review.rating }} / 5 </span> </p>
-                <h3>{{review.title}}</h3>
-                <p><span class="boldtext"> Written By: </span>{{review.user}}</p>
-                <p><span class="boldtext"> Published On: </span>{{review.date}}</p>
-            </div>
-             <div class="col-xs-10 col-sm-6">
-                        <p> {{ review.comment|safe|linebreaks }}</p>
-                        <p><span class="boldtext"> Would you recommend to a friend: {{ review.would_you_recommend_to_a_friend}} </span> </p>
-                     
-            </div>
-            {% if review.user == user or user.is_staff %}
-                <a href="{% url 'edit_review' review.id %}" class="btn btn-primary" role="button">Edit Review </a>
-                <a href="{% url 'delete_review' review.id %}" class="btn btn-primary" role="button">Delete Review</a>
-            {% endif %}
+<!-- main container -->
+<div class="container main-page">
+    <!-- full review row -->
+    <div class="row">
+        <!-- heading - product being reviewed -->
+        <h1 class="line-center padding50">{{review.product}}</h1>
+        <!-- horizontal line -->
+        <hr>
+        <!-- review title -->
+        <h2 class="boldtext font-purple line-center padding50">{{review.title}}</h2>
+        <!-- review details column -->
+        <div class="col-sm-6">
+            <!-- review rating out of 5-->
+            <p><span class="boldtext font-purple">Ratings: </span><span class="green">{{ review.rating }} / 5 </span> </p>
+            <!-- who the review was written by -->
+            <p><span class="boldtext font-purple"> Written By: </span>{{review.user}}</p>
+            <!-- the date the review was published -->
+            <p><span class="boldtext font-purple"> Published On: </span>{{review.date}}</p>
+            <!-- would you recommend the product to a friend-->
+            <p><span class="boldtext font-purple"> Would you recommend to a friend:</span> {{ review.would_you_recommend_to_a_friend}} </p>
+        <!-- close review details column -->
         </div>
+        <!-- review comment column -->
+        <div class="col-xs-12 col-sm-6">
+            <!-- comment-->
+            <p><span class="boldtext font-purple"> Comment:</span></p>
+            <p> {{ review.comment|safe|linebreaks }}</p>
+            <!-- if the user is a staff member allow them edit and delete the review-->
+            {% if review.user == user or user.is_staff %}
+            <!-- container for edit and review buttons -->
+            <div class="padding50 align-right">
+                <!-- edit review button -->
+                <a href="{% url 'edit_review' review.id %}" class="btn btn-success" role="button">Edit Review </a>
+                <!-- delete review button -->
+                <a href="{% url 'delete_review' review.id %}" class="btn btn-success" role="button">Delete Review</a>
+            <!-- close button container -->
+            </div>
+            <!-- end if statement -->
+            {% endif %}
+        <!-- close review comment column -->
+        </div>
+    <!-- close review row -->
     </div>
-    
+<!-- close container -->
+</div>
+<!-- end content block -->
 {% endblock %}
-
-
-
-

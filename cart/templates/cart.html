@@ -1,74 +1,102 @@
+<!-- extends the base.html page-->
 {% extends 'base.html' %}
 <!--this allows us access to anything in our static files eg: css,js,fonts etc -->
 {% load static from staticfiles %}
-{% load bootstrap_tags %}
+<!-- load bootstrap tags -->
+{% load bootstrap_tags %} 
+<!-- block content -->
 {% block content %}
-
 <!--container -->
 <div class="container main-page">
-    
+    <!-- Row for heading -->
     <div class="row">
-        <div id="cart-heading" class="col-xs-12 line-center">  
+        <!-- column for heading -->
+        <div id="cart-heading" class="col-xs-12 line-center">
+            <!-- heading -->
             <h1 class="padding10"> Your Cart </h1>
+        <!-- end column -->
         </div>
+    <!-- end row -->
     </div>
-    
+
     <!-- cart details main div -->
     <div id="cart-div" class="row row-flex background-white font-black">
         <!-- for each item in the cart -->
         {% for item in cart_items %}
         <!-- cart item row -->
-            <div id="cart-item" class="row">
-                
-                <!-- thumbnail image-->
-                <div class="col-xs-12 col-sm-2">
-                    <img class="cart-thumbnail img-responsive" src="/media/{{item.product.image}}" alt="Ginas Beauty Studio runpost image">
-                </div>
-                <!-- product name -->
-                <div class="col-xs-12 col-sm-3 bld"><p>{{item.product.name}}</p></div>
-                <!-- product price -->
-                <div class="col-xs-12 col-sm-2"><p>@ <span class="bld">€ {{item.product.price}}</span> per qty</p></div>
-                <!-- amend cart-->
-                <div class="col-xs-6 col-sm-3 add">
-                    <!-- quantity form -->
-                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                    
-                        {% csrf_token %}
-                        <!-- form group -->
-                        <div class ="form-group">
-                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                            <!-- input group-->
-                            <div class="input-group">
-                                <div class="input-group">
-                                    <input name="quantity" type="number" min="0" max="999" class="form-control" value={{item.quantity}}>
-                                </div>
-                            <!-- close input group-->
-                            </div>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Amend</button> 
-                        <!-- close form group -->
-                        </div>
-                    </form>
-                <!-- close amend cart-->
-                </div>
-                <div class="col-xs-6 col-sm-2 align-right"><p>= <span class="bld">€ {{item.item_total}}</span></p></div>
-            <!-- close item row -->
+        <div id="cart-item" class="row">
+
+            <!-- column for a thumbnail image-->
+            <div class="col-xs-12 col-sm-2">
+                <!-- thumbnail image -->
+                <img class="cart-thumbnail img-responsive" src="/media/{{item.product.image}}" alt="Ginas Beauty Studio runpost image">
+            <!-- close the thumbnail column-->
             </div>
-            <hr>
-            {% endfor %}
-        <!-- close cart details main div -->
-            <!-- total amount row -->
+            <!-- product name column -->
+            <div class="col-xs-12 col-sm-3 bld">
+                <!-- product name -->
+                <p>{{item.product.name}}</p>
+            </div>
+            <!-- product price column -->
+            <div class="col-xs-12 col-sm-2">
+                <!-- price of product per quantity -->
+                <p>@ <span class="bld">€{{item.product.price}}</span> /Qty</p>
+            <!-- close price column -->
+            </div>
+            <!-- amend cart column -->
+            <div class="col-xs-6 col-sm-3 add">
+                <!-- quantity form -->
+                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                     <!--csrf token for security to prevent JavaScript injection-->
+                    {% csrf_token %}
+                    <!-- form group  div -->
+                    <div class="form-group">
+                        <!-- label New Qty -->
+                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                        <!-- input group div -->
+                        <div class="input-group">
+                            <!-- input for quantity amount-->
+                            <input name="quantity" type="number" min="0" max="999" class="form-control" value={{item.quantity}}>
+                        <!-- close input group-->
+                        </div>
+                        <!-- button to amend quantity -->
+                        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span>Amend</button>
+                    <!-- close input group -->
+                    </div>
+                <!-- close form -->
+                </form>
+            <!-- close amend cart column -->
+            </div>
+            <!-- column for total -->
+            <div class="col-xs-6 col-sm-2 align-right">
+                <!-- total price -->
+                <p>= <span class="bld">€ {{item.item_total}}</span></p>
+            </div>
+        <!-- close item row -->
+        </div>
+        <!-- horizontal line -->
+        <hr> 
+        <!-- end for  loop -->
+        {% endfor %}
+     
+        <!-- total amount row -->
         <div class="row bld font-purple align-right padding20">
-            <p> Total:  € {{total}}</p>
+            <!-- total price -->
+            <p> Total: € {{total}}</p>
+            <!-- checkout button -->
             <p><a href="{% url 'checkout' %}" class="btn btn-success" role="button">
-                <span class="glyphicon glyphicon-ok-sign" aria-hidden"true"></span>Checkout</a>
-            </a></p>
+                <span class="glyphicon glyphicon-ok-sign" aria-hidden"true"></span>Checkout</a></p>
         <!--close total amount row -->
         </div>
     <!-- close cart details main div-->
     </div>
-    
-    
 <!--close container-->
 </div>
-
+<!-- end content block -->
+{% endblock %} 
+<!-- open block for javascript links -->
+{% block end_js %}
+<!-- flipcard.js for product flip cards-->
+<script type="text/javascript" src="{% static 'js/flipcard.js' %}"></script>
+<!-- end javascript block-->
 {% endblock %}

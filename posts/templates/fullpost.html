@@ -12,43 +12,75 @@
 
 <!--main content of the page-->
 {% block content%}
-    <div class="container main-page">
-        <div id="full-post-div" class="row">
-            <div class="hidden-xs hidden-sm col-md-4">
-               <img src="/media/img/profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center"><hr>
-                <p><span class="boldtext">Author: </span>Gina </p>
-                
-                <p><span class="boldtext">Published On: </span>{{post.published_date}}</p>
-                <p class="hidden-xs hidden-sm"><span class="boldtext">Views: </span>{{post.views}}</p>
-                <p><span class="boldtext">Categories: </span>{{post.category}}</p>
-                <p><span class="boldtext">Tags: </span>{{post.tag}}</p>
-                
-            </div>
-
-            <div class="col-xs-12 col-md-8 post-details background-white b-radius">
-                <h1 class="font-purple line-center full-post-heading"> {{ post.title }}</h1><hr>
-                
-                <p class="hidden-md hidden-lg font-purple line-center"><span class="boldtext">Author: </span>Gina </p>
-                
-                <p class="hidden-md hidden-lg font-purple line-center"><span class="boldtext">Published On: </span>{{post.published_date}}</p>
-                
-                {% if post.image %}
-                <img class="img-responsive center" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
-                {% else %}
-                <img class ="img-responsive center" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image">
-                {% endif %}
-        
-                
-                <div class="font-black padding50"><p class="font-black"> {{ post.content|safe|linebreaks }}</p></div>
-                <hr>
-                <div class="row align-right">
-                    {% if user.is_staff %}
-                    <a href="{% url 'edit_post' post.id %}" class="btn btn-success" role="button">EDIT POST </a>
-                    <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a>
-                    {% endif %}
-                     <a href="{% url 'get_posts' %}" class="btn btn-success">BACK TO NEWS & SPECIAL OFFERS</a>
-                </div>
-            </div>
+<!-- main container -->
+<div class="container main-page">
+    <!-- full post row -->
+    <div id="full-post-div" class="row">
+        <!-- full post comment for larger devices -->
+        <div class="hidden-xs hidden-sm col-md-4">
+            <!-- full post image -->
+            <img src="/media/img/profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center">
+            <!-- horizontal rule -->
+            <hr>
+            <!-- Author's Name -->
+            <p><span class="boldtext">Author: </span>Gina </p>
+            <!-- Date post was published on -->
+            <p><span class="boldtext">Published On: </span>{{post.published_date}}</p>
+            <!-- Number of times the post has been seen -->
+            <p class="hidden-xs hidden-sm"><span class="boldtext">Views: </span>{{post.views}}</p>
+            <!-- Post categories -->
+            <p><span class="boldtext">Categories: </span>{{post.category}}</p>
+            <!-- post tags -->
+            <p><span class="boldtext">Tags: </span>{{post.tag}}</p>
+        <!-- close full post column-->
         </div>
+        <!-- Full post column -->
+        <div class="col-xs-12 col-md-8 post-details background-white b-radius">
+            <!-- heading -->
+            <h1 class="font-purple line-center full-post-heading"> {{ post.title }}</h1>
+            <!-- horizontal rule -->
+            <hr>
+            <!-- Authors name -->
+            <p class="hidden-md hidden-lg font-purple line-center"><span class="boldtext">Author: </span>Gina </p>
+            <!-- Date published on -->
+            <p class="hidden-md hidden-lg font-purple line-center"><span class="boldtext">Published On: </span>{{post.published_date}}</p>
+            <!-- if there is a post image -->
+            {% if post.image %}
+            <!-- show the image -->
+            <img class="img-responsive center" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image"> 
+            <!-- otherwise -->
+            {% else %}
+            <!-- show this image -->
+            <img class="img-responsive center" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image"> 
+            <!-- end if statement-->
+            {% endif %}
+            <!-- post content container -->
+            <div class="font-black padding50">
+                <!-- post content -->
+                <p class="font-black"> {{ post.content|safe|linebreaks }}</p>
+            <!-- close the post content container -->
+            </div>
+            <!-- horizontal rule -->
+            <hr>
+            <!-- row for buttons -->
+            <div class="row align-right">
+                <!-- if the user is a staff member -->
+                {% if user.is_staff %}
+                <!-- show a link button to edit the post -->
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-success" role="button">EDIT POST </a>
+                <!-- show a link button to delete post -->
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a> 
+                <!-- end the if statement-->
+                {% endif %}
+                <!-- show the link button to go back to news & specials-->
+                <a href="{% url 'get_posts' %}" class="btn btn-success">BACK TO NEWS & SPECIAL OFFERS</a>
+            <!-- close the buttons row-->
+            </div>
+        <!-- close the full post column-->
+        </div>
+    <!-- close the full post row -->
     </div>
+<!-- close the container-->
+</div>
+<!-- end the main content block-->
 {% endblock %}

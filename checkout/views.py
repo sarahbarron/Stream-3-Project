@@ -170,7 +170,7 @@ def checkout_pay(request):
                 email_order_info_to_customer(request)
                 
                 # redirect back to products.html
-                return redirect(reverse('index'))
+                return redirect(reverse('paid'))
         
             else:
                 # otherwise if payment is not successfull send a message to the customer informing them of this
@@ -232,7 +232,7 @@ def email_order_info_to_customer(request):
     message = " "
     
     # html message
-    html_message = "<p> Thank You,</p><p> Your order has been received at Gina's Beauty Studio </p><p> We will dispatch your order within the next 24 hours.</p><p> You can view the status of your order by logging into your account on our website and viewing profile/Track Order <a href='https://stream-3-project-sarahbarron.c9users.io/accounts/profile/'>Click Here to Login</a></p><p> Thank you for your custom </p><p>Gina xxx </p>"
+    html_message = "<p> Thank You,</p><p> Your order has been received at Gina's Beauty Studio </p><p> We will dispatch your order within the next 24 hours.</p><p> You can view the status of your order by logging into your account on our website and viewing profile <a href='https://stream-3-project-sarahbarron.c9users.io/accounts/profile/'>Click Here to Login</a></p><p> Thank you for your custom </p><p>Gina xxx </p>"
     
     # email address to send the email from
     from_email = 'EMAIL_ADDRESS'
@@ -267,3 +267,9 @@ def email_low_stock_levels(product):
         # except if there is a bad header, hackers will often try to intercept an email by injecting into the header this exception should spot this and throw an error
         except BadHeaderError:
             return HttpResponse ('Invalid header found.')
+            
+# when a payment is received  
+def paid(request):
+    # direct to the paid.html page  
+    return render(request, "paid.html")
+    

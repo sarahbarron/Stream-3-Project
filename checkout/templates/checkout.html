@@ -1,84 +1,122 @@
-{% extends "base.html" %}
-{% load static from staticfiles %}
-{% load bootstrap_tags %}
-
+<!-- extends base.html file -->
+{% extends "base.html" %} 
+<!-- load all static files -->
+{% load static from staticfiles %} 
+<!-- load bootstrap tags -->
+{% load bootstrap_tags %} 
+<!-- Javascript block -->
 {% block head_js %}
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        Stripe.publishableKey = '{{publishable}}';
-        //]>
-    </script>
-    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
-
+<!-- link to stipe javascript file -->
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<!-- Stripe publishable key -->
+<script type="text/javascript">
+    //<![CDATA[
+    Stripe.publishableKey = '{{publishable}}';
+    //]>
+</script>
+<!-- link to stripe.js -->
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+<!-- end block javascript files -->
+{% endblock %} 
+<!-- block content -->
 {% block content %}
-
+<!-- main container -->
 <div class="container main-page">
-     <div class="row">
-        <div id="cart-heading" class="col-xs-12 line-center">  
+    <!-- heading row -->
+    <div class="row">
+        <!-- heading column -->
+        <div id="cart-heading" class="col-xs-12 line-center">
+            <!-- heading -->
             <h1 class="padding10"> Checkout </h1>
+        <!-- close column -->
         </div>
+    <!-- close row -->
     </div>
-    
+
     <!-- cart details main div -->
     <div id="cart-div" class="row row-flex background-white font-black">
         <!-- for each item in the cart -->
         {% for item in cart_items %}
         <!-- cart item row -->
-            <div id="cart-item" class="row">
-                
-                <!-- thumbnail image-->
-                <div class="col-xs-5 col-sm-3">
-                    <img class="cart-thumbnail img-responsive" src="/media/{{item.product.image}}" alt="Ginas Beauty Studio runpost image">
-                </div>
-                <!-- product name -->
-                <div class="col-xs-7 col-sm-4 bld"><p>{{item.product.name}}</p></div>
-                <!-- product price -->
-                <div class="col-xs-7 col-sm-3"><p>@ <span class="bld">€ {{item.product.price}}</span> per qty</p></div>
-                <div class="col-xs-7 col-sm-2 align-right"><p>= <span class="bld">€ {{item.item_total}}</span></p></div>
-            <!-- close item row -->
+        <div id="cart-item" class="row">
+
+            <!-- thumbnail image column -->
+            <div class="col-xs-5 col-sm-3">
+                <!-- thumbnail image -->
+                <img class="cart-thumbnail img-responsive" src="/media/{{item.product.image}}" alt="Ginas Beauty Studio runpost image">
+            <!-- close thumbnail image column -->
             </div>
-            <hr>
-            {% endfor %}
-        <!-- close cart details main div -->
-            <!-- total amount row -->
+            <!-- product name column -->
+            <div class="col-xs-7 col-sm-4 bld">
+                <!-- product name -->
+                <p>{{item.product.name}}</p>
+            <!-- close product name column -->
+            </div>
+            <!-- product price column -->
+            <div class="col-xs-7 col-sm-3">
+                <!-- product price -->
+                <p>@ <span class="bld">€ {{item.product.price}}</span> per qty</p>
+            <!-- close price column -->
+            </div>
+            <!-- total price column -->
+            <div class="col-xs-7 col-sm-2 align-right">
+                <!-- total price -->
+                <p>= <span class="bld">€ {{item.item_total}}</span></p>
+            <!-- end price column -->
+            </div>
+        <!-- close item row -->
+        </div>
+        <!-- horizontal row -->
+        <hr> 
+        <!-- end for loop -->
+        {% endfor %}
+      
+        <!-- total amount row -->
         <div class="row bld font-purple align-right padding20">
-            <p> Total:  € {{total}}</p>
-            <p><a href="{% url 'checkout' %}" class="btn btn-success" role="button">
-                <span class="glyphicon glyphicon-ok-sign" aria-hidden"true"></span>Checkout</a>
-            </a></p>
+            <!-- total -->
+            <p> Total: € {{total}}</p>
         <!--close total amount row -->
         </div>
     <!-- close cart details main div-->
     </div>
-    
-   
-    
-        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-            <legend>Payment Details</legend>
-           
-            <div class="ginas-forms form-group col-md-6">
-                <h2> Personal Details </h2>
-                {{ order_form|as_bootstrap }}
+    <!-- Payment Form -->
+    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+        <!-- legend payment details-->
+        <legend>Payment Details</legend>
+        <!-- personal details column-->
+        <div class="ginas-forms form-group col-md-6">
+            <!-- personal details heading -->
+            <h2> Personal Details </h2>
+            <!-- order form -->
+            {{ order_form|as_bootstrap }}
+        <!-- end personal details column-->
+        </div>
+        
+        <!-- payment details column-->
+        <div class="ginas-forms form-group col-md-5">
+            <!-- payment details heading -->
+            <h2> Payment Details </h2>
+            <!-- payment details form -->
+            {{ payment_form|as_bootstrap }} 
+             <!--csrf token for security to prevent JavaScript injection-->
+            {% csrf_token %}
+            <!-- submit payment column -->
+            <div class="form-group col-md-12 align-right">
+                <!-- submit payment button -->
+                <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value=" Submit Payment">
+            <!-- end submit payment column -->
             </div>
-            
-            <div class="ginas-forms form-group col-md-5">
-                <h2> Payment Details </h2>
-                {{ payment_form|as_bootstrap }}
-                
-                {% csrf_token %}
-                <div class="form-group col-md-12 align-right">
-                    <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value=" Submit Payment">
-                </div>
-                 
-                <div id="credit-card-errors" style="display:none">
-                    <div class="alert-message block-message error align-right" id="stripe-error-message"></div>
-                </div>
-            
+            <!-- credit card errors div -->
+            <div id="credit-card-errors" style="display:none">
+                <!-- stripe errors messages -->
+                <div class="alert-message block-message error align-right" id="stripe-error-message"></div>
+            <!-- end credit card erros div-->
             </div>
-        </form>
-    
-       
+        <!-- end payment details column-->
+        </div>
+    <!-- end form -->
+    </form>
+<!-- end container -->
 </div>
+<!-- end block -->
 {% endblock %}

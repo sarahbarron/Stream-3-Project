@@ -13,25 +13,28 @@
 <!--main content of the page-->
 {% block content%}
 
+<!-- opening container -->
 <div class="container main-page">
-    
+    <!-- heading -->
     <h1 class="line-center padding10 bld"> Login Form</h1>
     <!--a customer login form with a POST method-->
     <form class="center ginas-forms" method="POST">
         <!--csrf token for security to prevent JavaScript injection-->
         {% csrf_token %}
-        
+
         <!--login form requesting username and password-->
         {{ customer_login_form | as_bootstrap }}
+
         <!--login button -->
-        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
         <button type="submit" class="btn btn-success"> LOGIN </button>
-        
+
         <!--link to reset password-->
         <p class="padding10"><a href="{% url 'password_reset' %}"> Forgotton your password you can reset it here</a></p>
-    </form>   
-    
-    
+    <!-- close form -->
+    </form>
+
+<!-- close container -->
 </div>
 <!--end of main content-->
-{% endblock %}        
+{% endblock %}

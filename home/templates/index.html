@@ -1,507 +1,487 @@
 <!--extension to the base.html file-->
 {% extends 'base.html' %}
+<!-- load static files -->
 {% load staticfiles %}
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
+<!-- javascript block -->
 {% block head_js %}
-  
-     <!-- EMAIL.JS -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          emailjs.init("user_5EwMyH87bNVAxejphaCXs");
-       })();
-    </script>
-
-    </script>
-
+<!-- EMAIL.JS -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("user_5EwMyH87bNVAxejphaCXs");
+    })();
+</script>
+<!-- end block -->
 {% endblock %}
 
 <!--page title-->
 {% block page_title %}Ginas Beauty Studio{% endblock %}
 
-
 <!--main content of the page-->
 {% block content%}
+<!-- main container -->
 <div class="container-fluid">
-    
-<!---------------- landing page main PICTURE ---------------------------------->
-    <div class="row">
-        <div id="firstpic" class="col-xs-12">
-            <img class="img-responsive"  src="{% static 'img/gina5.jpg' %}"></img>
-        </div>
-    </div>
-    
-<!----------------- landing page TREATMENTS ----------------------------------->
 
+    <!---------------- landing page main PICTURE ---------------------->
+    <!-- row for main picture -->
+    <div class="row">
+        <!-- column for first picutre-->
+        <div id="firstpic" class="col-xs-12">
+            <!-- image -->
+            <img class="img-responsive" src="{% static 'img/gina5.jpg' %}"></img>
+            <!-- close image column-->
+        </div>
+        <!-- close image row-->
+    </div>
+
+    <!----------------- landing page TREATMENTS --------------------------->
+    <!-- treatments row -->
     <div class="row landing-page-div">
-        <div class="col-xs-12">
+        <!-- column for treatments on mobile -->
+        <div id="mobile-treatments" class="col-xs-12">
             <!-- treatments HEADING -->
-            <h1 class="line-center landing-page-heading"> TREATMENTS </h1><hr>
-             <!-- mobile phone treatments hidden on larger devices  -->
-             <div class="row hidden-md hidden-lg">
-             
+            <h1 class="line-center landing-page-heading"> TREATMENTS </h1>
+            <hr>
+            <!-- treatments for small devices hidden on larger devices  -->
+            <div class="row hidden-md hidden-lg">
+
                 <!-- waxing div -->
                 <div class="front treatment-front">
-                    <H1 class="line-center"> WAXING </H1>
-                <!-- close waxing div -->
+                    <!-- heading & link to waxing treatments-->
+                    <H1 class="line-center"><a href="{% url 'treatments'%}#wax"> WAXING </a></H1>
+                    <!-- close waxing div -->
                 </div>
                 <!-- open brow & lash  bar -->
                 <div class="front treatment-front">
-                    <H1 class="line-center"> BROW & LASH BAR </H1>
-                <!-- close brow & lash bar -->
+                    <!-- heading & link to brow and lash treatments-->
+                    <H1 class="line-center"><a href="{% url 'treatments'%}#browandlash">BROW & LASH BAR</a></H1>
+                    <!-- close brow & lash bar -->
                 </div>
-                 <!-- open suntana div -->
+                <!-- open suntana div -->
                 <div class="front treatment-front">
-                    <H1 class="line-center"> SUNTANA TAN</H1>
-                <!-- close suntana div -->
+                    <!-- heading & link to suntana treatments-->
+                    <H1 class="line-center"><a href="{% url 'treatments'%}#tan"> SUNTANA TAN</a></H1>
+                    <!-- close suntana div -->
                 </div>
-                 <!-- open makeup div -->
+                <!-- open makeup div -->
                 <div class="front treatment-front">
-                    <H1 class="line-center"> MAKEUP </H1>
-                <!-- close makeup div -->
+                    <!-- heading & link to makeup treatments-->
+                    <H1 class="line-center"><a href="{% url 'treatments'%}#makeup"> MAKEUP </a></H1>
+                    <!-- close makeup div -->
                 </div>
-                 <!-- open nail bar div -->
+                <!-- open nail bar div -->
                 <div class="front treatment-front">
-                    <H1 class="line-center"> NAIL BAR </H1>
-                <!-- close nail bar div -->
+                    <!-- heading & link to nail bar treatments-->
+                    <H1 class="line-center"><a href="{% url 'treatments'%}#nailbar"> NAIL BAR </a></H1>
+                    <!-- close nail bar div -->
                 </div>
-             </div>
-            
-            <!-- flip cards for larger devices hidden on small devices-->
-             <div class="row hidden-xs hidden-sm">
-                    
-             <!--------- TREATMENTS FLIP CARD FEMALE WAXING -----------------> <!-- open the filp card outer container -->
+                <!-- close row for small device treatments-->
+            </div>
+
+            <!-- row for larger devices hidden on small devices-->
+            <div class="row hidden-xs hidden-sm">
+
+                <!-- TREATMENTS FLIP CARD FEMALE WAXING -->
+                <!-- open the filp card outer container -->
                 <div class="flip-card col-md-6 treatment-flip-card">
-                    
-                    <!--open the flip div which contains the front & back divs-->
+                    <!--open the container for the front & back divs-->
                     <div class="flip treatment-flip-card-dimensions">
-                    
-                        <!-- open front image of product -->
+                        <!-- open front card  -->
                         <div class="front treatment-front">
+                            <!-- treatment heading -->
                             <H1 class="line-center"> WAXING </H1>
-                        <!-- close front image of product -->
+                            <!-- close front card -->
                         </div>
-                        
                         <!--open back description-->
                         <div class="back treatment-back">
                             <!--Description of wax-->
                             <h1 class="line-center padding10">Waxing</h1>
-                            <p> At Ginas Beauty Studio we use the award winning wax Waxperts </p>
+                            <p> We use the award winning wax Waxperts </p>
                             <h3 class="line-center"> Voted number 1 wax in Ireland</h3>
                             <p> Waxperts wax has a lower melting point which is perfect for sensitive skin. It is lavender base which is known for it's antiseptic, anti inflammatory, soothing and healing properties.</p>
-                            
+
                             <!--link to treatments page-->
-                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL WAXING TREATMENTS & PRICES </a>
-                        <!--close back description-->
+                            <a class="bld" href="{% url 'treatments'%}#waxing"> VIEW ALL WAXING TREATMENTS & PRICES </a>
+                            <!--close back description-->
                         </div>
-                    <!-- close the flip div -->
+                        <!-- close the container for front and back divs -->
                     </div>
-                    
-                    
-                <!-- close the flip card front & back container -->
+                    <!-- close the flip card outer container -->
                 </div>
-                
-            
-                
-                <!--------- TREATMENTS FLIP CARD BROW & LASH BAR --------------> <!-- open the filp card outer container -->
+
+
+
+                <!--------- TREATMENTS FLIP CARD BROW & LASH BAR -------------->
+                <!-- open the filp card outer container -->
                 <div class="flip-card col-md-6 treatment-flip-card">
-                    
-                    <!--open the flip div which contains the front & back divs-->
+                    <!--open a container for the front and back divs-->
                     <div class="flip treatment-flip-card-dimensions">
-                    
-                        <!-- open front image of product -->
+                        <!-- open front card  -->
                         <div class="front treatment-front">
+                            <!-- heading -->
                             <H1> BROW & LASH BAR</H1>
-                        <!-- close front image of product -->
+                            <!-- close front card -->
                         </div>
-                        
                         <!--open back description-->
                         <div class="back treatment-back">
+                            <!-- heading -->
                             <h1 class="line-center padding10">BROW & LASH BAR</h1>
-                            <h3> Waxing,   Threading,   Tinting </h3>
+                            <!-- brow and lash bar treatments description -->
+                            <h3> Waxing, Threading, Tinting </h3>
                             <br>
-                            <h3> HD Brows,   Weekenders, </h3>
+                            <h3> HD Brows, Weekenders, </h3>
                             <br>
-                            <h3> Express Lashes  &  Strip Lashes</h3>
-                            
+                            <h3> Express Lashes & Strip Lashes</h3>
                             <!--link to treatments page-->
-                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL BROW & LASH BAR TREATMENTS & PRICES </a>
-                        <!--close back description-->
+                            <a class="bld" href="{% url 'treatments'%}#brow-lash"> VIEW ALL BROW & LASH BAR TREATMENTS & PRICES </a>
+                            <!--close back description-->
                         </div>
-                    <!-- close the flip div -->
-                    </div>  
-                <!-- close the flip card front & back container -->
+                        <!-- close the container for front and back divs  -->
+                    </div>
+                    <!-- close the outer container -->
                 </div>
-                
-                <!--------- TREATMENTS FLIP CARD TAN ----------------------> <!-- open the filp card outer container -->
+
+                <!--------- TREATMENTS FLIP CARD TAN ---------------------->
+                <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
-                    
-                    <!--open the flip div which contains the front & back divs-->
+                    <!--open a container for front & back divs-->
                     <div class="flip treatment-flip-card-dimensions">
-                    
-                        <!-- open front image of product -->
+                        <!-- open front card -->
                         <div class="front treatment-front">
+                            <!-- heading -->
                             <H1> SUNTANA TAN</H1>
-                        <!-- close front image of product -->
+                            <!-- close front card -->
                         </div>
-                        
                         <!--open back description-->
                         <div class="back treatment-back">
+                            <!-- heading -->
                             <h1 class="line-center padding10">SUNTANA TAN</h1>
+                            <!-- suntana details -->
                             <p>Available in light, medium, dark, after dark</p>
                             <p>rapid tan ready to go in 1 hour</p>
                             <p>violet based for a deep exotic tan.</p>
                             <p>Half Body & Full Body</p>
-                            
                             <!--link to treatments page-->
-                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL SUNTANA TAN PRICES </a>
-                        <!--close back description-->
+                            <a class="bld" href="{% url 'treatments'%}#suntana"> VIEW ALL SUNTANA TAN PRICES </a>
+                            <!--close back description-->
                         </div>
-                    <!-- close the flip div -->
-                    </div>  
-                <!-- close the flip card front & back container -->
+                        <!-- close container for front and back divs -->
+                    </div>
+                    <!-- close the outer container -->
                 </div>
-            
-             <!--------- TREATMENTS FLIP CARD MAKEUP ----------------------> <!-- open the filp card outer container -->
+
+                <!--------- TREATMENTS FLIP CARD MAKEUP ---------------------->
+                <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
-                    
-                    <!--open the flip div which contains the front & back divs-->
+                    <!--open a container for the front & back divs-->
                     <div class="flip treatment-flip-card-dimensions">
-                    
-                        <!-- open front image of product -->
+                        <!-- open front card -->
                         <div class="front treatment-front">
+                            <!-- heading -->
                             <H1> MAKEUP </H1>
-                        <!-- close front image of product -->
+                            <!-- close front card -->
                         </div>
-                        
                         <!--open back description-->
                         <div class="back treatment-back">
-                            <!--Description of product-->
-                            <H1 class="line-center padding10">  MAKEUP </H1>
+                            <!-- Heading -->
+                            <H1 class="line-center padding10"> MAKEUP </H1>
+                            <!-- makeup description -->
                             <h3> Need your makeup done for a: </h3>
                             <h3> Night Out, Wedding, Debs </h3>
                             <h3> or any special occasion </h3>
                             <h3>Come to Gina's Beauty Studio</h3>
                             <!--link to treatments page-->
-                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL MAKEUP PRICES </a>
-                        <!--close back description-->
+                            <a class="bld" href="{% url 'treatments'%}#make-up"> VIEW ALL MAKEUP PRICES </a>
+                            <!--close back description-->
                         </div>
-                    <!-- close the flip div -->
-                    </div>  
-                <!-- close the flip card front & back container -->
+                        <!-- close front and back div container -->
+                    </div>
+                    <!-- close the outer container -->
                 </div>
-            
-            <!--------- TREATMENTS FLIP CARD NAIL BAR---------------------> <!-- open the filp card outer container -->
+
+                <!--------- TREATMENTS FLIP CARD NAIL BAR--------------------->
+                <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
-                    
-                    <!--open the flip div which contains the front & back divs-->
+                    <!--open the container for the front & back divs-->
                     <div class="flip treatment-flip-card-dimensions">
-                    
-                        <!-- open front image of product -->
+                        <!-- open front card -->
                         <div class="front treatment-front">
+                            <!-- heading -->
                             <H1> NAIL BAR</H1>
-                        <!-- close front image of product -->
+                            <!-- close front card -->
                         </div>
-                        
                         <!--open back description-->
                         <div class="back treatment-back">
-                            <!--Description of product-->
+                            <!-- Heading -->
                             <H1 class="line-center padding10"> NAIL BAR </H1>
-                            
+                            <!-- description of nail treatments -->
                             <h3>Manicures, Pedicures, Callus Peels</h3>
                             <h3> Gel Polish & Extensions</h3>
                             <h3>Shellac Hands & Feet</h3>
                             <h3>File & Polish </h3>
-                            
-                             <!--link to treatments page-->
-                            <a class="bld" href="{% url 'treatments'%}"> VIEW ALL NAIL BAR PRICES </a>
-                        <!--close back description-->
+                            <!--link to treatments page-->
+                            <a class="bld" href="{% url 'treatments'%}#nails"> VIEW ALL NAIL BAR PRICES </a>
+                            <!--close back description-->
                         </div>
-                    <!-- close the flip div -->
-                    </div>  
-                <!-- close the flip card front & back container -->
+                        <!-- close container for front and back div -->
+                    </div>
+                    <!-- close the outer container -->
                 </div>
-            
-            <!-- close the row-->
+
+                <!-- close the column -->
             </div>
-        <!-- close the column -->
+            <!-- close the row -->
         </div>
-        
+
         <!--link to treatments page-->
         <h3><a class="bld" href="{% url 'treatments'%}"> VIEW ALL TREATMENTS & PRICES </a></h3>
-           
-    <!-- close the treatments landing page div-->
+
+        <!-- close the treatments landing page div-->
     </div>
 
-<!---------------- SHOP - BUY PRODUCTS ---------------------------------------->
- <!-- landing page shop section-->
-  <div id="landing-page-shop-div" class="row landing-page-div">
-    <!-- open shop column section-->
-    <div class="col-xs-12">
-        <!-- shop HEADING -->
-        <h1 class="line-center landing-page-heading"> SHOP </h1><hr>
-         <!-- tomitago details row -->
-         <div class="row">
-             <!-- tomitago details column -->
-            <div id="landing-product-description" class="col-xs-12">
-                <!-- tomitago image -->
-                <img class="img-responsive center"  src="{% static 'img/tomitago-logo.jpg' %}"></img>
-                <!-- tomitago details -->
-                <h3> At Gina's Beauty Studio we sell the locally sorced chemical free Tomitago</h3>
-                <h3>The aim of Tomitago is to produce 100% chemical-free skin care products that are as effective as their chemical counter parts. </h3>
+    <!---------------- SHOP - BUY PRODUCTS --------------------------->
+    <!-- landing page shop section-->
+    <div id="landing-page-shop-div" class="row landing-page-div">
+        <!-- open shop column section-->
+        <div class="col-xs-12">
+            <!-- shop HEADING -->
+            <h1 class="line-center landing-page-heading"> SHOP </h1>
+            <!-- horizontal rule -->
+            <hr>
+            <!-- tomitago details row -->
+            <div class="row">
+                <!-- tomitago details column -->
+                <div id="landing-product-description" class="col-xs-12 line-center">
+                    <!-- tomitago image -->
+                    <img class="img-responsive center" src="{% static 'img/tomitago-logo.jpg' %}"></img>
+                    <!-- tomitago details -->
+                    <p> At Gina's Beauty Studio we sell the locally sorced chemical free Tomitago</p>
+                    <p>The aim of Tomitago is to produce 100% chemical-free skin care products that are as effective as their chemical counter parts. </p>
 
-                <h3>There unisex products have been formulated to be effective and gentle on all skin types.</h3>
+                    <p>There unisex products have been formulated to be effective and gentle on all skin types.</p>
 
-                <h3>All the ingredients are specially sourced  and expertly blended to create products which contain naturally nourishing and invigorating properties.     </h3>
-            <!-- close tomitago details column -->
+                    <p>All the ingredients are specially sourced and expertly blended to create products which contain naturally nourishing and invigorating properties. </p>
+                    <!-- close tomitago details column -->
+                </div>
+                <!-- close tomitago details row -->
             </div>
-        <!-- close tomitago details row -->
-        </div>
-            
-             <!--link to products page-->
+
+            <!--link to products page-->
             <h3><a class="bld" href="{% url 'all_products'%}"> SHOP TOMITAGO PRODUCTS </a></h3>
-        <!-- close shop column section-->
+            <!-- close shop column section-->
         </div>
-    <!-- close landing page shop section-->
+        <!-- close landing page shop section-->
     </div>
-<!-------------------------- NEWS & SPECIALS ---------------------------------->
-    
+    <!-------------------------- NEWS & SPECIALS ----------------------->
+
     <!--open news and specials section -->
     <div id="landing-page-news-div" class="container landing-page-div">
-         <!-- open news & specials heading-->
+        <!-- open news & specials div-->
         <div>
             <!-- news & specials HEADING -->
             <h1 class="line-center landing-page-heading"> NEWS & SPECIAL OFFERS </h1>
-        <!-- close heading-->
-        
-        
-                <!-- open carousel -->
-                <div id="myCarousel" class="carousel slide">
-                    
-                    <!-- Indicators -->
-                    {%for post in posts2 %}
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
+            <!-- open carousel -->
+            <div id="myCarousel" class="carousel slide">
 
-                    </ol>
-                    {% endfor %}
-                    
-                    <!-- carousel inner -->
-                    <div class="carousel-inner">
-                
-                        <!-- active first div -->
-                        <div class="item active">
-                            
-                            <!-- inner row with first 3 columns-->
-                            <div class="row">
-                                    
-                                {% for post in posts %}
-                                <!--open a single news container -->
-                                <div class="single-post col-xs-12 col-sm-4">
-                                    
-                                    <!--open post thumbnail-->
-                                    <div class="thumbnail">
-                                        
-                                        <!--IMAGE -->
-                                        <!--div for image -->
-                                        <div id="post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')"></div>
-                                         <!--IMAGE finished -->
-                               
-                                        <hr>
-                                         <!--single post caption -->
-                                        
-                                        <div class="col-xs-12 caption font-white">
-                               
-                                            <h3 class="padding10">{{post.title}}</h3>
-                                        
-                                         <p> {{post.content|safe|linebreaks}}</p>
-                                    
-                                        <!--close single post caption-->
-                                        </div>
-                                        
-                                         <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
-                                     <!--close thumbnail -->
+                <!-- if there are more than 3 posts -->
+                {%for post in posts2 %}
+                <!-- create indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <!-- end indicators -->
+                </ol>
+                <!-- end for-->
+                {% endfor %}
+
+                <!-- carousel inner -->
+                <div class="carousel-inner">
+                    <!-- active first div -->
+                    <div class="item active">
+                        <!-- inner row with first 3 columns-->
+                        <div class="row">
+                            <!-- for the first 3 most recent posts -->
+                            {% for post in posts %}
+                            <!--open a single news container -->
+                            <div class="single-post col-xs-12 col-sm-4">
+                                <!--open post thumbnail-->
+                                <div class="thumbnail">
+                                    <!--IMAGE -->
+                                    <div id="post-img" class="center" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
+                                        <!-- close image-->
                                     </div>
-                                 
-                                 <!--end single news container-->
+                                    <!-- horizontal line -->
+                                    <hr>
+                                    <!--column with post details -->
+                                    <div class="col-xs-12 caption font-white">
+                                        <!-- heading with title of post-->
+                                        <h3 class="padding10">{{post.title}}</h3>
+                                        <!-- content of posts -->
+                                        <p> {{post.content|safe|linebreaks}}</p>
+
+                                        <!--close column of post details-->
+                                    </div>
+                                    <!-- link to full article -->
+                                    <a href="{% url 'post_detail' post.id %}" class="btn btn-success news-href">READ MORE</a>
+                                    <!--close thumbnail -->
                                 </div>
-                            
-                                {% endfor %}
-                                
-                                
-                            <!-- end first inner row-->
+                                <!--end single news container-->
                             </div>
+                            <!-- end for -->
+                            {% endfor %}
+                            <!-- end first 3 posts inner row-->
+                        </div>
                         <!-- end active div-->
-                        </div>
-                       
-                        <!-- item second div -->
-                        <div class="item">
-                            
-                            <!-- inner second row -->
-                            <div class="row">
-                             
-                                {% for post in posts2 %}
-                                 <!--open a single news container -->
-                                <div class="single-post col-xs-12 col-sm-4">
-                                     <!--open post thumbnail-->
-                                    <div class="thumbnail">
-                                     <!--IMAGE -->
-                                        <!--div for image -->
-                                        <div id="post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
-                                        </div>
-                                         <!--IMAGE finished -->
-                                        <hr>
-                                         <!--single post caption -->
-                                        <div class="col-xs-12 caption font-white">
-                                            <h3 class="padding10">{{post.title}}</h3>
-                                       
-                                            <p> {{ post.content|safe|linebreaks|truncatewords:20 }}</p>
-                                        
-                                         <!--close single post caption-->
-                                        </div>
-                                         <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a>
-                                     <!--close thumbnail -->
-                                    </div>
-                                 <!--end single news container-->
-                                </div>
-                                {% endfor %}
-                            <!-- end second inner row-->
-                            </div>
-                        <!-- close item div -->
-                        </div>
-                       
-                    <!-- close carousel inner -->
                     </div>
-                    
-                <!-- end myCarousel div-->
-                </div>
-                
-            <!--end single post row-->
-            </div>
-             <!--link to products page-->
-            <h3><a class="bld" href="{% url 'get_posts'%}"> READ MORE NEWS & SPECIAL OFFERS </a></h3>
-            
-        <!-- close column -->
-        </div>
-        
-        
-    <!-- container -->
-    </div>
-<!----------------------------------------------------------------------------->
 
-<!-------------------------- CONTACT SECTION ---------------------------------->
+                    <!-- item second div -->
+                    <div class="item">
+                        <!-- inner second row -->
+                        <div class="row">
+                            <!-- for posts in posts2 (i.e posts 3-6)-->
+                            {% for post in posts2 %}
+                            <!--open a single news container -->
+                            <div class="single-post col-xs-12 col-sm-4">
+                                <!--open post thumbnail-->
+                                <div class="thumbnail">
+                                    <!--Image-->
+                                    <div id="post-img" class="center" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
+                                        <!-- close image -->
+                                    </div>
+                                    <!-- horizontal  rule-->
+                                    <hr>
+                                    <!--single post column -->
+                                    <div class="col-xs-12 caption font-white">
+                                        <!-- heading title of post-->
+                                        <h3 class="padding10">{{post.title}}</h3>
+                                        <!-- post details -->
+                                        <p> {{ post.content|safe|linebreaks|truncatewords:20 }}</p>
+                                        <!--close single post column -->
+                                    </div>
+                                    <!-- link to the full post -->
+                                    <a href="{% url 'post_detail' post.id %}" class="btn btn-success news-href">READ MORE</a>
+                                    <!--close thumbnail -->
+                                </div>
+                                <!--end single news container-->
+                            </div>
+                            <!-- end for -->
+                            {% endfor %}
+                            <!-- end second inner row-->
+                        </div>
+                        <!-- close second item div -->
+                    </div>
+                    <!-- close carousel inner -->
+                </div>
+                <!-- end myCarousel div-->
+            </div>
+            <!--end news and specials div-->
+        </div>
+
+        <!--link to news and specials page-->
+        <h3><a class="bld" href="{% url 'get_posts'%}"> READ MORE NEWS & SPECIAL OFFERS </a></h3>
+    <!-- close news and specials section -->
+    </div>
+
+    <!--------------- CONTACT SECTION ----------------------->
     <!--open contact section -->
-    <div id="landing-page-contact-div" class="row landing-page-div">
-         <!-- open contact column-->
+    <div id="contact-gina" class="row landing-page-div">
+        <!-- open contact column-->
         <div class="col-xs-12">
             <!-- contact HEADING -->
-            <h1 class="line-center landing-page-heading"> CONTACT GINA </h1><hr>
+            <h1 class="line-center landing-page-heading"> CONTACT GINA </h1>
+            <!-- horizontal rule -->
+            <hr>
+            <!-- contact details row-->
             <div id="contact" class="row line-center">
+                <!-- Address & Contact details -->
                 <h2 class="padding20"> Gina's Beauty Studio </h2>
                 <p> Upstairs @ Colm Morrisseys Hair Salon </p>
                 <p> 4 Main St </p>
                 <p> Tramore </p>
                 <p> Co. Waterford </p>
                 <p> X91 W9RX </p>
-                <p> Telephone: <a href="tel:+363892443030"> 089 244 30 30</a></p>
-                <p> Email: <a href="mailto:ginasbeautystudio35@gmail.com"> ginasbeautystudio35@gmail.com </a></p>
-                <p><i class="fab fa-facebook-f"></i><a href="https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/">https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/</a></p><hr>
+                <p> Telephone: <a target="_blank" href="tel:+363892443030"> 089 244 30 30</a></p>
+                <p> Email: <a target="_blank" href="mailto:ginasbeautystudio35@gmail.com"> ginasbeautystudio35@gmail.com </a></p>
+                <p><a><a target="_blank" href="https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/"><i class="fab fa-facebook-f"></i></a></p>
+                <!-- horizontal rule-->
+                <hr>
+                <!-- close contact details row -->
             </div>
+            <!-- row for contact form-->
             <div class="row">
-            
-                <!-- MAP of where ginas business is located-->
-                <div id="map" class="col-xs-12 col-md-6"></div>
-                
-                <!-- contact form -->
-                <div class="col-xs-12 col-md-6">
+                <!-- contact form column -->
+                <div class="col-xs-12">
+                    <!-- heading -->
                     <h2 class="line-center padding20"> Contact Form</h2>
-                    
-                    <form class="form-horizontal" onsubmit="return sendMail(this);" method="POST">
-                        
+                    <!-- contact form -->
+                    <form class="form-horizontal center ginas-forms" onsubmit="return sendMail(this);" method="POST">
                         <!--csrf token for security to prevent JavaScript injection-->
                         {% csrf_token %}
-                       
-                        <!-- NAME -->
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="name" placeholder="Name">
-                            </div>
-                        <!-- end NAME -->
-                        </div>
-                      
-                      <!-- EMAIL -->
-                      <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                    <!-- end email-->
-                      </div>
-                      
-                       <!-- TELEPHONE -->
-                      <div class="form-group">
-                        <label for="telephone" class="col-sm-2 control-label">Telephone Number: </label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="telephone" placeholder="Telephone Number">
-                        </div>
-                    <!-- end email-->
-                      </div>
-                     
-                     <!-- COMMENT -->
-                     <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label">Comment</label>
-                        <div class="col-sm-10">
-                        <textarea class="form-control" rows="10" id="comment" placeholder="Your comment: ">
-                        </textarea>
-                    <!-- end comment-->
-                    </div>
-                        <!-- SUBMIT -->
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10 align-right padding20">
-                          <button type="submit" class="btn btn-success">SEND</button>
-                        </div>
-                      </div>
-                      <p id="after-submit"></p>
-                    </form>
-                    
-                <!-- end contact form -->
-                </div>      
-            <!-- end row containing map & form-->
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        <!-- close contact column-->
-        </div>
-    <!-- close contact section-->
-    </div>
-<!----------------------------------------------------------------------------->
 
+                        <!-- form group - name -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <!-- end form group name -->
+                        </div>
+
+                        <!-- form group email -->
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <!-- end form group email-->
+                        </div>
+
+                        <!-- form group - telephone -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="telephone" placeholder="Telephone Number">
+                            <!-- end form group - telephone -->
+                        </div>
+
+                        <!-- form group comment -->
+                        <div class="form-group">
+                            <textarea class="form-control" rows="10" id="comment" placeholder="Your comment: "></textarea>
+                            <!-- end form group comment-->
+                        </div>
+
+                        <!-- submit container-->
+                        <div class="form-group">
+                            <!-- submit container to align right-->
+                            <div class="align-right padding20">
+                                <!-- submit link -->
+                                <a id="contact-btn" type="submit" class="btn">SEND</a>
+                                <!-- end submit align right container-->
+                            </div>
+                            <!-- close the submit container -->
+                        </div>
+                        <!-- after submit message-->
+                        <p id="after-submit"></p>
+                        <!-- close form -->
+                    </form>
+                    <!-- end contact form column -->
+                </div>
+                <!-- contact form row -->
+            </div>
+            <!-- open a map row -->
+            <div class="row">
+                <!-- MAP of where ginas business is located-->
+                <div id="map" class="col-xs-12"></div>
+                <!-- end row containing map -->
+            </div>
+            <!-- close contact column-->
+        </div>
+        <!-- close contact container -->
+    </div>
 <!-- close the container fluid-->
 </div>
-{% endblock %}
-
+<!-- end block -->
+{% endblock %} 
+<!-- javascript block -->
 {% block end_js %}
-      <!-- index.js for treatment flip cards, news carousel, contact google maps and  email.js -->
-    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-    <!-- sendEmail.js -->
-   
-    <!-- GOOGLE MAPS-->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALGkVGZeOdVVPv2cBOPUobpOtS_8zwQ14&callback=initMap">
-    </script>
- 
- 
+<!-- index.js -->
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<!-- google maps-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALGkVGZeOdVVPv2cBOPUobpOtS_8zwQ14&callback=initMap">
+</script>
+<!-- end javascript block-->
 {% endblock %}

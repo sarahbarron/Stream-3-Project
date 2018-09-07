@@ -12,16 +12,23 @@
 
 <!--main content of the page-->
 {% block content%}
-    <div class="container main-page">
-        <h1 class="line-center padding10 bld"> Review </h1>
-        <!-- the method will post & it will be encrypted-->
-        <form class="center ginas-forms" method="POST" enctype="multipart/form-data">
-            <!--protection against cross site request forgery-->
-            {% csrf_token %}
-            {{form | as_bootstrap }}
-        
-            <button type="submit" class="btn btn-default">Save</button>
-        </form>
-    </div>
+<!-- container -->
+<div class="container main-page">
+    <!-- heading -->
+    <h1 class="line-center padding10 bld">Write Your Review </h1>
+    <!-- the method will post & it will be encrypted-->
+    <form class="center ginas-forms" method="POST" enctype="multipart/form-data">
+        <!--protection against cross site request forgery-->
+        {% csrf_token %} {{form | as_bootstrap }}
+        <!-- button container -->
+        <div class="padding20 align-right">
+            <!-- save button -->
+            <button type="submit" class="btn btn-success">Save</button>
+        <!-- close button container -->
+        </div>
+    <!-- close form -->
+    </form>
+<!-- close container -->
+</div>
 <!--end of main content-->
 {% endblock %}

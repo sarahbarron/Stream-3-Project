@@ -1,0 +1,35 @@
+<!--extension to the base.html file-->
+{% extends 'base.html' %}
+
+<!--loads bootstrap tags -->
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}LOGIN{% endblock %}
+
+<!--page heading-->
+{% block page_heading%}CUSTOMER LOGIN{% endblock %}
+
+<!--main content of the page-->
+{% block content%}
+<!-- Container for main block -->
+<div class="container main-page">
+    <!-- Heading -->
+    <h1 class="line-center padding10 bld">Order Received</h1>
+    <!-- div container for order message-->
+    <div class="line-center ginas-forms center">
+        <!-- user name -->
+        <p>{{user}}</p><br>
+        <!-- order recieved message -->
+        <p>Your order has been received.</p>
+        <p>I have sent you an e-mail and will dispatch your order within the next 24hrs</p><br>
+        <p>Thank you for your custom</p>
+        <p>Gina</p>
+        <!-- heart glyphicon-->
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    <!-- close order message div container-->
+    </div>
+<!-- close main container-->
+</div>
+<!--end of main content-->
+{% endblock %}

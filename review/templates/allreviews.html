@@ -12,46 +12,61 @@
 
 <!--main content of the page-->
 {% block content%}
-
-
+<!-- main container -->
 <div class="container main-page">
-
-{% if reviews %}
-   {% for reviews in reviews %}
-   
-       {% if forloop.first %}
-        <h1>{{reviews.product}}</h1><hr>
-        {%endif%}
-    
+    <!-- if there are reviews for the product-->
+    {% if reviews %} {% for reviews in reviews %}
+    <!-- if this is the first iteration of the for loop -->
+    {% if forloop.first %}
+    <!-- Heading is the product name -->
+    <h1 class="line-center padding20">{{reviews.product}}</h1>
+    <!-- end if -->
+    {%endif%}
+    <!-- review row -->
     <div class="row">
-        
-        <div class="col-sm-12">
-            <p><span class="boldtext">Ratings: </span><span class="green">{{ reviews.rating }} / 5 </span> </p>
-            <h3>{{reviews.title}}</h3>
-            <p><span class="boldtext"> Written By: </span>{{reviews.user}}</p>
-            <p><span class="boldtext"> Published On: </span>{{reviews.date}}</p>
+        <!-- horizontal rule -->
+        <hr>
+        <!-- heading - review title -->
+        <h2 class="font-purple line-center padding20">{{reviews.title}}</h2>
+        <!-- horizontal rule -->
+        <hr>
+        <!-- review details column -->
+        <div class="col-xs-12 col-sm-6 padding20">
+            <!-- review rating out of 5 -->
+            <p><span class="boldtext font-purple">Ratings: </span><span class="green">{{ reviews.rating }} / 5 </span> </p>
+            <!-- who the review was written by -->
+            <p><span class="boldtext font-purple"> Written By: </span>{{reviews.user}}</p>
+            <!-- when the review was published -->
+            <p><span class="boldtext font-purple"> Published On: </span>{{reviews.date}}</p>
+            <!-- would you recommend for a friend -->
+            <p><span class="boldtext font-purple"> Would you recommend to a friend:</span> {{ reviews.would_you_recommend_to_a_friend}}</p>
+        <!-- close review details column -->
         </div>
-        
-        
-        
-        <div class="col-xs-10 col-sm-6">
-        
+        <!-- review comment column -->
+        <div class="col-xs-12 col-sm-6">
+            <!-- review comment -->
+            <p><span class="boldtext font-purple">Comment: </span></p>
+            <!-- comment truncated to 30 words -->
             <p> {{ reviews.comment|safe|linebreaks|truncatewords:30 }}</p>
-            <p><span class="boldtext"> Would you recommend to a friend: {{ reviews.would_you_recommend_to_a_friend}} </span> </p>
-            <p> <a href="{% url 'full_review' reviews.id %}" class="btn btn-default">Read More</a></p>
-            
+            <!-- container for read more button -->
+            <div class="padding50 align-right">
+                <!-- read more button-->
+                <p><a href="{% url 'full_review' reviews.id %}" class="btn btn-success">Read More</a></p>
+            <!-- close button container -->
+            </div>
+        <!-- close review comment column -->
         </div>
+    <!-- close review row -->
     </div>
-    <hr>
-    {% endfor %}
-
-{% else %}
-
-<h3> No Reviews for this product yet</h3>
-
-{% endif %}
-
+    <!-- end for loop -->
+    {% endfor %} 
+    <!-- otherwise -->
+    {% else %}
+    <!-- No reviews -->
+    <h3> No Reviews for this product yet</h3>
+    <!-- end if -->
+    {% endif %}
+<!-- close container-->
 </div>
-
 <!--end the main content block-->
 {% endblock %}
