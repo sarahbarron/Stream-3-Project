@@ -115,8 +115,7 @@ class TestAccountViewsLogin(TestCase):
         self.assertEqual(page.status_code, 200)
          # check Template Used is login.html page
         self.assertTemplateUsed(page, "login.html")
-        
-        
+       
 # Test the logout view
 class TestAccountViewsLogout(TestCase):         
     

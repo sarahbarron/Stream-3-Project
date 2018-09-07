@@ -107,10 +107,10 @@
 <p id="t5" class="stm run hide_run"><span class="key">class</span> <span class="nam">Product</span><span class="op">(</span><span class="nam">models</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t7" class="pln">    <span class="com"># name of product</span><span class="strut">&nbsp;</span></p>
-<p id="t8" class="stm run hide_run">    <span class="nam">name</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">CharField</span><span class="op">(</span><span class="nam">max_length</span><span class="op">=</span><span class="num">254</span><span class="op">,</span> <span class="nam">default</span><span class="op">=</span><span class="str">''</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="stm run hide_run">    <span class="nam">name</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">CharField</span><span class="op">(</span><span class="nam">max_length</span><span class="op">=</span><span class="num">100</span><span class="op">,</span> <span class="nam">default</span><span class="op">=</span><span class="str">''</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t10" class="pln">    <span class="com"># description of the product</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="stm run hide_run">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">TextField</span><span class="op">(</span><span class="nam">blank</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="stm run hide_run">    <span class="nam">content</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">TextField</span><span class="op">(</span><span class="nam">max_length</span><span class="op">=</span><span class="num">200</span><span class="op">,</span> <span class="nam">blank</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t12" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t13" class="pln">    <span class="com"># price of the product</span><span class="strut">&nbsp;</span></p>
 <p id="t14" class="stm run hide_run">    <span class="nam">price</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">DecimalField</span><span class="op">(</span><span class="nam">max_digits</span><span class="op">=</span><span class="num">6</span><span class="op">,</span> <span class="nam">decimal_places</span><span class="op">=</span><span class="num">2</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -127,7 +127,7 @@
 <p id="t25" class="pln">    <span class="com"># quantity of stock available for the product</span><span class="strut">&nbsp;</span></p>
 <p id="t26" class="stm run hide_run">    <span class="nam">available_stock</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">PositiveSmallIntegerField</span><span class="op">(</span><span class="nam">default</span><span class="op">=</span><span class="num">0</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t27" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t28" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t28" class="pln">    <span class="com"># return the name</span><span class="strut">&nbsp;</span></p>
 <p id="t29" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__str__</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t30" class="stm run hide_run">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">name</span><span class="strut">&nbsp;</span></p>
 
@@ -140,7 +140,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-07-27 14:55
+            created at 2018-09-07 21:15
         </p>
     </div>
 </div>

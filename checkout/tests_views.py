@@ -21,7 +21,7 @@ class TestCheckOutViews(TestCase):
          # check Template Used is checkout.html page
         self.assertTemplateUsed(page, "checkout.html")
     
-    # test the checkout view when someone is logged in
+    # test the checkout view when someone is not logged in
     def test_checkout_view_with_no_customer_logged_in(self):
         # checkout url
         page = self.client.get("/checkout/", follow=True)
@@ -107,7 +107,7 @@ class TestCheckOutViews(TestCase):
         self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '20'}, follow=True)
         
         # assign the stripe publishable key to stripe_id
-        stripe_id = settings.STRIPE_PUBLISHABLE
+        stripe_id = 'tok_visa'
         
         # post the product details and credit card details to the checkout url
         page = self.client.post("/checkout/",{'full_name':'name','phone_number':'123', 'street_address1':'my', 'street_address2':'address is', 'town_or_city':'kk', 'county':'ireland', 'country':'ireland','postcode':'eircode', 'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':stripe_id}, follow=True)
@@ -115,7 +115,30 @@ class TestCheckOutViews(TestCase):
         # check the status code is 200 
         self.assertEqual(page.status_code, 200)
          # check Template Used is cart.html page
-        self.assertTemplateUsed(page, "index.html")
+        self.assertTemplateUsed(page, "paid.html")
         # check the message stored is equal to the expected message
         messages = list(get_messages(page.wsgi_request))
         self.assertEqual(str(messages[0]), 'You have successfully paid')
+        
+    # test checkout where there is low stock levels  
+    def test_checkout_with_low_stock_levels(self):
+        # create a user
+        user = User.objects.create_user('username', 'myemail@test.com', 'password')
+        # login the customer
+        self.client.login(username='username', password='password')
+        # create an Product
+        item = Product(name="PRODUCT NAME ", available_stock=15, content="PRODUCT CONTENT", price=30, image="img.jpg", num_of_ratings=1, average_rating=5)
+        # save the product
+        item.save()
+        # add the quantity needed to the product id in the cart
+        self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '8'}, follow=True)
+        
+        # assign the stripe publishable key to stripe_id
+        stripe_id = 'tok_visa'
+        
+        # post the product details and credit card details to the checkout url
+        page = self.client.post("/checkout/",{'full_name':'name','phone_number':'123', 'street_address1':'my', 'street_address2':'address is', 'town_or_city':'kk', 'county':'ireland', 'country':'ireland','postcode':'eircode', 'credit_card_number': '4242424242424242','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':stripe_id}, follow=True)
+      
+        # check the status code is 200 
+        self.assertEqual(page.status_code, 200)
+        
