@@ -27,6 +27,20 @@ class TestCartViews(TestCase):
          # check Template Used is products.html
         self.assertTemplateUsed(page, "products.html")
     
+    #test add_to_cart view - where you add a product that is already in the cart
+    def test_add_to_cart_when_product_is_already_in_the_cart(self):
+        # create a Product
+        item = Product(name="Product", available_stock="100", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # save the product
+        item.save()
+        # post product and quantity to cart
+        page = self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '3'}, follow=True)
+         # post same product and quantity to cart
+        page = self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '1'}, follow=True)
+        # check the status code is 200
+        self.assertEqual(page.status_code, 200)
+         # check Template Used is products.html
+        self.assertTemplateUsed(page, "products.html")
     
     #test adjusting the cart view
     def test_adjust_cart_view(self):
@@ -40,6 +54,22 @@ class TestCartViews(TestCase):
         self.assertEqual(page.status_code, 200)
         #  # check Template Used is cart.html page
         self.assertTemplateUsed(page, "cart.html")
+        
+     #test removing an item from the card
+    def test_removing_an_item_from_the_cart(self):
+        # create a Product
+        item = Product(name="Product", available_stock="100", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        # save the product
+        item.save()
+        # post product and quantity to cart
+        page = self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '3'}, follow=True)
+         # post same product and quantity to cart
+        page = self.client.post("/cart/adjust/{0}".format(item.id), data={'quantity': '0'}, follow=True)
+        # check the status code is 200
+        self.assertEqual(page.status_code, 200)
+         # check Template Used is products.html
+        self.assertTemplateUsed(page, "cart.html")
+    
     
     
     

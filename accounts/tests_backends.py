@@ -48,4 +48,3 @@ class TestAccountsBackend(TestCase):
         self.assertEqual(page.status_code, 200)
          # check Template Used is login.html
         self.assertTemplateUsed(page, "login.html")
-        

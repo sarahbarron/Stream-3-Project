@@ -20,16 +20,16 @@
 
 ## Testing
 ## Django Test Suite
-##### I used the Django Test Suite to test all my apps and used Coverage to generate a report in which I initally scored 83% and after adding extra tests i finished with a score of 99% tested. Which covered 1567 statements and missing 20. All tests can be viewed within each app folder
+##### I used the Django Test Suite to test all my apps and used Coverage to generate a report in which I initally scored 83% and after adding extra tests i finished with 119 tests and a score of 99% tested. Which covered 1598 statements and missing 12. All tests can be viewed within each app folder
 
-- Accounts App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests_views.py 
-- Cart App: tests\_app.py, and tests_views.py
-- Checkout App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests_views.py 
-- Posts App: tests\_apps.py, tests\_forms.py, tests\_models.py, and tests_views.py 
-- Products App: tests\_apps.py, tests\_models.py, and tests_views.py 
-- Productsearch App: tests\_apps.py and tests_views.py
-- Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests_views.py 
-- Home App: tests_app.py
+- Accounts App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests\_views.py 
+- Cart App: tests\_app.py, and tests\_views.py
+- Checkout App: tests\_app.py, tests\_forms.py, tests\_models.py, and tests\_views.py 
+- Posts App: tests\_apps.py, tests\_forms.py, tests\_models.py, and tests\_views.py 
+- Products App: tests\_apps.py, tests\_models.py, and tests\_views.py 
+- Productsearch App: tests\_apps.py and tests\_views.py
+- Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests\_views.py 
+- Home App: tests\_app.py, test\_views.py 
 
 
 ![Django Testing](/static/img/DjangoTestingScore.JPG)

@@ -150,31 +150,32 @@ def checkout_pay(request):
                     card = payment_form.cleaned_data['stripe_id'],
                     )
                 
+                 # if the customer has paid
+                if customer.paid:
+                    # amend the stock levels for the product(s)
+                    amend_stock_levels(request)   
+                    # set the cart back to empty
+                    request.session['cart'] = {}
+                    
+                    # message to the customer to say payment has been received
+                    messages.success(request, "You have successfully paid")
+                   
+                    # send an email to the customer with order information
+                    email_order_info_to_customer(request)
+                    
+                    # redirect back to products.html
+                    return redirect(reverse('paid'))
+            
+                else:
+                    # otherwise if payment is not successfull send a message to the customer informing them of this
+                    messages.error(request, "Sorry there seems to be a problem we are unable to take payment")
            
             # if payment cant be taken throw an error
             except stripe.error.CardError:
                 # inform the customer of the error
                 messages.error(request, "Your card has been declined: ")
             
-            # if the customer has paid
-            if customer.paid:
-                # amend the stock levels for the product(s)
-                amend_stock_levels(request)   
-                # set the cart back to empty
-                request.session['cart'] = {}
-                
-                # message to the customer to say payment has been received
-                messages.success(request, "You have successfully paid")
-               
-                # send an email to the customer with order information
-                email_order_info_to_customer(request)
-                
-                # redirect back to products.html
-                return redirect(reverse('paid'))
-        
-            else:
-                # otherwise if payment is not successfull send a message to the customer informing them of this
-                messages.error(request, "Sorry there seems to be a problem we are unable to take payment")
+           
     
         # if the forms are invalid
         else:

@@ -142,3 +142,54 @@ class TestCheckOutViews(TestCase):
         # check the status code is 200 
         self.assertEqual(page.status_code, 200)
         
+        
+                
+    # test checkout where card is declined  
+    def test_checkout_when_card_is_declined(self):
+        # create a user
+        user = User.objects.create_user('username', 'myemail@test.com', 'password')
+        # login the customer
+        self.client.login(username='username', password='password')
+        # create an Product
+        item = Product(name="PRODUCT NAME ", available_stock=15, content="PRODUCT CONTENT", price=30, image="img.jpg", num_of_ratings=1, average_rating=5)
+        # save the product
+        item.save()
+        # add the quantity needed to the product id in the cart
+        self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '8'}, follow=True)
+        
+        # assign the stripe publishable key to stripe_id
+        stripe_id = 'tok_chargeDeclined'
+        
+        # post the product details and credit card details to the checkout url
+        page = self.client.post("/checkout/",{'full_name':'name','phone_number':'123', 'street_address1':'my', 'street_address2':'address is', 'town_or_city':'kk', 'county':'ireland', 'country':'ireland','postcode':'eircode', 'credit_card_number': '4000000000000002','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':stripe_id}, follow=True)
+      
+        # check the status code is 200 
+        self.assertEqual(page.status_code, 200)
+         # check the message stored is equal to the expected message
+        messages = list(get_messages(page.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Your card has been declined: ')
+        
+    # test checkout where form is invalid (no name in form) 
+    def test_checkout_with_invalid_forms(self):
+        # create a user
+        user = User.objects.create_user('username', 'myemail@test.com', 'password')
+        # login the customer
+        self.client.login(username='username', password='password')
+        # create an Product
+        item = Product(name="PRODUCT NAME ", available_stock=15, content="PRODUCT CONTENT", price=30, image="img.jpg", num_of_ratings=1, average_rating=5)
+        # save the product
+        item.save()
+        # add the quantity needed to the product id in the cart
+        self.client.post("/cart/add/{0}".format(item.id), data={'quantity': '8'}, follow=True)
+        
+        # assign the stripe publishable key to stripe_id
+        stripe_id = 'tok_chargeDeclined'
+        
+        # post the product details and credit card details to the checkout url
+        page = self.client.post("/checkout/",{'phone_number':'123', 'street_address1':'my', 'street_address2':'address is', 'town_or_city':'kk', 'county':'ireland', 'country':'ireland','postcode':'eircode', 'credit_card_number': '4000000000000002','cvv':'111', 'expiry_month':'2','expiry_year':'2019', 'stripe_id':stripe_id}, follow=True)
+      
+        # check the status code is 200 
+        self.assertEqual(page.status_code, 200)
+         # check the message stored is equal to the expected message
+        messages = list(get_messages(page.wsgi_request))
+        self.assertEqual(str(messages[0]), 'We were unable to take payment with that card!')
