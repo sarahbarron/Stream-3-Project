@@ -9,34 +9,22 @@ $(document).ready(function() {
 
 
 // TREATMENTS FLIP CARDS
-// when the mouse enters the card flip 180degs
+// when the mouse enters the div flip 180degs
 $(".flip").mouseenter(function(event) {
-
+    // get the browser type 
     var ua = window.navigator.userAgent;
+    // checks if the browser is Internet Explorer 
     var browser_ie = /MSIE|Trident/.test(ua);
   
-    if (browser_ie){
-
-        // This does not work in Internet Explorer so do nothing and let user follow the link to the full treatments page.
-    }
-
-    else {
+    // if it is not Internet Explorer add the mousein class
+    if (!browser_ie){
         $(this).addClass("mousein");
     }
 });
 
 // when the mouse exits the card flip back to 0
 $(".flip").mouseleave(function(event) {
-     var ua = window.navigator.userAgent;
-    var browser_ie = /MSIE|Trident/.test(ua);
-    if (browser_ie){
-
-        // This does not work in Internet Explorer so do nothing and let user follow the link to the full treatments page.
-    }
-
-    else {
-        $(this).removeClass("mousein");
-    }
+       $(this).removeClass("mousein");
 });
 
 
