@@ -395,6 +395,35 @@ Initial value for stock for both product 1 and product 2 was 100
 - I clicked on the Read More button on the review I wanted to see the full review
 - This brought me to the fullreview html page showing the expected review in full.
 
+## Cross Browser Testing 
+#### Chrome 
+- I used chrome as my main browser when doing my project
+
+#### Firefox 
+- The filp effect on the treatments in the index.html page did not work as expected in firefox. When hovering over the treatment the back div became visble and the front remained visible. Also the link at the the end of the back div did not act as a link.
+- I fixed this problem by adding the following code to the mousein class 
+``` 
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+```
+
+#### Microsoft Edge
+- Only a small change was need here a horizontal rule was showing incorrectly in the contact section on the index.html page
+- I fixed this problem by removing the following code from the #contact hr
+```
+text-align:center
+```
+
+#### Internet explorer
+- During testing I discovered my flip card effect on the index.html and the products.html page did not work. When hovered on the front div the back div did not become visible after some research i found that backface-visibility was only partially supported by IE as it does not support the transform-style: preserve-3d property.
+- To solve this problem I changed my javascript to detect if the website was being viewed on an Internet explorer browser and if it was I did added no class and left the front div static, which removed the 3d flip effect. Users could use the relevent link to go to the treatments.html page or to the product description page to learn more.
+
+#### Opera 
+- No problems detected 
+
 ## Problems encountered
 - I committed my env.py which held my develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
 

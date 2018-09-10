@@ -233,6 +233,7 @@ p {
     -ms-backface-visibility: hidden;
 }
 
+
 /*the front and back containers */
 .flip div {
     position: absolute;
@@ -431,7 +432,6 @@ p {
 /* the horizontal rule in the contact section*/
 #contact hr {
     width: 50%;
-    text-align: center;
     padding: 20px 0;
 }
 
