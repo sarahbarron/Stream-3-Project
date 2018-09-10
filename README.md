@@ -424,6 +424,13 @@ text-align:center
 #### Opera 
 - No problems detected 
 
+## Mobile/Tablet responsive testing
+- I used Developers Tools to test responsiveness. Using this method I was able to test my project on the following devices:
+-- Blackberry Z30, Blackberry playbook, Galaxy Note 3, Galaxy Note II, Galaxy S III, Kindle Fire HDX, LG Optimus L70, Laptop with HiDPI screen, Laptop with MDPI screen, Laptop with touch, Microsoft Lumia 550, Microsoft Lumia 950, Nexus 10, Nexus 4, Nexus 5, Nexus 5X, Nexus 6, Nexus 6P, Nexus 7, Nokia Lumia 520, Nokia N9, iPad Mini, iPhone 4, Galaxy S5, Pixel 2, Pixel 2 XL, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad, iPad Pro
+
+## HTML Validator - [https://validator.w3.org/](https://validator.w3.org/)
+- I validated all of my HTML pages using the W3 Html Validator. I fixed all issues that i could. However there are still some issues arising from the CKEDITOR.
+
 ## Problems encountered
 - I committed my env.py which held my develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
 

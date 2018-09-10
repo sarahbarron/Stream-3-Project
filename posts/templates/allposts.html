@@ -19,9 +19,9 @@
         <div class="col-xs-12 line-center page-main-heading">
             <!-- heading -->
             <h1 class="padding10"> News & Special Offers </h1>
-        <!-- close heading column -->
+            <!-- close heading column -->
         </div>
-    <!-- close heading row -->
+        <!-- close heading row -->
     </div>
     <!-- if there are posts -->
     {% for post in posts %}
@@ -31,13 +31,13 @@
         <div class="col-xs-12 col-sm-5 padding50">
             <!-- if the post has an image -->
             {% if post.image %}
-            <!-- set the image as the post image --> 
-            <img class="img-thumbnail img-responsive post-img" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image"> 
+            <!-- set the image as the post image -->
+            <img class="img-thumbnail img-responsive post-img" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
             <!-- otherwise -->
             {% else %}
             <!-- set the image as Ginas_Beauty_Logo.jpg -->
             <img class="img-thumbnail img-responsive post-img" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image"> {% endif %}
-        <!-- close image column -->
+            <!-- close image column -->
         </div>
         <!-- open post details column -->
         <div class="post-details col-xs-12 col-sm-7">
@@ -46,29 +46,29 @@
                 <h2 class="padding20">{{post.title}}</h2>
                 <p class="padding10"><span class="boldtext">Published On: </span>{{post.published_date}}<span class="boldtext">  Views: </span>{{post.views}}</p>
                 <hr>
-            <!-- close container for post title, published date and number of views -->
+                <!-- close container for post title, published date and number of views -->
             </div>
             <!-- column for post details truncated to 40 words-->
             <div class="col-sm-12 font-black">
-                <p> {{ post.content|safe|linebreaks|truncatewords:40 }}</p><br>
-            <!-- close post details column-->
+                {{ post.content|safe|linebreaks|truncatewords:40 }}<br>
+                <!-- close post details column-->
             </div>
             <!-- column with buttons to read more, edit post and delete post-->
             <div class="col-sm-12 align-right">
                 <a href="{% url 'post_detail' post.id %}" class="btn btn-success">READ MORE</a> {% if user.is_staff %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-success" role="button">EDIT POST </a>
                 <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a> {% endif %}
-            <!-- column buttons column -->
+                <!-- column buttons column -->
             </div>
-        <!-- close post details column-->
+            <!-- close post details column-->
         </div>
-    <!-- close main container for posts -->
+        <!-- close main container for posts -->
     </div>
     <!-- horizontal line -->
-    <hr> 
+    <hr>
     <!-- end for loop -->
     {% endfor %}
-<!-- close main container -->
+    <!-- close main container -->
 </div>
 
 <!--end the main content block-->

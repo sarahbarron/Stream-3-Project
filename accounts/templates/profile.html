@@ -106,7 +106,8 @@
                         <p><span class="bld"> Written By: </span>{{reviews.user}}</p>
                         <p><span class="bld"> Published On: </span>{{reviews.date}}</p>
                         <!-- Review Comment made about the product -->
-                        <p><span class="bld"> Comment: </span> {{ reviews.comment|safe|linebreaks}}</p>
+                        <p><span class="bld"> Comment: </span></p>
+                        {{ reviews.comment|safe|linebreaks}}
                         <!-- Would you recommend to a friend -->
                         <p><span class="bld"> Would you recommend to a friend: </span> {{ reviews.would_you_recommend_to_a_friend}} </p>
                         <!-- link to edit the review -->

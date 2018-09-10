@@ -40,33 +40,33 @@
             <p><span class="boldtext font-purple"> Published On: </span>{{reviews.date}}</p>
             <!-- would you recommend for a friend -->
             <p><span class="boldtext font-purple"> Would you recommend to a friend:</span> {{ reviews.would_you_recommend_to_a_friend}}</p>
-        <!-- close review details column -->
+            <!-- close review details column -->
         </div>
         <!-- review comment column -->
         <div class="col-xs-12 col-sm-6">
             <!-- review comment -->
             <p><span class="boldtext font-purple">Comment: </span></p>
             <!-- comment truncated to 30 words -->
-            <p> {{ reviews.comment|safe|linebreaks|truncatewords:30 }}</p>
+            {{ reviews.comment|safe|linebreaks|truncatewords:30 }}
             <!-- container for read more button -->
             <div class="padding50 align-right">
                 <!-- read more button-->
                 <p><a href="{% url 'full_review' reviews.id %}" class="btn btn-success">Read More</a></p>
-            <!-- close button container -->
+                <!-- close button container -->
             </div>
-        <!-- close review comment column -->
+            <!-- close review comment column -->
         </div>
-    <!-- close review row -->
+        <!-- close review row -->
     </div>
     <!-- end for loop -->
-    {% endfor %} 
+    {% endfor %}
     <!-- otherwise -->
     {% else %}
     <!-- No reviews -->
     <h3> No Reviews for this product yet</h3>
     <!-- end if -->
     {% endif %}
-<!-- close container-->
+    <!-- close container-->
 </div>
 <!--end the main content block-->
 {% endblock %}

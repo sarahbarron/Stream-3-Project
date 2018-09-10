@@ -7,8 +7,8 @@
 <!-- javascript block -->
 {% block head_js %}
 <!-- EMAIL.JS -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
     (function() {
         emailjs.init("user_5EwMyH87bNVAxejphaCXs");
     })();
@@ -24,19 +24,19 @@
 <!-- main container -->
 <div class="container-fluid">
 
-    <!---------------- landing page main PICTURE ---------------------->
+    <!-- landing page main PICTURE -->
     <!-- row for main picture -->
     <div class="row">
         <!-- column for first picutre-->
         <div id="firstpic" class="col-xs-12">
             <!-- image -->
-            <img class="img-responsive" src="{% static 'img/gina5.jpg' %}"></img>
+            <img class="img-responsive" src="{% static 'img/gina5.jpg' %}" alt="ginas beauty studio">
             <!-- close image column-->
         </div>
         <!-- close image row-->
     </div>
 
-    <!----------------- landing page TREATMENTS --------------------------->
+    <!-- landing page TREATMENTS -->
     <!-- treatments row -->
     <div class="row landing-page-div">
         <!-- column for treatments on mobile -->
@@ -113,7 +113,7 @@
 
 
 
-                <!--------- TREATMENTS FLIP CARD BROW & LASH BAR -------------->
+                <!-- TREATMENTS FLIP CARD BROW & LASH BAR -->
                 <!-- open the filp card outer container -->
                 <div class="flip-card col-md-6 treatment-flip-card">
                     <!--open a container for the front and back divs-->
@@ -143,7 +143,7 @@
                     <!-- close the outer container -->
                 </div>
 
-                <!--------- TREATMENTS FLIP CARD TAN ---------------------->
+                <!-- TREATMENTS FLIP CARD TAN -->
                 <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
                     <!--open a container for front & back divs-->
@@ -172,7 +172,7 @@
                     <!-- close the outer container -->
                 </div>
 
-                <!--------- TREATMENTS FLIP CARD MAKEUP ---------------------->
+                <!-- TREATMENTS FLIP CARD MAKEUP -->
                 <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
                     <!--open a container for the front & back divs-->
@@ -201,7 +201,7 @@
                     <!-- close the outer container -->
                 </div>
 
-                <!--------- TREATMENTS FLIP CARD NAIL BAR--------------------->
+                <!-- TREATMENTS FLIP CARD NAIL BAR -->
                 <!-- open the filp card outer container -->
                 <div class="flip-card col-md-4 treatment-flip-card">
                     <!--open the container for the front & back divs-->
@@ -241,7 +241,7 @@
         <!-- close the treatments landing page div-->
     </div>
 
-    <!---------------- SHOP - BUY PRODUCTS --------------------------->
+    <!-- SHOP - BUY PRODUCTS -->
     <!-- landing page shop section-->
     <div id="landing-page-shop-div" class="row landing-page-div">
         <!-- open shop column section-->
@@ -255,7 +255,7 @@
                 <!-- tomitago details column -->
                 <div id="landing-product-description" class="col-xs-12 line-center">
                     <!-- tomitago image -->
-                    <img class="img-responsive center" src="{% static 'img/tomitago-logo.jpg' %}"></img>
+                    <img class="img-responsive center" src="{% static 'img/tomitago-logo.jpg' %}" alt="Tomitago beauty products">
                     <!-- tomitago details -->
                     <p> At Gina's Beauty Studio we sell the locally sorced chemical free Tomitago</p>
                     <p>The aim of Tomitago is to produce 100% chemical-free skin care products that are as effective as their chemical counter parts. </p>
@@ -274,7 +274,7 @@
         </div>
         <!-- close landing page shop section-->
     </div>
-    <!-------------------------- NEWS & SPECIALS ----------------------->
+    <!-- NEWS & SPECIALS -->
 
     <!--open news and specials section -->
     <div id="landing-page-news-div" class="container landing-page-div">
@@ -309,7 +309,7 @@
                                 <!--open post thumbnail-->
                                 <div class="thumbnail">
                                     <!--IMAGE -->
-                                    <div id="post-img" class="center" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
+                                    <div class="center post-img" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
                                         <!-- close image-->
                                     </div>
                                     <!-- horizontal line -->
@@ -319,7 +319,7 @@
                                         <!-- heading with title of post-->
                                         <h3 class="padding10">{{post.title}}</h3>
                                         <!-- content of posts -->
-                                        <p> {{post.content|safe|linebreaks}}</p>
+                                        {{post.content|safe|linebreaks}}
 
                                         <!--close column of post details-->
                                     </div>
@@ -347,7 +347,7 @@
                                 <!--open post thumbnail-->
                                 <div class="thumbnail">
                                     <!--Image-->
-                                    <div id="post-img" class="center" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
+                                    <div class="post-img center" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')">
                                         <!-- close image -->
                                     </div>
                                     <!-- horizontal  rule-->
@@ -357,7 +357,7 @@
                                         <!-- heading title of post-->
                                         <h3 class="padding10">{{post.title}}</h3>
                                         <!-- post details -->
-                                        <p> {{ post.content|safe|linebreaks|truncatewords:20 }}</p>
+                                        {{ post.content|safe|linebreaks|truncatewords:20 }}
                                         <!--close single post column -->
                                     </div>
                                     <!-- link to the full post -->
@@ -381,10 +381,10 @@
 
         <!--link to news and specials page-->
         <h3><a class="bld" href="{% url 'get_posts'%}"> READ MORE NEWS & SPECIAL OFFERS </a></h3>
-    <!-- close news and specials section -->
+        <!-- close news and specials section -->
     </div>
 
-    <!--------------- CONTACT SECTION ----------------------->
+    <!-- CONTACT SECTION -->
     <!--open contact section -->
     <div id="contact-gina" class="row landing-page-div">
         <!-- open contact column-->
@@ -404,7 +404,7 @@
                 <p> X91 W9RX </p>
                 <p> Telephone: <a target="_blank" href="tel:+363892443030"> 089 244 30 30</a></p>
                 <p> Email: <a target="_blank" href="mailto:ginasbeautystudio35@gmail.com"> ginasbeautystudio35@gmail.com </a></p>
-                <p><a><a target="_blank" href="https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/"><i class="fab fa-facebook-f"></i></a></p>
+                <p><a target="_blank" href="https://www.facebook.com/Ginas-Beauty-Studio-1233011103466874/"><i class="fab fa-facebook-f"></i></a></p>
                 <!-- horizontal rule-->
                 <hr>
                 <!-- close contact details row -->
@@ -449,7 +449,7 @@
                             <!-- submit container to align right-->
                             <div class="align-right padding20">
                                 <!-- submit link -->
-                                <a id="contact-btn" type="submit" class="btn">SEND</a>
+                                <button id="contact-btn" type="submit" class="btn">SEND</button>
                                 <!-- end submit align right container-->
                             </div>
                             <!-- close the submit container -->
@@ -472,14 +472,14 @@
         </div>
         <!-- close contact container -->
     </div>
-<!-- close the container fluid-->
+    <!-- close the container fluid-->
 </div>
 <!-- end block -->
-{% endblock %} 
+{% endblock %}
 <!-- javascript block -->
 {% block end_js %}
 <!-- index.js -->
-<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 <!-- google maps-->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALGkVGZeOdVVPv2cBOPUobpOtS_8zwQ14&callback=initMap">
 </script>

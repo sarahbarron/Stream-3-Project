@@ -32,7 +32,7 @@
             <p><span class="boldtext">Categories: </span>{{post.category}}</p>
             <!-- post tags -->
             <p><span class="boldtext">Tags: </span>{{post.tag}}</p>
-        <!-- close full post column-->
+            <!-- close full post column-->
         </div>
         <!-- Full post column -->
         <div class="col-xs-12 col-md-8 post-details background-white b-radius">
@@ -47,18 +47,18 @@
             <!-- if there is a post image -->
             {% if post.image %}
             <!-- show the image -->
-            <img class="img-responsive center" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image"> 
+            <img class="img-responsive center" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
             <!-- otherwise -->
             {% else %}
             <!-- show this image -->
-            <img class="img-responsive center" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image"> 
+            <img class="img-responsive center" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image">
             <!-- end if statement-->
             {% endif %}
             <!-- post content container -->
             <div class="font-black padding50">
                 <!-- post content -->
-                <p class="font-black"> {{ post.content|safe|linebreaks }}</p>
-            <!-- close the post content container -->
+                <span class="font-black"> {{ post.content|safe|linebreaks }}</span>
+                <!-- close the post content container -->
             </div>
             <!-- horizontal rule -->
             <hr>
@@ -69,18 +69,18 @@
                 <!-- show a link button to edit the post -->
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-success" role="button">EDIT POST </a>
                 <!-- show a link button to delete post -->
-                <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a> 
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-success" role="button">DELETE POST </a>
                 <!-- end the if statement-->
                 {% endif %}
                 <!-- show the link button to go back to news & specials-->
                 <a href="{% url 'get_posts' %}" class="btn btn-success">BACK TO NEWS & SPECIAL OFFERS</a>
-            <!-- close the buttons row-->
+                <!-- close the buttons row-->
             </div>
-        <!-- close the full post column-->
+            <!-- close the full post column-->
         </div>
-    <!-- close the full post row -->
+        <!-- close the full post row -->
     </div>
-<!-- close the container-->
+    <!-- close the container-->
 </div>
 <!-- end the main content block-->
 {% endblock %}

@@ -1,9 +1,9 @@
 <!-- extends base.html file -->
-{% extends "base.html" %} 
+{% extends "base.html" %}
 <!-- load all static files -->
-{% load static from staticfiles %} 
+{% load static from staticfiles %}
 <!-- load bootstrap tags -->
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 <!-- Javascript block -->
 {% block head_js %}
 <!-- link to stipe javascript file -->
@@ -17,7 +17,7 @@
 <!-- link to stripe.js -->
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 <!-- end block javascript files -->
-{% endblock %} 
+{% endblock %}
 <!-- block content -->
 {% block content %}
 <!-- main container -->
@@ -28,9 +28,9 @@
         <div id="cart-heading" class="col-xs-12 line-center">
             <!-- heading -->
             <h1 class="padding10"> Checkout </h1>
-        <!-- close column -->
+            <!-- close column -->
         </div>
-    <!-- close row -->
+        <!-- close row -->
     </div>
 
     <!-- cart details main div -->
@@ -44,40 +44,40 @@
             <div class="col-xs-5 col-sm-3">
                 <!-- thumbnail image -->
                 <img class="cart-thumbnail img-responsive" src="/media/{{item.product.image}}" alt="Ginas Beauty Studio runpost image">
-            <!-- close thumbnail image column -->
+                <!-- close thumbnail image column -->
             </div>
             <!-- product name column -->
             <div class="col-xs-7 col-sm-4 bld">
                 <!-- product name -->
                 <p>{{item.product.name}}</p>
-            <!-- close product name column -->
+                <!-- close product name column -->
             </div>
             <!-- product price column -->
             <div class="col-xs-7 col-sm-3">
                 <!-- product price -->
                 <p>@ <span class="bld">€ {{item.product.price}}</span> per qty</p>
-            <!-- close price column -->
+                <!-- close price column -->
             </div>
             <!-- total price column -->
             <div class="col-xs-7 col-sm-2 align-right">
                 <!-- total price -->
                 <p>= <span class="bld">€ {{item.item_total}}</span></p>
-            <!-- end price column -->
+                <!-- end price column -->
             </div>
-        <!-- close item row -->
+            <!-- close item row -->
         </div>
         <!-- horizontal row -->
-        <hr> 
+        <hr>
         <!-- end for loop -->
         {% endfor %}
-      
+
         <!-- total amount row -->
         <div class="row bld font-purple align-right padding20">
             <!-- total -->
             <p> Total: € {{total}}</p>
-        <!--close total amount row -->
+            <!--close total amount row -->
         </div>
-    <!-- close cart details main div-->
+        <!-- close cart details main div-->
     </div>
     <!-- Payment Form -->
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
@@ -89,34 +89,34 @@
             <h2> Personal Details </h2>
             <!-- order form -->
             {{ order_form|as_bootstrap }}
-        <!-- end personal details column-->
+            <!-- end personal details column-->
         </div>
-        
+
         <!-- payment details column-->
         <div class="ginas-forms form-group col-md-5">
             <!-- payment details heading -->
             <h2> Payment Details </h2>
             <!-- payment details form -->
-            {{ payment_form|as_bootstrap }} 
-             <!--csrf token for security to prevent JavaScript injection-->
+            {{ payment_form|as_bootstrap }}
+            <!--csrf token for security to prevent JavaScript injection-->
             {% csrf_token %}
             <!-- submit payment column -->
             <div class="form-group col-md-12 align-right">
                 <!-- submit payment button -->
                 <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value=" Submit Payment">
-            <!-- end submit payment column -->
+                <!-- end submit payment column -->
             </div>
             <!-- credit card errors div -->
             <div id="credit-card-errors" style="display:none">
                 <!-- stripe errors messages -->
                 <div class="alert-message block-message error align-right" id="stripe-error-message"></div>
-            <!-- end credit card erros div-->
+                <!-- end credit card erros div-->
             </div>
-        <!-- end payment details column-->
+            <!-- end payment details column-->
         </div>
-    <!-- end form -->
+        <!-- end form -->
     </form>
-<!-- end container -->
+    <!-- end container -->
 </div>
 <!-- end block -->
 {% endblock %}

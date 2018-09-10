@@ -374,7 +374,7 @@ p {
 }
 
 /* ppst image */
-#post-img {
+.post-img {
     max-width: 500px;
     height: 250px;
     background-size: cover;
@@ -504,7 +504,7 @@ table caption {
 }
 
 /* contact gina container on large devices */
-#contact-gina-lg {
+.contact-gina-lg {
     font-weight: bold;
     font-size: 24px;
     background-color: #A326CE;
@@ -513,12 +513,12 @@ table caption {
 }
 
 /* contact gina link on large devices */
-#contact-gina-lg a {
+.contact-gina-lg a {
     color: white;
 }
 
 /* contact gine link when hovered over - on large devices */
-#contact-gina-lg a:hover {
+.contact-gina-lg a:hover {
     color: black;
     text-decoration: none;
 }
@@ -890,7 +890,7 @@ footer .btn {
     }
     
     /* post image */
-    #post-img {
+    .post-img {
         background-size: cover;
         width: auto
     }
@@ -916,7 +916,7 @@ footer .btn {
     }
     
     /* treatments paragraph */
-    #wax p {
+    #waxperts-details p {
         font-size: 23px;
     }
     

@@ -32,13 +32,13 @@
             <p><span class="boldtext font-purple"> Published On: </span>{{review.date}}</p>
             <!-- would you recommend the product to a friend-->
             <p><span class="boldtext font-purple"> Would you recommend to a friend:</span> {{ review.would_you_recommend_to_a_friend}} </p>
-        <!-- close review details column -->
+            <!-- close review details column -->
         </div>
         <!-- review comment column -->
         <div class="col-xs-12 col-sm-6">
             <!-- comment-->
             <p><span class="boldtext font-purple"> Comment:</span></p>
-            <p> {{ review.comment|safe|linebreaks }}</p>
+            {{ review.comment|safe|linebreaks }}
             <!-- if the user is a staff member allow them edit and delete the review-->
             {% if review.user == user or user.is_staff %}
             <!-- container for edit and review buttons -->
@@ -47,15 +47,15 @@
                 <a href="{% url 'edit_review' review.id %}" class="btn btn-success" role="button">Edit Review </a>
                 <!-- delete review button -->
                 <a href="{% url 'delete_review' review.id %}" class="btn btn-success" role="button">Delete Review</a>
-            <!-- close button container -->
+                <!-- close button container -->
             </div>
             <!-- end if statement -->
             {% endif %}
-        <!-- close review comment column -->
+            <!-- close review comment column -->
         </div>
-    <!-- close review row -->
+        <!-- close review row -->
     </div>
-<!-- close container -->
+    <!-- close container -->
 </div>
 <!-- end content block -->
 {% endblock %}

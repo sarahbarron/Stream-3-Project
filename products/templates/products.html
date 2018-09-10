@@ -1,11 +1,14 @@
 <!-- extends base.html -->
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 <!-- loads all static files -->
-{% load static from staticfiles %} 
+{% load static from staticfiles %}
 
 <!-- load bootstrap tags -->
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
+
+<!--page title-->
+{% block page_title %}Ginas Beauty Studio Tomitago Products{% endblock %}
 
 <!-- main block content -->
 {% block content %}
@@ -14,8 +17,8 @@
     <!-- tomitago logo container -->
     <div id="tomitago-logo">
         <!-- tomitago logo -->
-        <img class="img-responsive center" src="{% static 'img/tomitago-logo.jpg' %}"></img>
-    <!-- close tomitago logo container -->
+        <img class="img-responsive center" src="{% static 'img/tomitago-logo.jpg' %}" alt="Tomitago Logo">
+        <!-- close tomitago logo container -->
     </div>
 
     <!-- open available stock row -->
@@ -31,7 +34,7 @@
                 <div class="row padding10">
                     <!-- product heading -->
                     <h3 class="product-front padding10 line-center"><span class="bld">{{ in_stock_products.name }}</span></h3>
-                <!--close product name row-->
+                    <!--close product name row-->
                 </div>
                 <!-- open product rating row -->
                 <div class="row rating padding10">
@@ -41,7 +44,7 @@
                     <h4 class="product-front line-center"><span class="bld"> {{in_stock_products.average_rating }} / 5</span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h4>
                     <!-- end if statement -->
                     {% endif %}
-                <!-- end product rating row-->
+                    <!-- end product rating row-->
                 </div>
 
                 <!-- open product details row -->
@@ -59,11 +62,11 @@
                             <div class="back product-back">
                                 <!--Description of product-->
                                 <p class="product-description padding10"> {{ in_stock_products.content }}</p>
-                            <!--close back container -->
+                                <!--close back container -->
                             </div>
-                        <!-- close flip card inner container -->
+                            <!-- close flip card inner container -->
                         </div>
-                    <!-- close the flip card outer container -->
+                        <!-- close the flip card outer container -->
                     </div>
 
                     <!-- purchase details column -->
@@ -72,7 +75,7 @@
                         <div class="row price-row padding10">
                             <!--product price-->
                             <h3 class="bld"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ in_stock_products.price }}</h3>
-                        <!--close product price row-->
+                            <!--close product price row-->
                         </div>
                         <!-- if the products are in stock -->
                         {% if in_stock_products.available_stock > 0 %}
@@ -84,14 +87,14 @@
                                 {% csrf_token %}
                                 <!-- open the input group-->
                                 <div class="input-group">
-                                    <input name="quantity" type="number" min="1" max="999" class="form-control" value="1"></input>
+                                    <input name="quantity" type="number" min="1" max="999" class="form-control" value="1">
                                     <!-- button to add to cart-->
                                     <button type="submit" class="button-purchase btn btn-success bld"><span class="glyphicon glyphicon-plus"></span> ADD </button>
-                                <!--close the input group-->
+                                    <!--close the input group-->
                                 </div>
-                            <!--close the add product to cart form-->
+                                <!--close the add product to cart form-->
                             </form>
-                        <!--close row for add to cart form-->
+                            <!--close row for add to cart form-->
                         </div>
                         <!-- otherwise -->
                         {% else %}
@@ -99,7 +102,7 @@
                         <div class="row add-to-cart-row padding10">
                             <!-- sold out -->
                             <h3 class="sold-out">SOLD OUT</h3>
-                        <!--close row for sold out -->
+                            <!--close row for sold out -->
                         </div>
                         <!-- end if statement -->
                         {% endif %}
@@ -114,29 +117,29 @@
                                 <!-- link to write a review -->
                                 <a href="{% url 'new_review' in_stock_products.id %}"> Write a Review </a>
                                 </span></h4>
-                            <!--close the reivew links container -->
+                                <!--close the reivew links container -->
                             </div>
-                        <!-- close row for review links-->
+                            <!-- close row for review links-->
                         </div>
-                    <!-- close the purchase details column -->
+                        <!-- close the purchase details column -->
                     </div>
                     <!-- close the product details row -->
                 </div>
-            <!-- close product body -->
+                <!-- close product body -->
             </div>
-        <!-- close available products column -->
+            <!-- close available products column -->
         </div>
         <!-- end the for loop -->
         {% endfor %}
-    <!--close available stock row-->
+        <!--close available stock row-->
     </div>
-<!--close container-->
+    <!--close container-->
 </div>
 <!-- end main container block -->
-{% endblock %} 
+{% endblock %}
 <!-- javascript block -->
 {% block end_js %}
 <!-- flipcard.js for product flip cards-->
-<script type="text/javascript" src="{% static 'js/flipcard.js' %}"></script>
+<script src="{% static 'js/flipcard.js' %}"></script>
 <!-- end javascript block -->
 {% endblock %}
