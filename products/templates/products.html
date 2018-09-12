@@ -24,7 +24,7 @@
     <!-- open available stock row -->
     <div class="row row-flex">
         <!-- products that are in stock -->
-        {% for in_stock_products in in_stock_products %}
+        {% for products in products %}
         <!-- open available products column -->
         <div class="col-sm-6">
             <!-- open product body -->
@@ -33,15 +33,15 @@
                 <!-- open product name row -->
                 <div class="row padding10">
                     <!-- product heading -->
-                    <h3 class="product-front padding10 line-center"><span class="bld">{{ in_stock_products.name }}</span></h3>
+                    <h3 class="product-front padding10 line-center"><span class="bld">{{ products.name }}</span></h3>
                     <!--close product name row-->
                 </div>
                 <!-- open product rating row -->
                 <div class="row rating padding10">
                     <!--if product rating is greater than 0 -->
-                    {% if in_stock_products.average_rating > 0 %}
+                    {% if products.average_rating > 0 %}
                     <!-- show the rating out of 5 -->
-                    <h4 class="product-front line-center"><span class="bld"> {{in_stock_products.average_rating }} / 5</span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h4>
+                    <h4 class="product-front line-center"><span class="bld"> {{products.average_rating }} / 5</span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h4>
                     <!-- end if statement -->
                     {% endif %}
                     <!-- end product rating row-->
@@ -54,14 +54,14 @@
                         <!--open flip card inner container -->
                         <div class="flip product-flip-card-dimensions">
                             <!-- front container image of product -->
-                            <div class="product-img img-responsive front" style="background-image: url('{{ MEDIA_URL }}{{ in_stock_products.image }}')">
+                            <div class="product-img img-responsive front" style="background-image: url('{{ MEDIA_URL }}{{ products.image }}')">
                                 <!-- close flip card inner container -->
                             </div>
 
                             <!--open back container -->
                             <div class="back product-back">
                                 <!--Description of product-->
-                                <p class="product-description padding10"> {{ in_stock_products.content }}</p>
+                                <p class="product-description padding10"> {{ products.content }}</p>
                                 <!--close back container -->
                             </div>
                             <!-- close flip card inner container -->
@@ -74,15 +74,15 @@
                         <!-- row for the product price -->
                         <div class="row price-row padding10">
                             <!--product price-->
-                            <h3 class="bld"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ in_stock_products.price }}</h3>
+                            <h3 class="bld"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ products.price }}</h3>
                             <!--close product price row-->
                         </div>
                         <!-- if the products are in stock -->
-                        {% if in_stock_products.available_stock > 0 %}
+                        {% if products.available_stock > 0 %}
                         <!-- row for add to cart form-->
                         <div class="row add-to-cart-row padding10">
                             <!-- form for add to cart -->
-                            <form method="post" action="{% url 'add_to_cart' in_stock_products.id %}">
+                            <form method="post" action="{% url 'add_to_cart' products.id %}">
                                 <!--csrf token for security to prevent JavaScript injection-->
                                 {% csrf_token %}
                                 <!-- open the input group-->
@@ -113,9 +113,9 @@
                                 <!-- link to view reviews -->
                                 <h4><span class="bld">
                                 <!-- view a review about the product-->
-                                <a href="{% url 'view_reviews' in_stock_products.id %}"> View Reviews </a><br><br>
+                                <a href="{% url 'view_reviews' products.id %}"> View Reviews </a><br><br>
                                 <!-- link to write a review -->
-                                <a href="{% url 'new_review' in_stock_products.id %}"> Write a Review </a>
+                                <a href="{% url 'new_review' products.id %}"> Write a Review </a>
                                 </span></h4>
                                 <!--close the reivew links container -->
                             </div>

@@ -1,3 +1,6 @@
+# Code Institute - Stream 3 Project 
+#### by Sarah Barron
+
 ## Testing
 ## Django Test Suite
 ##### I used the Django Test Suite to test all my apps and used Coverage to generate a report in which I initally scored 83% and after adding extra tests i finished with 119 tests and a score of 99% tested. Which covered 1598 statements and missing 12. All tests can be viewed within each app folder
