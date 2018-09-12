@@ -76,6 +76,12 @@ body {
     background-color: #A326CE;
 }
 
+.glyphicon-menu-up {
+    padding: 20px;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
 /********************  Classes used throughout *******************************/
 
 /* center images */
@@ -265,7 +271,7 @@ p {
     transform-style: preserve-3d;
 }
 
-/* card rotate when mouse moves into the card*/
+/* when the card is hovered over backface-visibility is hidden*/
 
 .flip.mousein {
     backface-visibility: hidden;
@@ -275,6 +281,8 @@ p {
     -ms-backface-visibility: hidden;
 }
 
+/* treatments on the landing page rotatate 180degs when hovered over*/
+
 .flip.mousein-treatments {
     transform: rotateY( 180deg);
     -webkit-transform: rotateY(180deg);
@@ -282,6 +290,8 @@ p {
     -o-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
 }
+
+/* products in the shop rotate 180degs and scale up when hovered over*/
 
 .flip.mousein-product {
     transform: rotateY( 180deg) scale(1.5, 1.5);
@@ -486,6 +496,16 @@ p {
 .caption {
     max-height: 300px;
     overflow: hidden;
+}
+
+/* links within the news details and map on landing page - normal */
+
+.thumbnail .caption a,
+#map a {
+    text-decoration: none;
+    border-radius: none;
+    background-color: transparent;
+    float: none;
 }
 
 /* carousel indicators */

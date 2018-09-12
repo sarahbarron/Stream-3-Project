@@ -2,8 +2,12 @@
 #### by Sarah Barron
 
 ## What my project does and the needs it fulfils
-- This project is a business website. It was built for a client running a beauty salon. The website is needed for e-commerce, advertising and providing all the necessary information about the beauty salon, it provides details about treatments and price, news and special offers, contact and location. It also provides an online store for buying beauty products.
-- The website has a customer registration. This is currently needed for purchasing prodcuts online and writing customer reviews. The customer has a profile area where they can track the status of an order and view all past orders. It also contains all reviews made by the customer and they can edit or delete these reviews as they wish. Along with that the customer can also amend and update their username or email address. 
+- This project is a business website. It was built for a client running a beauty salon. The website is needed for e-commerce, advertising and providing all the necessary information about the beauty salon. It provides details about treatments and prices, news and special offers, contact and location. It also provides an online store for buying beauty products.
+- The website has a customer registration/Login area. This is currently needed for purchasing products online and writing customer reviews. 
+--The customer has a profile area where they can track the status of an order and view all past orders. 
+-- It also contains all reviews made by the customer and the customer can edit or delete these reviews as they wish. Along with that the customer can also amend and update their username or email address. 
+- The project also allows staff members to add, edit or delete news and special offer posts directly from the website once they are logged in.  
+-- All other admin can be done from the django admin panel.
 
 ## Technologies used:
 
