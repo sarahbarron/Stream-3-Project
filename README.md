@@ -20,7 +20,7 @@
 
 ## Testing
 
-- I have outlined my testing in a seperate file  [testing.md - click here to view it](https://github.com/sarahbarron/Stream-3-Project/testing.md)
+- I have outlined my testing in a seperate file  [testing.md - click here to view it](https://github.com/sarahbarron/Stream-3-Project/blob/master/testing.md)
 
 ## Problems encountered
 - I committed my env.py which held my develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
