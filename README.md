@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
 # Code Institute - Stream 3 Project 
 #### by Sarah Barron
 
