@@ -65,6 +65,7 @@
 - Setup Travis CI to build and test the project
 - Setup my config variables in Heroku
 - Installed the package gunicorn to connect my project to Heroku. 
+- Disabled collectstatic in heroku so heroku wont try to upload the static files.
 
 ## Problems encountered throughout the project
 

@@ -1,1 +1,1 @@
-web: gunicorn GinasBeautyStudio:wsgi:application
+web: gunicorn GinasBeautyStudio.wsgi:application
