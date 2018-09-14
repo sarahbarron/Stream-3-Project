@@ -46,15 +46,15 @@
 - I have outlined my testing in a seperate file  [testing.md - click here to view it](https://github.com/sarahbarron/Stream-3-Project/blob/master/testing.md)
 
 ## Deployment
-- Set up a [heroku app](https://dashboard.heroku.com/apps)
+- Set up an [heroku app](https://dashboard.heroku.com/apps)
 - Added on the Heroku Postgress Database
 - Installed the package dj-database-url to allow connection to a database url
 - Installed the package psycopg2 for connecting to postgress databases
 - Setup the default database in settings.py to the postgres database
-- migrated the project in order to use the new postgres datatbase
-- created a superuser
+- Migrated the project in order to use the new postgres datatbase
+- Created a superuser
 - Set up a AWS S3 bucket to serve the website
-- IAM - manages user access and encrytion 
+- Set up an AWS IAM - to manage user access and encrytion 
    - Setup a group 
    - Created a policy
    - Attached the group to the policy
@@ -67,8 +67,8 @@
 - Installed the package gunicorn to connect my project to Heroku. 
 - Disabled collectstatic in heroku so heroku wont try to upload the static files.
 - Deployed the project on heroku
-- Added the heroku address to our valid hosts
-- 
+- Added the heroku address to valid hosts in settings.py
+
 ## Problems encountered throughout the project
 
 - I committed my env.py which held my private develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits

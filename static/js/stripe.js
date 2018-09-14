@@ -1,3 +1,4 @@
+/* global $ Stripe*/
 // Javascript for STRIPE payments
 
 $(function() {

@@ -1,4 +1,4 @@
-/* global $ */
+/* global $ google emailjs*/
 // NEWS & SPECIAL OFFERS CAROUSEL
 $(document).ready(function() {
     // news and special offers carousel on index.html page 

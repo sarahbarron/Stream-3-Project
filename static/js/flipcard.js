@@ -1,3 +1,4 @@
+/* global $ */
 // FLIP CARDS ON products.html PAGE
 
 // when the mouse enters the div flip 180degs

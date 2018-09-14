@@ -16,7 +16,7 @@
         <!-- full post comment for larger devices -->
         <div class="hidden-xs hidden-sm col-md-4">
             <!-- full post image -->
-            <img src="{{STATIC_URL}}/img/profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center">
+            <img src="{{STATIC_URL}}profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center">
             <!-- horizontal rule -->
             <hr>
             <!-- Author's Name -->
@@ -44,7 +44,7 @@
             <!-- if there is a post image -->
             {% if post.image %}
             <!-- show the image -->
-            <img class="img-responsive center" src="{{ MEDIA_URL }}/img/{{post.image}}" alt="Ginas Beauty Studio runpost image">
+            <img class="img-responsive center" src="{{ MEDIA_URL }}{{post.image}}" alt="Ginas Beauty Studio image">
             <!-- otherwise -->
             {% else %}
             <!-- show this image -->

@@ -29,7 +29,7 @@
             <!-- if the post has an image -->
             {% if post.image %}
             <!-- set the image as the post image -->
-            <img class="img-thumbnail img-responsive post-img" src="{{ MEDIA_URL }}/img/{{post.image}}" alt="Ginas Beauty Studio runpost image">
+            <img class="img-thumbnail img-responsive post-img" src="{{ MEDIA_URL }}{{post.image}}" alt="Ginas Beauty Studio runpost image">
             <!-- otherwise -->
             {% else %}
             <!-- set the image as Ginas_Beauty_Logo.jpg -->
