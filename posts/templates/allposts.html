@@ -1,6 +1,7 @@
 <!--extension to the base.html file-->
 {% extends 'base.html' %}
-
+<!-- load static files -->
+{% load staticfiles %}
 <!--loads bootstrap tags -->
 {% load bootstrap_tags %}
 
@@ -33,7 +34,8 @@
             <!-- otherwise -->
             {% else %}
             <!-- set the image as Ginas_Beauty_Logo.jpg -->
-            <img class="img-thumbnail img-responsive post-img" src="{{STATIC_URL}}/img/GinasBeautyStudioLogoSmall.jpg" alt="Ginas Beauty Studio Post Image"> {% endif %}
+            <img class="img-thumbnail img-responsive post-img" src="{% static 'img/GinasBeautyStudioLogoSmall.jpg' %}" alt="Ginas Beauty Studio Post Image"> 
+            {% endif %}
             <!-- close image column -->
         </div>
         <!-- open post details column -->
