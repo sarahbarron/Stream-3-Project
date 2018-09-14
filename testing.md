@@ -17,6 +17,9 @@
 
 ![Django Testing](/static/img/DjangoTestingScore.JPG)
 
+## Travis CI - Used to build and test the project
+##### I am using Travis CI as a continuous integration service which builds and tests my project every time I make changes and commit to GitHub.
+
 ## Manual Testing
 ### Users & Authentications - accounts app
 
