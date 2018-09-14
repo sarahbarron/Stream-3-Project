@@ -18,6 +18,7 @@
 ##### AWS - Amazon web services to store databases
 ##### - S3 - to serve the website
 ##### - IAM - manages user access and encryption keys
+##### Travis CI - Used to build and test the project
 ##### HTML - hypertext markup language
 ##### CSS - cascading style sheets 
 ##### Javascript - client side scripting language
@@ -25,13 +26,14 @@
 ##### Git Bash & GitHub -for version control and backup of code
 ##### Bootstrap - A framework for developing responsive, mobile first websites.
 ##### Django - python web framework
-##### Libraries i needed to install
+##### Libraries and packages i needed to install
 - django forms bootstrap library for styling of forms
 - pillow needed for using images
 - ckeditor for rich text editing in creating and editing posts
 - dj-database-url to allow connection to database url
 - psycopg2 to allow connection to postgress database
 - django storages and botoS3- both needed to use django with S3
+- gunicorn - to connect to heroku
 
 ##### Plugin - Coverage - I needed this during my testing of code. It generates reports which show you how much of your code you have tested.
 ##### Stripe - needed for online payment transactions for purchasing products
@@ -60,7 +62,9 @@
    - Downloaded the users keys .csv file
 - Installed django-storages  and botoS3 in order to use dajango with S3
 - Setup Django to connect with AWS
-- 
+- Setup Travis CI to build and test the project
+- Setup my config variables in Heroku
+- Installed the package gunicorn to connect my project to Heroku. 
 
 ## Problems encountered throughout the project
 
