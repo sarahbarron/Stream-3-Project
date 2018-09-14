@@ -3,5 +3,6 @@ python:
     - "2.7.3"
 install: "pip install -r requirements.txt"
 env:
+- stripe.api_key = "whatever"
 script:
 - SECRET_KEY="whatever" ./manage.py test
