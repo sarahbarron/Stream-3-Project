@@ -16,7 +16,7 @@
         <!-- full post comment for larger devices -->
         <div class="hidden-xs hidden-sm col-md-4">
             <!-- full post image -->
-            <img src="/media/img/profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center">
+            <img src="{{STATIC_URL}}/img/profile.jpg" alt="Gina's Profile Picture" class="img-circle img-responsive center">
             <!-- horizontal rule -->
             <hr>
             <!-- Author's Name -->
@@ -48,7 +48,7 @@
             <!-- otherwise -->
             {% else %}
             <!-- show this image -->
-            <img class="img-responsive center" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image">
+            <img class="img-responsive center" src="{{STATIC_URL}}/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image">
             <!-- end if statement-->
             {% endif %}
             <!-- post content container -->
