@@ -66,7 +66,9 @@
 - Setup my config variables in Heroku
 - Installed the package gunicorn to connect my project to Heroku. 
 - Disabled collectstatic in heroku so heroku wont try to upload the static files.
-
+- Deployed the project on heroku
+- Added the heroku address to our valid hosts
+- 
 ## Problems encountered throughout the project
 
 - I committed my env.py which held my private develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits

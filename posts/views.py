@@ -13,7 +13,6 @@ VIEWS FOR BLOG POSTS
 
 def get_posts(request):
     
-    
     # return a list of all posts and show on blogposts.html. filter the posts that were created previous to the current time and order them by the date they were published in decending order
 
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
