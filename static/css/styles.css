@@ -558,7 +558,7 @@ p {
 
 /* fontawesome facebook glyphicon */
 
-.fa-facebook-f {
+.fa-facebook-f{
     background: #3B5998;
     color: #FFFFFF;
     padding: 0.1em 0.3em;
@@ -567,6 +567,9 @@ p {
     font-size: 2.5em;
 }
 
+.fa-sign-out{
+    color:white;
+}
 /* landing page contact button*/
 
 #contact-btn {
@@ -719,6 +722,7 @@ table caption {
     width: 225px;
     height: 300px;
     border-radius: 15px 0;
+    background-position: center;
 }
 
 /* back of flip card */

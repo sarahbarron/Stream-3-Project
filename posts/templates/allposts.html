@@ -29,11 +29,11 @@
             <!-- if the post has an image -->
             {% if post.image %}
             <!-- set the image as the post image -->
-            <img class="img-thumbnail img-responsive post-img" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
+            <img class="img-thumbnail img-responsive post-img" src="{{ MEDIA_URL }}{{post.image}}" alt="Ginas Beauty Studio runpost image">
             <!-- otherwise -->
             {% else %}
             <!-- set the image as Ginas_Beauty_Logo.jpg -->
-            <img class="img-thumbnail img-responsive post-img" src="/media/img/Ginas_Beauty_Logo.jpg" alt="Ginas Beauty Studio Post Image"> {% endif %}
+            <img class="img-thumbnail img-responsive post-img" src="{{STATIC_URL}}/img/GinasBeautyStudioLogoSmall.jpg" alt="Ginas Beauty Studio Post Image"> {% endif %}
             <!-- close image column -->
         </div>
         <!-- open post details column -->

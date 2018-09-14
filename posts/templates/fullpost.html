@@ -44,7 +44,7 @@
             <!-- if there is a post image -->
             {% if post.image %}
             <!-- show the image -->
-            <img class="img-responsive center" src="/media/{{post.image}}" alt="Ginas Beauty Studio runpost image">
+            <img class="img-responsive center" src="{{ MEDIA_URL }}{{post.image}}" alt="Ginas Beauty Studio runpost image">
             <!-- otherwise -->
             {% else %}
             <!-- show this image -->

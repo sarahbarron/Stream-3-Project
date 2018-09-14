@@ -3,14 +3,20 @@
 
 ## What my project does and the needs it fulfils
 - This project is a business website. It was built for a client running a beauty salon. The website is needed for e-commerce, advertising and providing all the necessary information about the beauty salon. It provides details about treatments and prices, news and special offers, contact and location. It also provides an online store for buying beauty products.
-- The website has a customer registration/Login area. This is currently needed for purchasing products online and writing customer reviews. 
---The customer has a profile area where they can track the status of an order and view all past orders. 
--- It also contains all reviews made by the customer and the customer can edit or delete these reviews as they wish. Along with that the customer can also amend and update their username or email address. 
+- The website has a customer registration/Login area. This is currently needed for storing cart information for a user between sessions as long as they stay logged in, a customer also needs to be registered to purchase the products in the cart, and they must also register to write a customer review. 
+    -The customer has a profile area where they can track the status of an order and view all past orders. 
+    - It also contains all reviews made by the customer and the customer can edit or delete these reviews as they wish. 
+    - The customer can also amend and update their username or email address. 
 - The project also allows staff members to add, edit or delete news and special offer posts directly from the website once they are logged in.  
--- All other admin can be done from the django admin panel.
+    - All other admin can be done from the django admin panel.
 
 ## Technologies used:
 
+##### Cloud9 - cloud based IDE to create the project
+##### Heroku - to deploy the project
+##### AWS - Amazon web services to store databases
+##### - S3 - to serve the website
+##### - IAM - manages user access and encryption keys
 ##### HTML - hypertext markup language
 ##### CSS - cascading style sheets 
 ##### Javascript - client side scripting language
@@ -21,7 +27,10 @@
 ##### Libraries i needed to install
 - django forms bootstrap library for styling of forms
 - pillow needed for using images
-- ckeditor for rich text editing in creating and editing posts 
+- ckeditor for rich text editing in creating and editing posts
+- dj-database-url to allow connection to database url
+- psycopg2 to allow connection to postgress database
+- django storages and botoS3- both needed to use django with S3
 
 ##### Plugin - Coverage - I needed this during my testing of code. It generates reports which show you how much of your code you have tested.
 ##### Stripe - needed for online payment transactions for purchasing products
@@ -33,7 +42,26 @@
 
 - I have outlined my testing in a seperate file  [testing.md - click here to view it](https://github.com/sarahbarron/Stream-3-Project/blob/master/testing.md)
 
-## Problems encountered
+## Deployment
+- Set up a [heroku app](https://dashboard.heroku.com/apps)
+- Added on the Heroku Postgress Database
+- Installed the package dj-database-url to allow connection to a database url
+- Installed the package psycopg2 for connecting to postgress databases
+- Setup the default database in settings.py to the postgres database
+- migrated the project in order to use the new postgres datatbase
+- created a superuser
+- Set up a AWS S3 bucket to serve the website
+- IAM - manages user access and encrytion 
+   - Setup a group 
+   - Created a policy
+   - Attached the group to the policy
+   - Created a user
+   - Downloaded the users keys .csv file
+- Installed django-storages  and botoS3 in order to use dajango with S3
+- Setup Django to connect with AWS
+- 
+
+## Problems encountered throughout the project
 
 - I committed my env.py which held my private develpment envrionmet variables to GitHub. To solve the problem i deleted the env.py file from all my previous Git Commits and added the the env.py file to .gitignore for all future commits
 
