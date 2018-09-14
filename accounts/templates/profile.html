@@ -23,11 +23,11 @@
             <!-- contaner for customers profile details  -->
             <div id="profile" class="line-center padding10">
                 <!-- Customer name -->
-                <p class="padding10"><span class="bld">Name: </span>{{customer_profile.first_name}} {{customer_profile.last_name}}</p>
+                <p class="padding10"><span class="bld font-purple">Name: </span>{{customer_profile.first_name}} {{customer_profile.last_name}}</p>
                 <!-- Customers Username -->
-                <p class="padding10"><span class="bld">Username: </span>{{customer_profile.username}}</p>
+                <p class="padding10"><span class="bld font-purple">Username: </span>{{customer_profile.username}}</p>
                 <!-- Customers Email-->
-                <p class="padding10"><span class="bld">Email: </span>{{customer_profile.email}}</p>
+                <p class="padding10"><span class="bld font-purple">Email: </span>{{customer_profile.email}}</p>
                 <!-- Button linking to edit profile -->
                 <a href="{% url 'edit_profile' %}" class="btn btn-success padding10" role="button">Edit Profile </a>
             </div>
@@ -38,7 +38,7 @@
             <!-- past order container -->
             <div id="past-orders" class="col-xs-12">
                 <!-- heading -->
-                <h2 class="bld font-purple padding20"> PAST ORDERS </h2>
+                <h2 class="bld font-purple padding20 line-center"> PAST ORDERS </h2>
                 <!-- for all past orders -->
                 {% for orders in orders %}
                 <!-- create a div container -->
@@ -82,7 +82,7 @@
             <!-- create a review div -->
             <div id="review-div" class="padding10 col-xs-12">
                 <!-- heading -->
-                <h2 class="bld font-purple padding20"> PAST REVIEWS </h2>
+                <h2 class="bld font-purple padding20 line-center"> PAST REVIEWS </h2>
                 <!-- for all reviews-->
                 {% for reviews in reviews %}
                 <!-- create a review row-->
@@ -92,21 +92,21 @@
                     <!-- create a column -->
                     <div class="col-sm-12">
                         <!-- Heading is name of product being reviewed -->
-                        <h3 class="font-purple">{{reviews.product}}</h3>
+                        <h2 class="font-purple line-center">{{reviews.product}}</h2>
                         <!-- horizontal rule -->
                         <hr>
                         <!-- Review Rating -->
-                        <p><span class="bld"> Ratings: </span><span class="green">{{ reviews.rating }} / 5 </span> </p>
+                        <p><span class="bld font-purple"> Ratings: </span><span class="green">{{ reviews.rating }} / 5 </span> </p>
                         <!-- Review title -->
-                        <p><span class="bld"> Product Title: </span> {{reviews.title}}</p>
+                        <p><span class="bld font-purple"> Product Title: </span> {{reviews.title}}</p>
                         <!-- Review Written By -->
-                        <p><span class="bld"> Written By: </span>{{reviews.user}}</p>
-                        <p><span class="bld"> Published On: </span>{{reviews.date}}</p>
+                        <p><span class="bld font-purple"> Written By: </span>{{reviews.user}}</p>
+                        <p><span class="bld font-purple"> Published On: </span>{{reviews.date}}</p>
                         <!-- Review Comment made about the product -->
-                        <p><span class="bld"> Comment: </span></p>
+                        <p><span class="bld font-purple"> Comment: </span></p>
                         {{ reviews.comment|safe|linebreaks}}
                         <!-- Would you recommend to a friend -->
-                        <p><span class="bld"> Would you recommend to a friend: </span> {{ reviews.would_you_recommend_to_a_friend}} </p>
+                        <p><span class="bld font-purple"> Would you recommend to a friend: </span> {{ reviews.would_you_recommend_to_a_friend}} </p>
                         <!-- link to edit the review -->
                         <a href="{% url 'edit_review' reviews.id %}" class="btn btn-success" role="button">Edit Review </a>
                         <!-- link to delete the review -->
