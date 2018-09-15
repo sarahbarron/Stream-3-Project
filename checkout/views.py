@@ -79,8 +79,7 @@ def out_of_stock(request):
                 request.session['cart'] = cart
     # send a message to the customer to notify
     # them of the stock limitations and amendments to cart
-    messages.info(request, 'We have limited stock available we have amended your cart to the maximum available at this time. <br> Some Items may have been removed due to no stock availability <br> Please check your cart and checkout again once you are happy to do so', extra_tags="safe',
-                  extra_tags="safe")
+    messages.info(request,'We have limited stock available we have amended your cart to the maximum available at this time. <br> Some Items may have been removed due to no stock availability <br> Please check your cart and checkout again once you are happy to do so', extra_tags="safe")
 
     # return to the cart to view amendments
     return redirect(reverse('view_cart'))
