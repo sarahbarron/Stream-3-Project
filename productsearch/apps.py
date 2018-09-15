@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
-# productsearch app
+
 class ProductsearchConfig(AppConfig):
+    ''' productsearch app '''
+
     name = 'productsearch'

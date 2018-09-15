@@ -34,7 +34,7 @@
 - psycopg2 to allow connection to postgress database
 - django storages and botoS3- both needed to use django with S3
 - gunicorn - to connect to heroku
-
+- pycodestyle - to check the style of the python code is correct and show any styling errors
 ##### Plugin - Coverage - I needed this during my testing of code. It generates reports which show you how much of your code you have tested.
 ##### Stripe - needed for online payment transactions for purchasing products
 ##### EmailJs - needed for the contact format

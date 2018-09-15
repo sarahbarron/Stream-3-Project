@@ -3,7 +3,8 @@ from django.test import TestCase
 from .apps import HomeConfig
 
 
-# test the app name is home
 class TestHomeApp(TestCase):
+    ''' test the app name is home '''
+
     def test_app(self):
         self.assertEqual("home", HomeConfig.name)

@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
-# accounts app
+
 class AccountsConfig(AppConfig):
+    ''' accounts app '''
     name = 'accounts'

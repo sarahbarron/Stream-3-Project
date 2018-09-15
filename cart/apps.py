@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
-# cart app
+
 class CartConfig(AppConfig):
+    ''' Name the app cart '''
+
     name = 'cart'

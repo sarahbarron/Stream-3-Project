@@ -1,13 +1,20 @@
 from django.test import TestCase
 from products.models import Product
 
-# test search for product views
+
 class TestSearchForProductViews(TestCase):
-    
-    # test search for product view
-    def test_search_for_product_view(self):
+    ''' test productsearch views '''
+
+    def test_search_for_product_view_with_a_match(self):
+        ''' test search for product view with a match '''
         # create a product
-        item = Product(name="Product", available_stock="100", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        item = Product(name="Product",
+                       available_stock="100",
+                       content="product content",
+                       price="30",
+                       image="img.jpg",
+                       num_of_ratings="5",
+                       average_rating="5")
         # save the product
         item.save()
         # search url searching for Product
@@ -16,11 +23,18 @@ class TestSearchForProductViews(TestCase):
         self.assertEqual(page.status_code, 200)
         # check the template used is products.html
         self.assertTemplateUsed(page, "products.html")
-    
-    # test seaarch for product view with no match
+
     def test_search_for_product_view_when_no_match(self):
+        ''' test seaarch for product view with no match '''
+
         # create a product
-        item = Product(name="Product", available_stock="100", content="product content", price="30", image="img.jpg", num_of_ratings="5", average_rating="5")
+        item = Product(name="Product",
+                       available_stock="100",
+                       content="product content",
+                       price="30",
+                       image="img.jpg",
+                       num_of_ratings="5",
+                       average_rating="5")
         # save the product
         item.save()
         # searh url searching for a non existant product
@@ -29,4 +43,3 @@ class TestSearchForProductViews(TestCase):
         self.assertEqual(page.status_code, 200)
         # check the template used is products.html
         self.assertTemplateUsed(page, "products.html")
-    

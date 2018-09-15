@@ -423,3 +423,6 @@ text-align:center
 
 ## JavaScript Validation
 - I validated my Javascript files with [JShint](http://jshint.com/).
+
+## Pyton code styling
+- I installed pycodestyle to check for erros of my code styling in all my .py pyton files.

@@ -1,13 +1,21 @@
 from django.test import TestCase
 from .models import Product
 
-# test product model
-class TestProductModel(TestCase):
 
-    # test product model
+class TestProductModel(TestCase):
+    ''' test the Product Model '''
+
     def test_product_model(self):
+        ''' test the product model is working '''
+
         # create a product
-        product = Product(name = 'product', available_stock = "10", content ='content', price = "30", image = "img.jpg", num_of_ratings="10", average_rating="5")
+        product = Product(name='product',
+                          available_stock="10",
+                          content='content',
+                          price="30",
+                          image="img.jpg",
+                          num_of_ratings="10",
+                          average_rating="5")
         # save product
         product.save()
         # check to see that the product fields equal the saved products values
