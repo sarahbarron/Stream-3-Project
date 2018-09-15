@@ -210,9 +210,6 @@ class TestCheckOutViews(TestCase):
         self.assertEqual(page.status_code, 200)
         # check Template Used is cart.html page
         self.assertTemplateUsed(page, "paid.html")
-        # check the message stored is equal to the expected message
-        messages = list(get_messages(page.wsgi_request))
-        self.assertEqual(str(messages[0]), 'You have successfully paid')
 
     def test_checkout_with_low_stock_levels(self):
         ''' test checkout where there is low stock levels '''
