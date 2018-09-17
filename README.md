@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
 # Code Institute - Stream 3 Project 
-### by Sarah Barron
+### By Sarah Barron
 
 ## About this project
 
@@ -24,8 +24,8 @@
     - The Shop - there is a link to this page from the navigation bar and landing page. This shows all products being sold online. From this page all users can: 
         - Add products to the cart.
         - View reviews about a product.
-    - News and Special Offers - this is a blog page that can be accessed from the navigation bar or the landing page. It shows a synopsis of all news and special offers . From this page all users  can click on the read more button to bring them to a page to view the full post.
-    - The product search input box - located in the footer if you want to search for a certain product in the shop.
+    - News and Special Offers - this is a blog page that can be accessed from the navigation bar or the landing page. It shows a synopsis of all news and special offers . From this page all users  can click on the read more button to bring them to the full post page.
+    - The product search input box - located in the footer. This can be used to search for a certain product in the shop.
 
 - Anyone who visits the page has the option to
     - login or
@@ -33,18 +33,14 @@
 
 The login and register pages can be accessed from the navigaion bar
 
-    - search for a product
-
-The search input area is in the footer
-
 - Logged in users have some extra features they can access
     - On the shop page they can write a review about any product.
-    - View the cart page - to view all items that have added to the cart during the session. The quantity required of each product can also be amended on this page. The cart is accessable from the cart link on the navigation bar.
+    - View the cart page - to view all items that have been added to the cart during the session. The quantity required of each product can also be amended on this page. The cart is accessable from the cart link on the navigation bar.
     - Checkout - to purchase the items in the cart. The link to the checkout is accessable from the cart page.
     - Profile - Every registered user has a profile. Once a user is logged in the link to the profile page will be  shown on the navigation bar. There is 3 sections to the profile
         1. The users information - Name, Username & Email address the user has the option to edit this information using the the edit button in this section
         2. The users past orders - If the user has purchased any products online this information will be stored here and the delivery status will be shown. There is a paginator in this section that shows 5 orders per page.
-        3. The users past reviews - If the user has made a review on a product the review will be shown here. The user has the option to edit or delete the review here. There is a paginator in this section that only shows 3 reviews per page.
+        3. The users past reviews - If the user has made a review on a product the review will be shown here. The user has the option to edit or delete the review from here. There is a paginator in this section that only shows 3 reviews per page.
     - Logout - the logout link is on the navigation bar.
 
 - Staff members have all the same features as a logged in user plus some extra features.
@@ -57,8 +53,9 @@ The search input area is in the footer
 ##### Cloud9 - cloud based IDE to create the project
 ##### Heroku - to deploy the project
 ##### AWS - Amazon Web Services
-##### AWS S3 - to store static and media files and to serve the website
-##### AWS IAM - manages user access and encryption keys
+- AWS S3 - to store static and media files and to serve the website
+- AWS IAM - manages user access and encryption keys
+
 ##### Travis CI - Used to build and test the project
 ##### HTML - hypertext markup language
 ##### CSS - cascading style sheets 
@@ -80,7 +77,7 @@ The search input area is in the footer
 
 ##### Plugin - Coverage - I needed this during my testing of code. It generates reports which show you how much of your code you have tested.
 ##### Stripe - needed for online payment transactions for purchasing products
-##### EmailJs - needed for the contact format
+##### EmailJs - needed for the contact forms
 ##### Gmail - needed for emails
 ##### Tiny Png - Used to optimise all photos used in the project [https://tinypng.com/](https://tinypng.com/) 
 
@@ -156,3 +153,7 @@ echo env.py >> .gitignore
 - [Stripe Documentation](https://stripe.com/docs) - helped me with my stripe payments and testing
 
 [![Build Status](https://travis-ci.org/sarahbarron/Stream-3-Project.svg?branch=master)](https://travis-ci.org/sarahbarron/Stream-3-Project)
+
+## Thank You
+
+I would like to thank the [Code Institute](https://www.codeinstitute.net/) and [Springboard](https://springboardcourses.ie/) for providing me with such a wonderful course and experience. I have enjoyed every minute learning and practicing all that I have learnt. A massive thank you must go to my Mentor Yoni Lavi who helped me so much along the way and to my tutors Nakita McCool and Neil McEwel for being so quick to respond and help when issues arose. Also, thanks to Tiffany Snell for your constant communication and response to any problems I had. To my fellow students on Slack, I really appreciate all the advice, help and for just keeping me company while I studied remotely, I would have been lost without you, so Thank You.
