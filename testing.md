@@ -178,12 +178,12 @@
 - I checked the database and the post was deleted.
 
 
-## Products
+### Products
 
-### Out Of Stock
+#### Out Of Stock
 - I tested that when a products stock levels were 0 that the option to add the product to the cart was removed and in place a warning that the product was out of stock appeared.
 
-### Buying products from the shop - product app, cart app, checkout app
+#### Buying products from the shop - product app, cart app, checkout app
 
 #### Purchasing product(s) that were within stock levels
 
