@@ -6,7 +6,7 @@ class MakePaymentForm(forms.Form):
     ''' form for the credit card details when making a payment '''
 
     # month ranges for expiry date
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     # year ranges for expiry date
     YEAR_CHOICES = [(i, i) for i in range(2018, 2030)]
     # credit card details - Stripe deals with the encryption of all our data

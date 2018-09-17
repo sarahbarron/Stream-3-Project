@@ -1,5 +1,5 @@
 # Code Institute - Stream 3 Project 
-#### by Sarah Barron
+### By Sarah Barron
 
 ## Testing
 ## Django Test Suite
@@ -27,15 +27,15 @@
 ##### test 1: registering a new customer
 - I clicked the register link on the navigation bar
 - I was redirected to the registration page.
-- Initially i ommitted some details and put a wrongly formated email address in the email field and the form validation all worked as it should have
+- Initially i ommitted input to each required filed and put a wrongly formated email address in the email field and the form validation all worked as it should have
 - I then inputted the details correctly into the form and clicked the register button
 - I was directed back to the home page & welcome message to say i was registered was displayed.
-- The username was displayed in the navigation bar and the navigation bar changed (login and register removed) and logout was now visable
+- The navigation bar changed (login and register removed) and Profile and logout was now visable
 - I checked the django admin panel and the newly registered member was stored.
 
 ##### test 2: trying to register a customer who is already logged in
 - I logged in as an already registered user.
-- I entered the [register link](https://stream-3-project-sarahbarron.c9users.io/accounts/register/)
+- I entered the [register link](https://ginas-beauty-studio.herokuapp.com/accounts/register/)
 - I was redirected to the home page and a message to tell me i was already logged in appeared.
 
 #### Manual testing login
@@ -45,18 +45,18 @@
 - Firstly i entered wrong details into the login form and an error message appeared and i was not logged in.
 - The second attempt i entered the correct login details into the login form
 - I was redirected to the home page and a message displayed to say I was successfully logged in.
-- The username was displayed in the navigation bar and the register & login links were removed and the logout link added
+- The register & login links were removed and the profile and logout link added
 
 ##### test 2: trying to login when already logged in
 - I logged in as an already registered user.
-- I entered the [login link](https://stream-3-project-sarahbarron.c9users.io/accounts/login/)
+- I entered the [login link](https://ginas-beauty-studio.herokuapp.com/accounts/login/)
 - I was redirected to the home page and a message to tell me i was already logged in appeared.
 
 #### Manual testing logout
 ##### test 1: logout a customer 
 - When I was logged in I clicked the Logout link on the navigation bar
 - I was redirected back to the home page and message to say i was logged out was displayed
-- The navigation bar removed the username and the logout link and now showed the login & register link.
+- The navigation bar removed the profile and logout link and now showed the login & register link.
 
 ##### test 2: entering the logout link when no-one was logged in 
 - I made sure no-one was logged in.
@@ -65,7 +65,7 @@
 
 #### Manual testing: Viewing a Profile
 - I logged in
-- Clicked on the Profile / Track Order link on the navigation bar
+- Clicked on the Profile link on the navigation bar
 - This brought me the the profile page which showed me my profile details, my past order details and my reviews.
 - the orders were paginated 
 - the reviews were paginated
@@ -78,10 +78,10 @@
 - I followed the link and was directed to the password reset confirm page where i entered my new password twice and clicked the reset password button
 - This brought me to the password reset complete page with a link to login with my new password.
 
-#### Manual testing edit profile (note during my first test i found a problem outlined in problems encountered below) this test was redone when problems were fixed
+#### Manual testing edit profile (note during my first test i found a problem outlined in problems encountered in README.md) this test was redone when problems were fixed
 ##### test 1: changing data with a unique username, email address and first name and lastname 
 - clicked on the edit profile link
-- This directed me to the profileform page where i could change my username, email address, first name or last name. I could also click a link to reset my password.
+- This directed me to the profile form page where i could change my username, email address, first name or last name. I could also click a link to reset my password.
 - I changed my username, email address, first name and last name and pressed save.
 - I checked the admin panel and could see the changes made there 
 
@@ -118,11 +118,11 @@
 
 ##### test 2: try to create a post logged in as a user without staff status
 - I logged in as a user without staff status
-- entered the [new post link](https://stream-3-project-sarahbarron.c9users.io/posts/new/)
+- entered the [new post link](https://ginas-beauty-studio.herokuapp.com/posts/new/)
 - I was redirected to the home page and the message "You are not authorised to create or edit posts" was displayed
 
 ##### test 3: try to create a post when not logged in
-- I entered the [new post link](https://stream-3-project-sarahbarron.c9users.io/posts/new/)
+- I entered the [new post link](https://ginas-beauty-studio.herokuapp.com/posts/new/)
 -  I was redirected to the login page.
 -  The first time I logged in as a staff member user and was redirected to the create post page
 -  The second time i logged in as a user with no staff status and i was redirected to the home page with a message welcome you are not authorised to create or edit posts displayed
@@ -146,11 +146,11 @@
 
 ##### test 2: try to edit a post logged in as a user without staff status
 - I logged in as a user without staff status
-- I entered the [edit post link](https://stream-3-project-sarahbarron.c9users.io/posts/6/edit/)
+- I entered the [edit post link](https://ginas-beauty-studio.herokuapp.com/posts/6/edit/)
 - I was redirected to the home page and the message "You are not authorised to create or edit posts" was displayed
 
 ##### test 3: try to edit a post when not logged in
-- I entered the [edit post link ](https://stream-3-project-sarahbarron.c9users.io/posts/6/edit/)
+- I entered the [edit post link ](https://ginas-beauty-studio.herokuapp.com/posts/6/edit/)
 -  I was redirected to the login page.
 -  The first time I logged in as a staff memeber user and i was redirected to the edit post page where I was able to edit the post
 -  The second time I logged in as a user with no staff status and i was redirected to the home page with a message welcome you are not authorised to create or edit posts was displayed
@@ -165,12 +165,12 @@
 
 #### test 2: delete a post logged in without staff status
 - I logged in as a user without staff status
-- entered the [delete post link](https://stream-3-project-sarahbarron.c9users.io/posts/8/delete)
+- entered the [delete post link](https://ginas-beauty-studio.herokuapp.com/posts/9/delete)
 - I was redirected to the home page with the message "You are not authorised to delete posts" displayed
 
 #### test 3: delete a post not logged in 
 - I logged out 
-- entered the [delete post link](https://stream-3-project-sarahbarron.c9users.io/posts/8/delete)
+- entered the [delete post link](https://ginas-beauty-studio.herokuapp.com/posts/9/delete)
 - I was redirected to the login form.
 - The first time I logged in as a user who did not have staff status. I was redirected to the home page and a message saying welcome you are not authorised to delete posts was displayed.
 - I checked the database and the post had not been deleted
@@ -204,7 +204,7 @@ I completed the same test for the following situations
 - First time I enter invalid credit card details and the expected error messages are shown
 - I then entered valid credit card details 
 - I pressed the Submit Payment button
-- As expected I was redirected back to the home page, the message to say my payment was succesfull appeared and the cart was emptied.
+- As expected I was directed to the paid.html page, the message to say my payment was succesfull appeared and the cart was emptied.
 - I checked my email and an email to tell me my order had been received was in my inbox with a link to my profile.
 - I click on this link and I am brought to my profile page which shows my order status.
 
@@ -245,18 +245,12 @@ I did the following test for all of the following scenario's
 
 1. 1 Product exceeds stock value: 
 - Product 1 - Stock value = 10, inputted quantity = 20 (exceeds stock value)
-2. 1 Product with no stock:
-- Product 1 - Stock value = 0, inputted quantity =2 (exceeds stock value)
-3. 2 Products 1 exceeds stock levels:
+2. 2 Products 1 exceeds stock levels:
 - Product 1 - Stock value = 6, inputted quantity = 15 (exceeds stock value)
 - Product 2 - Stock value = 10, inputted quantity = 5 (in stock)
-4. 2 Products both exceed stock leveles:
+3. 2 Products both exceed stock leveles:
 - Product 1 - Stock value = 5, inputted quantity = 10 (exceeds stock value)
 - Product 2 - Stock value = 10, inputted quantity = 100 (exceeds stock value)
-5. 2 Products both have no stock
-- Product 1 - Stock value = 0, inputted quantity =5
-- Product 2 - Stock value = 0, inputted quantity = 10
-
 
 ##### Product.html
 - I inputted the quantity ammount stated above for each product and clicked add.
