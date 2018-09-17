@@ -14,7 +14,6 @@
 - Review App: tests\_apps.py, tests\_forms.py, test\_models.py, and tests\_views.py 
 - Home App: tests\_app.py, test\_views.py 
 
-
 ![Django Testing](/static/img/DjangoTestingScore.JPG)
 
 ## Travis CI - Used to build and test the project
@@ -155,7 +154,6 @@
 -  The first time I logged in as a staff member user and I was redirected to the edit post page where I was able to edit the post
 -  The second time I logged in as a user with no staff status and I was redirected to the home page with a message welcome you are not authorised to create or edit posts was displayed
 
-
 #### delete posts
 ##### test 1: delete a post logged in as a staff member
 - I logged in as a staff member.
@@ -176,7 +174,6 @@
 - I checked the database and the post had not been deleted
 - The second time I logged in as a user with staff status. I was redirected to the allposts html page and a message to say the post was deleted appeared.
 - I checked the database and the post was deleted.
-
 
 ### Products
 
@@ -258,12 +255,14 @@ I did the following test for all of the following scenario's
 - Product 2 - Stock value = 10, inputted quantity = 100 (exceeds stock value)
 
 ##### Product.html
+
 - I inputted the quantity amount stated above for each product and clicked add.
 - The appropriate message appeared stating the max amount that could be bought and that the cart has been amended to this amount
 - The cart badge updated with the new quantity of the product available to buy
 - I Clicked the cart link to cart.html
 
 ##### cart.html
+
 - All product(s), updated quantities and total were correct.
 
 ####  Test of checkout view when the stock levels changed after adding them to the cart
@@ -287,6 +286,7 @@ Initial value for stock for both product 1 and product 2 was 100
 
 
 ##### Product.html
+
 - I inputted the quantity amount stated above for each product
 - I clicked the add button.
 - Stock levels are 100 at this time so products are added successfully
@@ -294,30 +294,43 @@ Initial value for stock for both product 1 and product 2 was 100
 - I Clicked the cart link to cart.html
 
 ##### cart.html
+
 - All product(s), quantities and total were correct.
 - I clicked on the checkout button to bring me to checkout.html
 
 ##### Django admin panel
+
 - I reduced the stock values to the values stated above
 
 ##### checkout.html
+
 - All product(s), quantities and total were correct
 - I entered valid information into both the customer details form and the credit card details form.
 - I click submit
 - As the stock levels have changed to below the quantity that I have in my cart I was directed back to the cart.html page
 
 ##### cart.html
+
 - A message is shown here informing me that about the stock levels and the carts have been amended to the maximum available and asks the person to check their cart before they proceed to checkout.
 -  The cart was amended with the maximum available in stock
 -  The badge was amended to show the cart with the max available stock
 -  I clicked the checkout button again
 
 ##### checkout.html
+
 - All product(s), quantities and total were correctly displayed
 
+### Search for a product - productsearch app
+
+- Searched for a product that was on the products page. It was returned as expected.
+- Searched for a product not on the products page. No products were returned and a message to say 'Sorry but we are unable to find a product matching this description' appeared as expected.
+
 ### Product Reviews - review app
+
 #### create a review
+
 ##### test 1: try to write a review when logged in
+
 - I clicked on the write a review link for a product
 - this redirected me to reviewform.html page with a form to enter a review
 - I inputted my review and pressed the save button
@@ -325,12 +338,15 @@ Initial value for stock for both product 1 and product 2 was 100
 - I checked the review database and the review had been stored correctly.
 
 ##### test 2: try to write a review when not logged in
+
 - I clicked on the write a review link for a product
 - I was directed to the login page
 - When I logged in I was directed to the reviewform.html page with a blank form
 
 #### Edit a review
+
 ##### test 1: edit a review logged in as the user who wrote the review
+
 - I clicked the edit review button
 - This brought me to the edit review page with the form and the review filled in
 - I changed some things in the review and pressed save 
@@ -338,11 +354,13 @@ Initial value for stock for both product 1 and product 2 was 100
 - I checked the review database and the changes had been saved in the review.
 
 ##### test :2 try to edit a review logged in as a different user to the user who wrote the review
+
 - I logged in as a different user to the review writer
 - I entered the [edit review link](https://ginas-beauty-studio.herokuapp.com/reviews/edit/42/)
 - I was redirected to the home page and the message "you are not authorised to edit this review" was shown
 
 ##### test 3: try to edit a review when logged out
+
 - I logged out
 - Entered the [edit review link](https://ginas-beauty-studio.herokuapp.com/reviews/edit/42/)
 - I was redirected to the login page
@@ -350,19 +368,23 @@ Initial value for stock for both product 1 and product 2 was 100
 - I repeated the test and logged in as a user who had not wrote the review and I was redirected to the home page and a message saying welcome you are not authorised to edit this review 
 
 #### Delete review
+
 ##### test 1: delete a review logged in as the user who wrote the review
+
 - I logged in
 - I clicked the delete review button
 - I was redirected back to the profile page and a message to say the review has been deleted was shown
 - I checked the review database and the review was gone.
 
 ##### test 2: try to delete a review logged in as a different user to the user that wrote the review
+
 - I logged in as a different user to the user who wrote the review
 - I entered the [delete review link](https://ginas-beauty-studio.herokuapp.com/reviews/delete/37/)
 - I was directed back to the home page and a message to say you are not authorised to delete this review
 - I checked the review database and the review was still there
 
 ##### test 3: try to delete a review while logged out
+
 - I logged out
 - I entered the [delete review link](https://ginas-beauty-studio.herokuapp.com/reviews/delete/37/)
 - I was directed to the login page
@@ -372,21 +394,26 @@ Initial value for stock for both product 1 and product 2 was 100
 - I checked the review database and the review had been removed
 
 #### View all reviews for a product (tested both while logged in and with no user logged in)
+
 - Go to the products page (the shop link on the navigation bar)
 - I clicked on the view reviews link for a product
 - This brought me to the allreviews.html page which showed all reviews from the reviews database only for that product as expected
 
 #### View a review in full (tested both while logged in and with no user logged in)
+
 - I clicked on the Read More button on the review I wanted to see the full review
 - This brought me to the fullreview html page showing the expected review in full.
 
 ## Cross Browser Testing 
 #### Chrome 
+
 - I used chrome as my main browser when doing my project
 
 #### Firefox 
+
 - The flip effect on the treatments in the index.html page did not work as expected in Firefox. When hovering over the treatment the back div became visible and the front remained visible. Also, the link at the end of the back div did not act as a link.
 - I fixed this problem by adding the following code to the mousein class 
+
 ``` 
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -396,32 +423,41 @@ Initial value for stock for both product 1 and product 2 was 100
 ```
 
 #### Microsoft Edge
+
 - Only a small change was needed here a horizontal rule was showing incorrectly in the contact section on the index.html page
 - I fixed this problem by removing the following code from the #contact hr
+
 ```
 text-align:center
 ```
 
 #### Internet explorer
+
 - During testing I discovered my flip card effect on the index.html and the products.html page did not work. When hovered on the front div the back div did not become visible after some research I found that backface-visibility was only partially supported by IE as it does not support the transform-style: preserve-3d property.
 - To solve this problem, I changed my JavaScript to detect if the website was being viewed on an Internet explorer browser and if it was I added no class and left the front div static, which removed the 3d flip effect. Users could use the relevant link to go to the treatments.html page.
 
 #### Opera 
+
 - No problems detected 
 
 ## Mobile/Tablet responsive testing
+
 - I used Developers Tools to test responsiveness. Using this method, I was able to test my project on the following devices:
 -- Blackberry Z30, Blackberry playbook, Galaxy Note 3, Galaxy Note II, Galaxy S III, Kindle Fire HDX, LG Optimus L70, Laptop with HiDPI screen, Laptop with MDPI screen, Laptop with touch, Microsoft Lumia 550, Microsoft Lumia 950, Nexus 10, Nexus 4, Nexus 5, Nexus 5X, Nexus 6, Nexus 6P, Nexus 7, Nokia Lumia 520, Nokia N9, iPad Mini, iPhone 4, Galaxy S5, Pixel 2, Pixel 2 XL, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad, iPad Pro
 
 ## HTML Validation
+
 - I validated all of my HTML pages using the [W3 Html Validator](https://validator.w3.org/). I fixed all issues that I could. However, there are still some issues arising from the output from the CKEDITOR.
 
 ## CSS Validation
+
 - I validated my CSS file with the [W3 CSS validator](https://jigsaw.w3.org/css-validator/)
 
 
 ## JavaScript Validation
+
 - I validated my JavaScript files with [JShint](http://jshint.com/).
 
 ## Python code styling
+
 - I installed pycodestyle to check the styling of code in all my .py python files.
