@@ -2,8 +2,49 @@
 # Code Institute - Stream 3 Project 
 #### by Sarah Barron
 
-## What my project does and the needs it fulfils
-- This project is a business website. It was built for a client running a beauty salon. The website is needed for e-commerce, advertising and providing all the necessary information about the beauty salon. It provides details about treatments and prices, news and special offers, contact and location. It also provides an online store for buying beauty products.
+## About this project
+##### I am currently a student at the Code Institute doing a Full Stack Diploma in Software Development. This is the third of three projects which I must complete in order to be awarded the globally recognised Diploma from Edinburgh Napier University. This project will cover the Full Stack i.e all sections of the course both frontend and backend web development.
+
+##### This project is based on a Beauty Salon.
+
+## the needs this project fulfils
+- This project is a business website. It is built for a client running a beauty salon. The website is needed for e-commerce to sell beauty products, advertising and providing all the necessary information about the beauty salon. It provides details about treatments and prices, news and special offers, contact and location.
+
+## What my project does
+- Anyone who visits this website can view 
+    - The landing page which has information about
+        - treatments being offered there is a link from the treatments section and the navigation bar to the treatments and prices page.
+        - Tomitago - the product that is being sold in the project
+        - News and Special Offers synopsis - this shows the first few lines of the current news and specials that have been choosen to be viewed on the landing page. 
+        - Contact details - Name, address, telephone, email, a link to facebook, a contact form and location on google maps. This can be linked to from the navigation bar and at the bottom of the treatments page.
+    - The treatments page which can be accessed from the navigation bar and the landing page. This shows a list of all treatments being offered and the prices.
+    - The Shop - there is a link to this page from the navigation bar and landing page. This shows all products being sold online. From this page all users can: 
+        - You can add products to the cart.
+        - View reviews about a product.
+    - News and Special Offers - this is a blog page that can be accessed from the navigation bar or the landing page. It shows a synopsis of all news and special offers . From this page all users  can click on the read more button to bring them to a page to view the full post.
+
+- Anyone who visits the page has the option to
+    - login or
+    - Register
+    The login and register pages can be accessed from the navigaion bar
+    - search for a product
+    The search input area is in the footer
+
+- Logged in users have some extra features they can access
+    - On the shop page they can write a review about any product.
+    - View the cart page - to view all items they have added to the cart during their session. You can also amend the quantity required of each product on this page. The cart is accessable from the cart link on the navigation bar.
+    - Checkout - to purchase the items in the cart. The link to the checkout is accessable from the cart page.
+    - Profile - Every registered user has a profile. Once a user is logged in the link to the profile page will be  shown on the navigation bar. There is 3 sections to the profile
+    1. The users information - Name, Username & Email address the user has the option to edit this information using the the edit button in this section
+    2. The users past orders - If the user has purchased any products online this information will be stored here and the delivery status will be shown There is a paginator in this section that shows 5 orders per page.
+    3. The users past reviews - If the user has made a review on a product the review will be shown here. The user has the option to edit or delete the review here. There is a paginator in this section that only shows 3 reviews per page.
+    - Logout - the logout link is on the navigation bar.
+
+- Staff members have all the same features as a logged in user plus some extra features.
+    - Add a post - The link to add a post is on the navigation bar. This allows the staff member easily add news and special offers posts.
+    - On the news and specials page the staff member can easily edit or delete a post. This can also be done when viewing the post as a full post.
+    - Access to the admin panel where the staff member can manage users, products, posts, checkout orders and reviews.
+
 - The website has a customer registration/Login area. This is currently needed for storing cart information for a user between sessions as long as they stay logged in, a customer also needs to be registered to purchase the products in the cart, and they must also register to write a customer review. 
     -The customer has a profile area where they can track the status of an order and view all past orders. 
     - It also contains all reviews made by the customer and the customer can edit or delete these reviews as they wish. 
@@ -68,6 +109,7 @@
 - Disabled collectstatic in heroku so heroku wont try to upload the static files.
 - Deployed the project on heroku
 - Added the heroku address to valid hosts in settings.py
+- You can view the deployed website [here](https://ginas-beauty-studio.herokuapp.com/)
 
 ## Problems encountered throughout the project
 
