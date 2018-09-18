@@ -1,0 +1,21 @@
+{<!-- extends the base.html page-->
+{% extends 'base.html' %}
+<!--this allows us access to anything in our static files eg: css,js,fonts etc -->
+{% load static from staticfiles %}
+<!-- load bootstrap tags -->
+{% load bootstrap_tags %}
+<!--page title-->
+{% block page_title %}Cart - Ginas Beauty Studio{% endblock %}
+<!-- block content -->
+{% block content %}
+<div class="container main-page">
+    <!-- Row for heading -->
+    <div class="row">
+    
+        <h1>Page not found
+        <a href="https://ginas-beauty-studio.herokuapp.com/" >
+            RETURN TO HOME PAGE</a> 
+        </h1>
+    </div>
+</div>
+{% endblock %}
