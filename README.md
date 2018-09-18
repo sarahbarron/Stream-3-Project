@@ -109,6 +109,7 @@ The login and register pages can be accessed from the navigaion bar
 - Disabled collectstatic in heroku so heroku wont try to upload the static files.
 - Deployed the project on heroku
 - Added the heroku address to valid hosts in settings.py
+- Changed Debug to false and added 404.html and 505.html files to the root templates folder.
 - You can view the deployed website [here](https://ginas-beauty-studio.herokuapp.com/)
 
 ## Problems encountered throughout the project
