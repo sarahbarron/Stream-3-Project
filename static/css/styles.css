@@ -1,10 +1,7 @@
 /* import google fonts */
-
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Gloria+Hallelujah:100,200,300,400,500,600,700');
 /*************************** BODY *******************************************/
-
 /* set body css*/
-
 body {
     font-family: 'Didact Gothic', sans-serif;
     background-color: black;
@@ -13,24 +10,19 @@ body {
 }
 
 /* remove white space*/
-
-html,
-body {
+html, body {
     overflow-x: hidden;
 
 }
 
 /* remove paddings and margins from container fluid*/
-
 .container-fluid {
     padding: 0;
     margin: 0;
 }
 
 /************************************* NAVIGATION *****************************/
-
 /* the bootstrap navbar */
-
 .navbar {
     border-radius: 0px;
     background-color: black;
@@ -40,7 +32,6 @@ body {
 }
 
 /* the links on the nav bar*/
-
 .navbar-inverse .navbar-nav>li>a {
     color: #A326CE;
     font-weight: bold;
@@ -48,7 +39,6 @@ body {
 }
 
 /* the logo */
-
 #logo {
     padding: 0px;
     box-shadow: 1px 1px 50px 10px #A326CE;
@@ -56,36 +46,24 @@ body {
 }
 
 /* the hr line under the logo */
-
 #logo-line hr {
     border: 3px solid #A326CE;
 }
 
 /* badge showing the number of cart items */
-
 .badge {
     background-color: #EB3EF4;
 }
 
 /* the navbar toggle menu */
-
-.navbar-toggle,
-.navbar-inverse .navbar-toggle:focus,
-.navbar-inverse .navbar-toggle:hover,
-.navbar-toggle:active {
+.navbar-toggle, .navbar-inverse .navbar-toggle:focus, 
+.navbar-inverse .navbar-toggle:hover, .navbar-toggle:active {
     background-color: #A326CE;
-}
-
-.glyphicon-menu-up {
-    padding: 20px;
-    font-weight: bolder;
-    font-size: 50px;
 }
 
 /********************  Classes used throughout *******************************/
 
 /* center images */
-
 .center {
     display: block;
     margin-left: auto;
@@ -93,73 +71,58 @@ body {
 }
 
 /* center text */
-
 .line-center {
     text-align: center;
 }
 
 /* Heading font and no margin */
-
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
     margin: 0;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
 /* padding 10px */
-
 .padding10 {
     padding: 10px;
 }
 
 /* padding 20px */
-
 .padding20 {
     padding: 20px;
 }
 
 /* padding 50px*/
-
 .padding50 {
     padding: 50px;
 }
 
 /* bold */
-
 .bld {
     font-weight: bolder;
 }
 
 /* border radius 50px 0 */
-
 .b-radius {
     border-radius: 50px 0;
 }
 
 /* font color purple */
-
 .font-purple {
     color: #A326CE;
 }
 
 /* links */
-
 a {
     color: #A326CE;
 }
 
 /* links when hovered over */
-
 a:hover {
     color: white;
     text-decoration: none;
 }
 
 /* forms */
-
 .ginas-forms {
     max-width: 700px;
     border: 3px solid #A326CE;
@@ -168,42 +131,34 @@ a:hover {
     border-radius: 50px 0;
 }
 
-
 /* placeholder */
-
-textarea::placeholder,
-input::placeholder {
+textarea::placeholder, input::placeholder {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 18px;
     font-weight: bold;
 }
 
 /* input font */
-
 input {
     color: black;
 }
 
 /* font black */
-
 .font-black {
     color: black;
 }
 
 /* font white */
-
 .background-white {
     background-color: white;
 }
 
 /* paragraph font size */
-
 p {
     font-size: 18px;
 }
 
 /* align right */
-
 .align-right {
     text-align: right;
 }
@@ -211,14 +166,12 @@ p {
 /**************************** MESSAGES ****************************************/
 
 /* message container */
-
 #mesage-container {
     z-index: 2;
     background-color: white;
 }
 
 /* messages */
-
 #messages {
     color: white;
     min-height: 70px;
@@ -227,7 +180,6 @@ p {
 /************ LANDING PAGE ****************************************************/
 
 /* padding at top and bottom of the main container 50px */
-
 .landing-page-heading {
     padding: 50px 0;
 }
@@ -235,7 +187,6 @@ p {
 /****************** LANDING PAGE MAIN PICTURE ************/
 
 /* z index of the main picture on index.html */
-
 #firstpic {
     z-index: -1;
 
@@ -244,19 +195,16 @@ p {
 /***************************** TREATMENTS ****************/
 
 /*container for outer filp card */
-
 .flip-card {
     position: relative;
-    -webkit-perspective: 1000px;
-    -moz-perspective: 1000px;
-    -o-perspective: 1000px;
-    -ms-perspective: 1000px;
-    perspective: 1000px;
-    z-index: 10;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
 }
 
 /* container for inner flip card */
-
 .flip {
     position: relative;
     -webkit-transition: all 1s ease;
@@ -271,38 +219,21 @@ p {
     transform-style: preserve-3d;
 }
 
-/* when the card is hovered over backface-visibility is hidden*/
-
+/* card rotate when mouse moves into the card*/
 .flip.mousein {
-    backface-visibility: hidden;
+    transform: rotateY( 180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
 }
 
-/* treatments on the landing page rotatate 180degs when hovered over*/
-
-.flip.mousein-treatments {
-    transform: rotateY( 180deg);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-}
-
-/* products in the shop rotate 180degs and scale up when hovered over*/
-
-.flip.mousein-product {
-    transform: rotateY( 180deg) scale(1.5, 1.5);
-    -webkit-transform: rotateY(180deg) scale(1.5, 1.5);
-    -moz-transform: rotateY(180deg) scale(1.5, 1.5);
-    -o-transform: rotateY(180deg) scale(1.5, 1.5);
-    -ms-transform: rotateY(180deg) scale(1.5, 1.5);
-}
-
 /*the front and back containers */
-
 .flip div {
     position: absolute;
     backface-visibility: hidden;
@@ -313,13 +244,11 @@ p {
 }
 
 /*the front container z index */
-
 .front {
     z-index: 2;
 }
 
 /*the back container rotated 180 degrees */
-
 .back {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
@@ -329,14 +258,12 @@ p {
 }
 
 /*  inner flip card container dimensions */
-
 .treatment-flip-card-dimensions {
     min-width: 100%;
     height: 320px;
 }
 
 /* front and back flip card dimensions */
-
 .treatment-flip-card-dimensions div {
     min-width: 100%;
     height: 320px;
@@ -344,13 +271,11 @@ p {
 }
 
 /* front flip card */
-
 .treatment-front {
     padding: 30px;
 }
 
 /* black flip card */
-
 .treatment-back {
     background-color: #A326CE;
     color: white;
@@ -359,27 +284,19 @@ p {
 }
 
 /* treatments H1 and links decoration */
-
-.treatment-front H1,
-.treatment-back H1,
-.treatment-back a,
-.landing-page-div a {
+.treatment-front H1, .treatment-back H1, .treatment-back a, .landing-page-div a {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-color: #EB3EF4;
 }
 
 /* front and back H1 font size */
-
-.treatment-front H1,
-.treatment-back H1 {
+.treatment-front H1, .treatment-back H1 {
     font-size: 25px;
 }
 
 /* front and back treatment card links */
-
-.treatment-back a,
-.landing-page-div a {
+.treatment-back a, .landing-page-div a {
     font-family: 'Gloria Hallelujah', cursive;
     color: #EB3EF4;
     float: right;
@@ -389,7 +306,6 @@ p {
 }
 
 /* treatment back card link*/
-
 .treatment-back a {
     position: absolute;
     bottom: 0px;
@@ -397,7 +313,6 @@ p {
 }
 
 /* treatment back paragraph */
-
 .treatment-back p {
     font-family: 'Gloria Hallelujah', cursive;
     text-align: center;
@@ -405,14 +320,12 @@ p {
 }
 
 /* treatment back card H3 */
-
 .treatment-back h3 {
     text-align: center;
     padding: 7px;
 }
 
 /* treatment card links on mobile view */
-
 #mobile-treatments a {
     float: none;
 }
@@ -420,20 +333,17 @@ p {
 /****************LANDING PAGE SHOP**************************/
 
 /* shop container */
-
 #landing-page-shop-div {
     background-color: white;
     color: #A326CE;
 }
 
 /* shop container H1 */
-
 #landing-page-shop-div h1 {
     color: #629B68;
 }
 
 /* prodcut description paragraph */
-
 #landing-product-description p {
     font-family: 'Didact Gothic', sans-serif;
     text-align: center;
@@ -443,31 +353,27 @@ p {
 /**************** LANDING PAGE NEWS & SPECIALS ****************/
 
 /* news container */
-
 #landing-page-news-div {
     background-color: #A326CE;
 }
 
 /* post container */
-
 .single-post {
     border-bottom-width: 5px;
     border-bottom-style: solid;
     border-bottom-color: white;
-    height: 700px;
+    height: 600px;
     background-color: #A326CE;
 }
 
 /* post thumbnail */
-
 .single-post .thumbnail {
     background-color: #A326CE;
     border: none;
 }
 
 /* ppst image */
-
-.post-img {
+#post-img {
     max-width: 500px;
     height: 250px;
     background-size: cover;
@@ -475,7 +381,6 @@ p {
 }
 
 /* thumbnail read more link */
-
 .thumbnail>a {
     position: absolute;
     bottom: 20px;
@@ -486,37 +391,23 @@ p {
 }
 
 /* thumbnail caption */
-
 .thumbnail .caption {
     color: white;
 }
 
 /* caption */
-
 .caption {
-    max-height: 300px;
+    max-height: 180px;
     overflow: hidden;
 }
 
-/* links within the news details and map on landing page - normal */
-
-.thumbnail .caption a,
-#map a {
-    text-decoration: none;
-    border-radius: none;
-    background-color: transparent;
-    float: none;
-}
-
 /* carousel indicators */
-
 .carousel-indicators {
     bottom: 0;
     font-size: 2em;
 }
 
 /* news container H3 links */
-
 #landing-page-news-div h3 a {
     background-color: white;
     color: #A326CE;
@@ -525,13 +416,11 @@ p {
 /*************** LANDING PAGE CONTACT  ***************************/
 
 /* contact gina container*/
-
 #contact-gina {
     background-color: black;
 }
 
 /* google map */
-
 #map {
     min-height: 70vh;
     width: 100vw;
@@ -540,14 +429,13 @@ p {
 }
 
 /* the horizontal rule in the contact section*/
-
 #contact hr {
     width: 50%;
+    text-align: center;
     padding: 20px 0;
 }
 
 /* contact link */
-
 #contact a {
     float: none;
     padding: 0;
@@ -557,8 +445,7 @@ p {
 }
 
 /* fontawesome facebook glyphicon */
-
-.fa-facebook-f{
+.fa-facebook-f {
     background: #3B5998;
     color: #FFFFFF;
     padding: 0.1em 0.3em;
@@ -567,31 +454,25 @@ p {
     font-size: 2.5em;
 }
 
-.fa-sign-out{
-    color:white;
-}
 /* landing page contact button*/
-
-#contact-btn {
+#contact-btn{
     background-color: #A326CE;
-    border-radius: 10px;
-    color: white;
+    border-radius:10px;
+    color:white;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px;
+    padding:10px;
 }
 
 /************** LANDING PAGE GENERAL ****************************/
 
 /* Landing page containers */
-
 .landing-page-div {
     min-height: 100vh;
     min-width: 100vw;
 }
 
 /* landing page containers H3 links */
-
 .landing-page-div h3 a {
     background-color: #A326CE;
     color: white;
@@ -603,22 +484,18 @@ p {
 /************************ TREATMENTS ******************************************/
 
 /* treatment tables H2 */
-
-td>h2,
-#wax h2 {
+td>h2, #wax h2 {
     color: #A326CE;
     padding: 20px 0;
 }
 
 /* 1st columns */
-
 tr>td,
 #wax {
     padding-left: 20px;
 }
 
 /* table cation */
-
 table caption {
     color: #A326CE;
     text-align: center;
@@ -627,8 +504,7 @@ table caption {
 }
 
 /* contact gina container on large devices */
-
-.contact-gina-lg {
+#contact-gina-lg {
     font-weight: bold;
     font-size: 24px;
     background-color: #A326CE;
@@ -637,20 +513,17 @@ table caption {
 }
 
 /* contact gina link on large devices */
-
-.contact-gina-lg a {
+#contact-gina-lg a {
     color: white;
 }
 
 /* contact gine link when hovered over - on large devices */
-
-.contact-gina-lg a:hover {
+#contact-gina-lg a:hover {
     color: black;
     text-decoration: none;
 }
 
 /* table container */
-
 #table-container {
     margin-bottom: 100px;
     width: 90vw;
@@ -659,7 +532,6 @@ table caption {
 /*********************** PRODUCTS *********************************************/
 
 /* container for all products */
-
 .product-body {
     border: 3px solid #A326CE;
     border-radius: 15px 0;
@@ -669,13 +541,11 @@ table caption {
 }
 
 /* star rating div */
-
 .rating {
     min-height: 40px;
 }
 
 /* sold out div */
-
 .sold-out {
     color: red;
     font-weight: bolder;
@@ -684,49 +554,38 @@ table caption {
 }
 
 /* add to cart button */
-
 .button-purchase {
     float: right
 }
 
 /* euro glyphicon */
-
 .glyphicon-euro {
     padding: 2px 7px 0 0;
 }
 
 /* tomitago logo */
-
 #tomitago-logo {
     background-color: white;
     margin-bottom: 80px;
     border-radius: 50px 0;
 }
 
-.product-description {
-    font-size: 17px;
-}
-
 /*********** FLIP CARD FOR PRODUCTS **********/
 
 /* product flip card dimensions */
-
 .product-flip-card-dimensions {
     width: 225px;
     height: 300px;
 }
 
 /* dimensions of front and back prodcut flip cards */
-
 .product-flip-card-dimensions div {
     width: 225px;
     height: 300px;
     border-radius: 15px 0;
-    background-position: center;
 }
 
 /* back of flip card */
-
 .product-back {
     background-color: white;
     color: black;
@@ -738,50 +597,42 @@ table caption {
 /********************** NEWS & SPECIAL OFFERS *********************************/
 
 /* post container buttons */
-
 .post-details .btn {
     margin: 10px 20px 20px 10px;
 }
 
 /* post image */
-
 .post-img {
     max-height: 300px;
 }
 
 /* single post container */
-
 .mini-post {
     margin: 0px 20px 0 5px;
 }
 
 /* full post heading */
-
 .full-post-heading {
     padding: 50px 0 20px 0;
 }
 
 /* Post Heading */
-
 .page-main-heading h1 {
     font-size: 40px;
     padding: 50px 10px;
 }
 
 /* full post container */
-
 #full-post-div {
     padding-bottom: 50px;
 }
 
 /* width of the post form */
-
 #blog-form {
     max-width: 920px;
 }
 
 /* post content input area width */
-
 #cke_id_content {
     width: 70vw;
 }
@@ -789,17 +640,13 @@ table caption {
 /******************** PROFILE *************************************************/
 
 /* profile container */
-
 #profile-div {
     border-radius: 50px 0;
     margin-bottom: 50px;
 }
 
 /* past order, reviews and cart containers */
-
-#past-orders,
-#review-div,
-#cart-div {
+#past-orders, #review-div, #cart-div {
     border: 3px solid #A326CE;
     margin: 20px 0;
     padding: 20px;
@@ -807,31 +654,26 @@ table caption {
 }
 
 /* review container button */
-
 #review-div .btn {
     margin: 10px 20px 20px 10px;
 }
 
 /* profile heading margin bottom */
-
 #profile-heading {
     margin-bottom: 50px;
 }
 
 /* edit profile form labels width*/
-
 #edit-profile-form label {
     width: 130px;
 }
 
 /* edit profile form input area minimu width */
-
 #edit-profile-form input {
     min-width: 220px;
 }
 
 /* edit profile form button */
-
 #edit-profile-form button {
     float: right;
 }
@@ -839,7 +681,6 @@ table caption {
 /*************************** CART ********************************************/
 
 /* cart thumbnail */
-
 .cart-thumbnail {
     max-height: 150px;
     max-width: 150px;
@@ -848,13 +689,11 @@ table caption {
 /*********************** CHECKOUT ********************************************/
 
 /* payment form container margin*/
-
 #payment-form div {
     margin: 10px;
 }
 
 /* payment form legend */
-
 #payment-form legend {
     color: white;
     padding: 50px 0;
@@ -863,13 +702,11 @@ table caption {
 }
 
 /* payment form center H2*/
-
 #payment-form h2 {
     text-align: center;
 }
 
 /* stripe error messages */
-
 #stripe-error-message {
     font-size: 18px
 }
@@ -877,7 +714,6 @@ table caption {
 /******************************** Footer **************************************/
 
 /* footer container*/
-
 footer {
     border-top: 3px solid #A326CE;
     min-height: 100px;
@@ -885,7 +721,6 @@ footer {
 }
 
 /* footer buttons */
-
 footer .btn {
     background-color: black;
     color: white;
@@ -895,21 +730,18 @@ footer .btn {
 /************************* Footer SEARCH FORM *********************************/
 
 /* search form */
-
 #search-form {
     max-width: 220px;
     float: right;
 }
 
 /* search form input area */
-
 #search-input {
     width: 80%;
     display: inline;
 }
 
 /* search form button */
-
 #search-button {
     background-color: #A326CE;
     padding: 5px;
@@ -920,7 +752,7 @@ footer .btn {
 /************* Extra small devices (phones, 350px and down) *******************/
 
 @media only screen and (max-width: 350px) {
-
+    
     /* product container */
     .product-body {
         padding: 10px;
@@ -931,15 +763,14 @@ footer .btn {
 
 
 /************* Extra small devices (phones, over 350px ) *******************/
-
 @media only screen and (min-width: 350px) {
-
+    
     /* logo */
     #logo {
         max-height: 200px;
         max-width: 200px;
     }
-
+    
     /* edit profile form input area */
     #edit-profile-form input {
         min-width: 250px;
@@ -954,18 +785,18 @@ footer .btn {
         max-height: 200px;
         max-width: 200px;
     }
-
+    
     /* main containers on each page */
     .main-page {
         padding-top: 100px;
         min-height: 100vh;
     }
-
+    
     /* edit profile form input area */
     #edit-profile-form input {
         min-width: 400px;
     }
-
+    
     /* edit profile form */
     #edit-profile-form {
         margin-bottom: 100px;
@@ -979,28 +810,22 @@ footer .btn {
     .navbar-inverse .navbar-nav>li>a {
         font-size: 1em;
     }
-
+    
     /* single post margins */
     .mini-post {
         margin: 0px 5px 0 5px;
-    }
-    /* input area for password in password-rese-confirm.html*/
-    .password-reset input {
-        width: 50%;
-
     }
 }
 
 /***************** MD devices (laptops/desktops, 992px and up) *************/
 
 @media only screen and (min-width: 992px) {
-
+    
     /* paragraph and links */
-    p,
-    li {
+    p, li {
         font-size: 25px;
     }
-
+    
     /* logo */
     #logo {
         max-height: 300px;
@@ -1011,18 +836,18 @@ footer .btn {
     .main-page {
         padding-top: 200px;
     }
-
+    
     /* product container */
     .product-body {
         height: 450px;
         width: 450px;
     }
-
+    
     /* flip container */
     .flip {
         float: left;
     }
-
+    
     /* purchase columns */
     .purchase.col {
         float: right;
@@ -1032,45 +857,44 @@ footer .btn {
     #payment-form .ginas-forms {
         padding: 5px;
     }
-
+    
     /* payment form H2 */
     #payment-form h2 {
         padding: 20px;
     }
-
+    
     /* profile container */
     #profile-div {
         padding: 50px;
     }
-
+    
     /* profile containers h2 padding */
     #profile-div>div>h2 {
         padding: 50px;
     }
-
+    
     /* treatment front and back cards H1 */
-    .treatment-front H1,
-    .treatment-back H1 {
+    .treatment-front H1, .treatment-back H1 {
         font-size: 36px;
     }
-
+    
     /* landing page container H3 links*/
     .landing-page-div h3 a {
         margin: 70px;
     }
-
+    
     /* news container */
     #landing-page-news-div {
 
         padding: 0 100px 0 50px;
     }
-
+    
     /* post image */
-    .post-img {
+    #post-img {
         background-size: cover;
         width: auto
     }
-
+    
     /* single post */
     .single-post {
         border-right-width: 5px;
@@ -1078,7 +902,7 @@ footer .btn {
         border-right-color: white;
         border-bottom: none;
     }
-
+    
     /* main heading h1*/
     .page-main-heading h1 {
         font-size: 60px;
@@ -1090,27 +914,27 @@ footer .btn {
         padding-right: 50px;
         border-right: 2px solid #A326CE;
     }
-
+    
     /* treatments paragraph */
-    #waxperts-details p {
+    #wax p {
         font-size: 23px;
     }
-
+    
     /* columns */
     td {
         font-size: 26px;
     }
-
+    
     /* container of the treatments table */
     #table-container {
         width: 80vw;
     }
-
+    
     /* search button */
     #search-button {
         padding: 0 5px;
     }
-
+    
     /* submit button */
     #submit_payment_btn {
         margin-right: 20px;
@@ -1126,19 +950,19 @@ footer .btn {
         max-height: 400px;
         max-width: 400px;
     }
-
+    
     /* purchase column */
     .purchase-col {
         height: 300px;
         padding-left: 30px;
     }
-
+    
     /* price row */
     .price-row {
         padding-top: 40px;
         height: 100px;
     }
-
+    
     /* add to cart row */
     .add-to-cart-row {
         height: 100px;
@@ -1157,9 +981,7 @@ footer .btn {
     }
 
     /* full post heading */
-    .full-post-heading,
-    #profile-heading,
-    #cart-heading {
+    .full-post-heading, #profile-heading, #cart-heading {
         font-size: 60px;
     }
 
