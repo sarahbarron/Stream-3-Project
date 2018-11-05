@@ -1,7 +1,7 @@
 /* global $ */
 // FLIP CARDS ON products.html PAGE
 
-// when the mouse enters the div flip 180degs
+// on click flip 180degs
 $(".flip").onclick(function(event) {
     // get the browser type 
     var ua = window.navigator.userAgent;
@@ -15,7 +15,7 @@ $(".flip").onclick(function(event) {
     }
 });
 
-// when the mouse exits the card flip back to 0
+// on click flip back to 0
 $(".flip").onclick(function(event) {
     $(this).removeClass("mousein");
     $(this).removeClass("mousein-product");
