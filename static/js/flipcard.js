@@ -2,7 +2,7 @@
 // FLIP CARDS ON products.html PAGE
 
 // when the mouse enters the div flip 180degs
-$(".flip").mouseenter(function(event) {
+$(".flip").onclick(function(event) {
     // get the browser type 
     var ua = window.navigator.userAgent;
     // checks if the browser is Internet Explorer 
