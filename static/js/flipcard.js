@@ -16,7 +16,7 @@ $(".flip").onclick(function(event) {
 });
 
 // when the mouse exits the card flip back to 0
-$(".flip").mouseleave(function(event) {
+$(".flip").onclick(function(event) {
     $(this).removeClass("mousein");
     $(this).removeClass("mousein-product");
 });
