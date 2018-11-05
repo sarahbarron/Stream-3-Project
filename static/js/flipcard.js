@@ -2,7 +2,7 @@
 // FLIP CARDS ON products.html PAGE
 
 // on click flip 180degs
-$(".flip").onclick(function(event) {
+$(".flip").click(function(event) {
     // get the browser type 
     var ua = window.navigator.userAgent;
     // checks if the browser is Internet Explorer 
@@ -16,7 +16,7 @@ $(".flip").onclick(function(event) {
 });
 
 // on click flip back to 0
-$(".flip").onclick(function(event) {
+$(".flip").click(function(event) {
     $(this).removeClass("mousein");
     $(this).removeClass("mousein-product");
 });
