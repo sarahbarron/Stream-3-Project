@@ -7,27 +7,47 @@ $(document).ready(function() {
     });
 });
 
-
-// TREATMENTS FLIP CARDS
-// On click flip 180degs
-$(".flip").click(function(event) {
-    // get the browser type 
-    var ua = window.navigator.userAgent;
-    // checks if the browser is Internet Explorer 
-    var browser_ie = /MSIE|Trident/.test(ua);
-
-    // if it is not Internet Explorer add the mousein class
-    if (!browser_ie) {
-        $(this).addClass("mousein");
-        $(this).addClass("mousein-treatments");
+$(document).ready(function(){
+    $(".flip").click(function() {
+        // get the browser type 
+        var ua = window.navigator.userAgent;
+        // checks if the browser is Internet Explorer 
+        var browser_ie = /MSIE|Trident/.test(ua);
+    
+        // if it is not Internet Explorer add the mousein class
+        if (!browser_ie) {
+            $(this).addClass("mousein");
+            $(this).addClass("mousein-treatments");
+        }
+    });
+        
+        // On click flip back to 0
+        $(".flip").click(function() {
+            $(this).removeClass("mousein");
+            $(this).removeClass("mousein-treatments");
+        });
     }
-});
 
-// On click flip back to 0
-$(".flip").click(function(event) {
-    $(this).removeClass("mousein");
-    $(this).removeClass("mousein-treatments");
-});
+// // TREATMENTS FLIP CARDS
+// // On click flip 180degs
+// $(".flip").click(function(event) {
+//     // get the browser type 
+//     var ua = window.navigator.userAgent;
+//     // checks if the browser is Internet Explorer 
+//     var browser_ie = /MSIE|Trident/.test(ua);
+
+//     // if it is not Internet Explorer add the mousein class
+//     if (!browser_ie) {
+//         $(this).addClass("mousein");
+//         $(this).addClass("mousein-treatments");
+//     }
+// });
+
+// // On click flip back to 0
+// $(".flip").click(function(event) {
+//     $(this).removeClass("mousein");
+//     $(this).removeClass("mousein-treatments");
+// });
 
 
 // CONTACT SECTION GOOGLE MAPS SHOWING GINA'S LOCATION
