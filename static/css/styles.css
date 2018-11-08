@@ -747,6 +747,7 @@ table caption {
 
 .post-img {
     max-height: 300px;
+    max-width: 70vh;
 }
 
 /* single post container */
@@ -1167,9 +1168,5 @@ footer .btn {
     .input-group .form-control {
         width: 49%;
         float: left;
-    }
-
-    #mobile-post-img{
-        max-width: 70vw;
     }
 }
