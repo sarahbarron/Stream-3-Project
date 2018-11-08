@@ -801,6 +801,9 @@ footer .btn {
     #edit-profile-form {
         margin-bottom: 100px;
     }
+    #mobile-post-img{
+        max-width: 70vw;
+    }
 }
 
 /**************** SM devices (landscape tablets, 768px and up) ************/
