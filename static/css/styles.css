@@ -747,7 +747,6 @@ table caption {
 
 .post-img {
     max-height: 300px;
-    max-width: 70vh;
 }
 
 /* single post container */
@@ -928,6 +927,10 @@ footer .btn {
         height: 100%;
         width: 100%;
     }
+
+    .post-img{
+        max-width: 70vw;
+    }
 }
 
 
@@ -944,6 +947,9 @@ footer .btn {
     /* edit profile form input area */
     #edit-profile-form input {
         min-width: 250px;
+    }
+    .post-img{
+        max-width: 70vw;
     }
 }
 
@@ -970,6 +976,10 @@ footer .btn {
     /* edit profile form */
     #edit-profile-form {
         margin-bottom: 100px;
+    }
+
+    .post-img{
+        max-width: 70vw;
     }
 }
 
