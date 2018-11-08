@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 // TREATMENTS FLIP CARDS
 // On click flip 180degs
-$(".flip").click(function(event) {
+$(".flip").mouseenter(function(event) {
     // get the browser type 
     var ua = window.navigator.userAgent;
     // checks if the browser is Internet Explorer 
@@ -24,7 +24,7 @@ $(".flip").click(function(event) {
 });
 
 // On click flip back to 0
-$(".flip").click(function(event) {
+$(".flip").mouseleave(function(event) {
     $(this).removeClass("mousein");
     $(this).removeClass("mousein-treatments");
 });
