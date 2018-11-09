@@ -269,6 +269,11 @@ p {
     -o-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
 }
 
 /* when the card is hovered over backface-visibility is hidden*/
