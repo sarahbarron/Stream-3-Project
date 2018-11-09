@@ -248,11 +248,11 @@ p {
 .flip-card {
     position: relative;
     -webkit-perspective: 1000px;
-    /* -moz-perspective: 1000px;
+    -moz-perspective: 1000px;
     -o-perspective: 1000px;
-    -ms-perspective: 1000px; */
+    -ms-perspective: 1000px;
     perspective: 1000px;
-    /* z-index: 10; */
+    z-index: 10;
 }
 
 /* container for inner flip card */
@@ -260,14 +260,14 @@ p {
 .flip {
     position: relative;
     -webkit-transition: all 1s ease;
-    /* -moz-transition: all 1s ease;
+    -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
-    -ms-transition: all 1s ease; */
+    -ms-transition: all 1s ease;
     transition: all 1s ease;
     -webkit-transform-style: preserve-3d;
-    /* -moz-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d; */
+    -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -285,10 +285,10 @@ p {
 
 .flip.mousein-treatments {
     transform: rotateY( 180deg);
-    -webkit-transform: rotateY(180deg) translateZ(1px);
-    /* -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg); */
+    -ms-transform: rotateY(180deg);
 }
 
 /* products in the shop rotate 180degs and scale up when hovered over*/
@@ -307,9 +307,9 @@ p {
     position: absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* -moz-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
-    -ms-backface-visibility: hidden; */
+    -ms-backface-visibility: hidden;
 }
 
 /*the front container z index */
@@ -322,9 +322,9 @@ p {
 
 .back {
     -webkit-transform: rotateY(180deg);
-    /* -moz-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg); */
+    -ms-transform: rotateY(180deg);
     transform: rotateY( 180deg);
 }
 
