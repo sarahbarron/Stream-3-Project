@@ -285,7 +285,7 @@ p {
 
 .flip.mousein-treatments {
     transform: rotateY( 180deg);
-    -webkit-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg) translateZ(1px);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);

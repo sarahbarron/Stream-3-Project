@@ -10,24 +10,22 @@ $(document).ready(function() {
 
 // TREATMENTS FLIP CARDS
 // On click flip 180degs
-$(".flip").mouseenter(function(event) {
-    // get the browser type 
-    var ua = window.navigator.userAgent;
-    // checks if the browser is Internet Explorer 
-    var browser_ie = /MSIE|Trident/.test(ua);
+$(document).ready(function(){
+    $(".flip").click(function() {
+        // get the browser type 
+        var ua = window.navigator.userAgent;
+        // checks if the browser is Internet Explorer 
+        var browser_ie = /MSIE|Trident/.test(ua);
 
-    // if it is not Internet Explorer add the mousein class
-    if (!browser_ie) {
-        $(this).addClass("mousein");
-        $(this).addClass("mousein-treatments");
-    }
+        // if it is not Internet Explorer add the mousein class
+        if (!browser_ie) {
+            $("div").removeClass("mousein mousein-treatments");
+            $(this).addClass("mousein mousein-treatments");
+            
+        }
+    });
 });
 
-// On click flip back to 0
-$(".flip").mouseleave(function(event) {
-    $(this).removeClass("mousein");
-    $(this).removeClass("mousein-treatments");
-});
 
 
 // CONTACT SECTION GOOGLE MAPS SHOWING GINA'S LOCATION
